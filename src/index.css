@@ -1,0 +1,66 @@
+/* Tailwind v4 Configuration Setup */
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-surface: #121212;
+  --color-surface-light: #1e1e1e;
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --color-accent: #3b82f6;
+
+  --font-sans: 'Inter', sans-serif;
+
+  --animate-fade-in: fadeIn 1s ease-out forwards;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-blob: blob 7s infinite;
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes blob {
+    0% { transform: translate(0px, 0px) scale(1); }
+    33% { transform: translate(30px, -50px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+    100% { transform: translate(0px, 0px) scale(1); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-background text-primary font-sans antialiased overflow-x-hidden;
+}
+
+@utility glass {
+  @apply bg-surface/60 backdrop-blur-md border border-white/10;
+}
+@utility glass-card {
+  @apply bg-surface-light/50 backdrop-blur-lg border border-white/5 rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
