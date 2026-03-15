@@ -7,9 +7,16 @@ import cert2 from '../assets/certificate/Guvi Certification - Python.png';
 import cert3 from '../assets/certificate/IITM Pravartak Certificate - Python.jpg';
 import cert4 from '../assets/certificate/NumpyPandasMatplotlib.jpg';
 import cert5 from '../assets/certificate/Doppleganger.jpg';
+import cert6 from '../assets/certificate/EDAforML.jpg';
 
 export default function Certifications() {
   const certifications = [
+    {
+      title: "EDA for Machine Learning",
+      issuer: "IBM",
+      image: cert6,
+      skills: ["Python", "Pandas", "Matplotlib", "Seaborn"]
+    },
     {
       title: "Doppleganger",
       issuer: "OpenPools",

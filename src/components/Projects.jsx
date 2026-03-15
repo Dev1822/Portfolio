@@ -11,11 +11,21 @@ import youtubeImg from '../assets/project/youtube.png';
 import AiJobsImg from '../assets/project/AIJobsEDA.png';
 import RoadAccidentImg from '../assets/project/RoadEDA.png';
 import HeartDiseaseEDAImg from '../assets/project/HeartEDA.png';
+import APIHub from '../assets/project/apihub.png';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
 
   const projects = [
+    {
+      title: "API Studio",
+      description: "API Studio is a platform for managing and testing APIs.",
+      tech: ["Reactjs", "Nodejs", "Express", "Mongodb"],
+      category: "MERN",
+      image: APIHub,
+      github: "https://github.com/Dev1822/APIStudio",
+      demo: "https://api-studio-gilt.vercel.app/"
+    },
     {
       title: "Heart-Disease-EDA",
       description: "Performed Exploratory Data Analysis on datasets consisting of Heart Disease Patients.",
@@ -108,7 +118,7 @@ export default function Projects() {
     }
   ];
 
-  const categories = ['All', 'Website Clone', 'EDA'];
+  const categories = ['All', 'Website Clone', 'EDA','MERN'];
 
   const filteredProjects = projects.filter(project =>
     filter === 'All' ? true : project.category === filter
