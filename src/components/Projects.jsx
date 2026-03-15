@@ -8,7 +8,7 @@ import jonesImg from '../assets/project/greatjones.png';
 import materialImg from '../assets/project/material.png';
 import marvelImg from '../assets/project/marvel.png';
 import youtubeImg from '../assets/project/youtube.png';
-import AiJobsImg from '../assets/project/AiJobsEDA.png';
+import AiJobsImg from '../assets/project/AIJobsEDA.png';
 import RoadAccidentImg from '../assets/project/RoadEDA.png';
 import HeartDiseaseEDAImg from '../assets/project/HeartEDA.png';
 
