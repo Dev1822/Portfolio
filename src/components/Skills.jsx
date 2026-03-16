@@ -1,94 +1,179 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Brain, Wrench } from 'lucide-react';
+import Reveal from './animations/Reveal';
 
 export default function Skills() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
+  const [hoveredCard, setHoveredCard] = useState(null);
 
   const skillCategories = [
     {
       title: "Programming",
-      icon: <Code2 className="text-blue-400" size={24} />,
+      label: "01",
+      icon: Code2,
       skills: ["Python", "C", "JavaScript"],
-      color: "group-hover:border-blue-400/50 group-hover:shadow-[0_0_30px_rgba(96,165,250,0.15)]"
+      accent: "#60A5FA",
+      glow: "rgba(96,165,250,0.2)",
+      tag: "CORE LANGUAGES"
     },
     {
-      title: "Web Development",
-      icon: <Layout className="text-purple-400" size={24} />,
+      title: "Web Dev",
+      label: "02",
+      icon: Layout,
       skills: ["HTML", "CSS", "React", "Node.js", "Tailwind CSS"],
-      color: "group-hover:border-purple-400/50 group-hover:shadow-[0_0_30px_rgba(192,132,252,0.15)]"
+      accent: "#C084FC",
+      glow: "rgba(192,132,252,0.2)",
+      tag: "FRONTEND & BACKEND"
     },
     {
       title: "AI / ML / DS",
-      icon: <Brain className="text-emerald-400" size={24} />,
+      label: "03",
+      icon: Brain,
       skills: ["Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
-      color: "group-hover:border-emerald-400/50 group-hover:shadow-[0_0_30px_rgba(52,211,153,0.15)]"
+      accent: "#34D399",
+      glow: "rgba(52,211,153,0.2)",
+      tag: "DATA & INTELLIGENCE"
     },
     {
       title: "Tools",
-      icon: <Wrench className="text-orange-400" size={24} />,
+      label: "04",
+      icon: Wrench,
       skills: ["Git", "GitHub", "VS Code", "Vite", "Figma"],
-      color: "group-hover:border-orange-400/50 group-hover:shadow-[0_0_30px_rgba(251,146,60,0.15)]"
+      accent: "#FB923C",
+      glow: "rgba(251,146,60,0.2)",
+      tag: "DEV ENVIRONMENT"
     }
   ];
 
   return (
-    <section id="skills" className="relative w-full py-24 border-t border-white/5 bg-surface/30">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 text-center md:text-left flex flex-col items-center md:items-start"
-        >
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Technical Skills</h2>
-          <div className="w-20 h-1 bg-accent rounded-full"></div>
-        </motion.div>
+    <>
+      <style>{`
+        @keyframes shimmer {
+          0% { transform: translateX(-100%) skewX(-15deg); }
+          100% { transform: translateX(200%) skewX(-15deg); }
+        }
+        .card-shimmer {
+          position: absolute;
+          top: 0; left: 0;
+          width: 40%; height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+          animation: shimmer 3s infinite;
+          pointer-events: none;
+          border-radius: 2px;
+          overflow: hidden;
+        }
+      `}</style>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {skillCategories.map((category, index) => (
-            <motion.div 
-              key={index} 
-              variants={itemVariants}
-              className={`glass-card p-6 group transition-all duration-500 hover:-translate-y-2 ${category.color}`}
-            >
-              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                {category.icon}
+      <section
+        id="skills"
+        className="relative w-full py-24 border-t border-white/5"
+        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(10,10,20,0.4) 100%)' }}
+      >
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          {/* Header */}
+          <Reveal>
+            <div className="mb-16">
+              <div className="flex items-center gap-4 mb-5">
+                <span className="font-spacemono text-[10px] tracking-[0.2em] text-white/30 uppercase">CAPABILITIES</span>
+                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+                <span className="font-spacemono text-[10px] tracking-[0.2em] text-white/20">v2025</span>
               </div>
-              <h3 className="text-xl font-semibold mb-6 text-white/90">{category.title}</h3>
-              
-              <ul className="space-y-3">
-                {category.skills.map((skill, sIndex) => (
-                  <li key={sIndex} className="flex items-center gap-3 text-secondary group-hover:text-white/80 transition-colors duration-300">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-current transition-colors duration-300"></div>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
 
-      </div>
-    </section>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <h2 className="font-syne font-extrabold tracking-tight leading-[0.9] text-5xl md:text-7xl text-white">
+                  Technical<br />
+                  <span style={{ WebkitTextStroke: '1px rgba(255,255,255,0.3)', color: 'transparent' }}>Skills</span>
+                </h2>
+                <p className="font-sans text-sm leading-[1.8] text-white/35 max-w-xs">
+                  A curated set of technologies I work with — from systems programming to intelligent data pipelines.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {skillCategories.map((cat, i) => {
+              const Icon = cat.icon;
+              const isHovered = hoveredCard === i;
+
+              return (
+                <Reveal key={i} delay={i * 0.1} y={20}>
+                  <div
+                    onMouseEnter={() => setHoveredCard(i)}
+                    onMouseLeave={() => setHoveredCard(null)}
+                    className="relative rounded-2xl cursor-default overflow-hidden group border border-white/10 transition-all duration-500 bg-white/5 backdrop-blur-sm h-full"
+                    style={{
+                      boxShadow: isHovered ? `inset 0 0 60px ${cat.glow}, 0 20px 60px ${cat.glow}` : 'none',
+                      borderColor: isHovered ? cat.accent : 'rgba(255,255,255,0.1)'
+                    }}
+                  >
+                    {isHovered && <div className="card-shimmer" />}
+
+                    <div className="p-7 h-full flex flex-col relative z-10">
+                      <div className="flex items-start justify-between mb-6">
+                        <div
+                          className="w-11 h-11 flex items-center justify-center rounded-xl transition-all duration-500"
+                          style={{
+                            background: isHovered ? `${cat.accent}18` : 'rgba(255,255,255,0.04)',
+                            border: `1px solid ${isHovered ? cat.accent + '40' : 'rgba(255,255,255,0.08)'}`
+                          }}
+                        >
+                          <Icon size={20} color={isHovered ? cat.accent : 'rgba(255,255,255,0.4)'} />
+                        </div>
+                        <span className="font-spacemono text-[11px] tracking-widest opacity-35 text-white">{cat.label}</span>
+                      </div>
+
+                      <div className="mb-2">
+                        <span
+                          className="font-spacemono text-[9px] tracking-widest font-bold transition-colors duration-300"
+                          style={{ color: isHovered ? cat.accent : 'rgba(255,255,255,0.2)' }}
+                        >
+                          {cat.tag}
+                        </span>
+                      </div>
+
+                      <h3 className="font-syne font-extrabold tracking-tight text-2xl mb-6 text-white/90 leading-none">
+                        {cat.title}
+                      </h3>
+
+                      <div className="mb-6 h-px w-full" style={{ background: isHovered ? `linear-gradient(90deg, ${cat.accent}60, transparent)` : 'rgba(255,255,255,0.06)' }} />
+
+                      <div className="flex flex-col gap-2 mt-auto">
+                        {cat.skills.map((skill, si) => (
+                          <div key={si} className="flex items-center gap-3 group/item">
+                            <div
+                              className="w-1 h-1 rounded-full shrink-0 transition-all duration-300"
+                              style={{ background: isHovered ? cat.accent : 'rgba(255,255,255,0.15)' }}
+                            />
+                            <span
+                              className="font-spacemono text-[11px] tracking-wider transition-colors duration-300"
+                              style={{ color: isHovered ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.35)' }}
+                            >
+                              {skill}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          {/* Bottom ticker */}
+          <Reveal delay={0.6}>
+            <div className="mt-10 flex items-center gap-4">
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+              <span className="font-spacemono text-[9px] tracking-[0.2em] text-white/15">
+                {skillCategories.reduce((a, c) => a + c.skills.length, 0)} TECHNOLOGIES · {skillCategories.length} DOMAINS
+              </span>
+              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/12 to-transparent" />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }

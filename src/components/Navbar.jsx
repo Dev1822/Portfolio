@@ -1,97 +1,112 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import Reveal from "./animations/Reveal";
 
 const navItems = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Certifications', href: '#certifications' },
-  { name: 'GitHub', href: '#github' },
-  { name: 'LeetCode', href: '#leetcode' },
-  { name: 'Contact', href: '#contact' },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Certifications", href: "#certifications" },
+  { name: "GitHub", href: "#github" },
+  { name: "LeetCode", href: "#leetcode" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true; // default dark
+    const saved = localStorage.getItem("theme");
+    return saved ? saved === "dark" : true;
   });
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     const root = document.documentElement;
     if (isDark) {
-      root.classList.remove('light');
-      localStorage.setItem('theme', 'dark');
+      root.classList.remove("light");
+      localStorage.setItem("theme", "dark");
     } else {
-      root.classList.add('light');
-      localStorage.setItem('theme', 'light');
+      root.classList.add("light");
+      localStorage.setItem("theme", "light");
     }
   }, [isDark]);
 
   const toggleTheme = () => setIsDark((prev) => !prev);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-4 glass border-b border-white/5 shadow-lg' : 'py-6 bg-transparent'}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "py-4 backdrop-blur-lg bg-black/40 border-b border-white/10"
+          : "py-6 bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold tracking-tighter hover:text-accent transition-colors">
-          Dev<span className="text-accent">.</span>
-        </a>
+        {/* Logo */}
+        <Reveal y={0} delay={0.1}>
+          <a
+            href="#"
+            className="font-syne text-xl font-bold tracking-tight text-white hover:text-accent transition-colors"
+          >
+            Dev<span className="text-accent">.</span>
+          </a>
+        </Reveal>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <a 
-              key={item.name} 
-              href={item.href}
-              className="text-sm font-medium text-secondary hover:text-white transition-colors"
-            >
-              {item.name}
-            </a>
+          {navItems.map((item, idx) => (
+            <Reveal key={item.name} y={0} delay={0.1 + idx * 0.05}>
+              <a
+                href={item.href}
+                className="font-sans text-sm text-secondary hover:text-white transition-colors relative group"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+              </a>
+            </Reveal>
           ))}
 
           {/* Theme Toggle */}
-          <button
-            id="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="relative ml-2 p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 hover:scale-110 cursor-pointer"
-          >
-            <motion.div
-              key={isDark ? 'moon' : 'sun'}
-              initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-              animate={{ rotate: 0, opacity: 1, scale: 1 }}
-              exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-              transition={{ duration: 0.3 }}
+          <Reveal y={0} delay={0.5}>
+            <button
+              onClick={toggleTheme}
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              className="ml-2 p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300"
             >
-              {isDark ? (
-                <Sun size={18} className="text-amber-400" />
-              ) : (
-                <Moon size={18} className="text-indigo-500" />
-              )}
-            </motion.div>
-          </button>
+              <motion.div
+                key={isDark ? "moon" : "sun"}
+                initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isDark ? (
+                  <Sun size={18} className="text-amber-400" />
+                ) : (
+                  <Moon size={18} className="text-indigo-500" />
+                )}
+              </motion.div>
+            </button>
+          </Reveal>
         </nav>
 
-        {/* Mobile: theme toggle + menu button */}
+        {/* Mobile Controls */}
         <div className="flex items-center gap-3 md:hidden">
           <button
             onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 cursor-pointer"
+            className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300"
           >
             <motion.div
-              key={isDark ? 'mob-moon' : 'mob-sun'}
+              key={isDark ? "mob-moon" : "mob-sun"}
               initial={{ rotate: -90, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
@@ -103,7 +118,8 @@ export default function Navbar() {
               )}
             </motion.div>
           </button>
-          <button 
+
+          <button
             className="text-secondary hover:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
@@ -112,21 +128,21 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 glass border-b border-white/5 p-4 flex flex-col space-y-4 md:hidden"
+            className="absolute top-full left-0 right-0 backdrop-blur-lg bg-black/80 border-b border-white/10 p-4 flex flex-col space-y-4 md:hidden"
           >
             {navItems.map((item) => (
-              <a 
-                key={item.name} 
+              <a
+                key={item.name}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-sm font-medium text-secondary hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
+                className="font-sans text-sm text-secondary hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
               >
                 {item.name}
               </a>

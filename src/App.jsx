@@ -10,6 +10,11 @@ import LeetCodeSection from './components/LeetCode';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+import SmoothScroll from './components/animations/SmoothScroll';
+import CustomCursor from './components/animations/CustomCursor';
+import Noise from './components/animations/Noise';
+import Reveal from './components/animations/Reveal';
+
 function App() {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -21,6 +26,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-white">
+      <SmoothScroll />
+      <CustomCursor />
+      <Noise />
+      
       {/* Background ambient blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent/10 blur-[120px] animate-blob" />
