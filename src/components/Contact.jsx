@@ -44,9 +44,9 @@ export default function Contact() {
 
                   <div className="space-y-6">
                     {[
-                      { icon: Mail, label: "Email", value: "devpatel1822@gmail.com", href: "mailto:devpatel1822@gmail.com" },
-                      { icon: Phone, label: "Phone", value: "+91 6351543781", href: "tel:+916351543781" },
-                      { icon: MapPin, label: "Location", value: "Vadodara, Gujarat, India", href: "https://maps.google.com/?q=Vadodara,Gujarat,India" }
+                      { icon: Mail, label: "Email", value: "devpatel2007jan@gmail.com", href: "mailto:devpatel2007jan@gmail.com" },
+                      { icon: Phone, label: "Phone", value: "+91 7990267752", href: "tel:+917990267752" },
+                      { icon: MapPin, label: "Location", value: "Kalol, Gujarat, India", href: "https://maps.google.com/?q=Kalol,Gujarat,India" }
                     ].map((item, i) => (
                       <Reveal key={i} x={-20} delay={0.2 + i * 0.1}>
                         <a 
