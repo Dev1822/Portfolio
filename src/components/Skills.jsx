@@ -1,7 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Brain, Wrench } from 'lucide-react';
 import Reveal from './animations/Reveal';
+
+const MatrixRain = ({ hoveredColor, intensity = 1 }) => {
+  const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+    };
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    const chars = "{}[]<>/\\*&%#@01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 14;
+    const columns = Math.ceil(canvas.width / fontSize);
+    const drops = new Array(columns).fill(1).map(() => Math.random() * -100);
+
+    const draw = () => {
+      // Semi-transparent black to create trailing effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        
+        // Use hoveredColor if active, otherwise subtle grey
+        ctx.fillStyle = hoveredColor ? hoveredColor : 'rgba(255, 255, 255, 0.15)';
+        
+        // Add glow if hovered
+        if (hoveredColor) {
+           ctx.shadowBlur = 5;
+           ctx.shadowColor = hoveredColor;
+        } else {
+           ctx.shadowBlur = 0;
+        }
+
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reset drop to top if it reaches bottom, or randomly for varied rain
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        // Increment position based on intensity
+        drops[i] += (0.5 * intensity) + (Math.random() * 0.5);
+      }
+      animationFrameId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, [hoveredColor, intensity]);
+
+  return (
+    <canvas 
+      ref={canvasRef} 
+      className="absolute inset-0 z-0 pointer-events-none opacity-40"
+    />
+  );
+};
 
 export default function Skills() {
   const [hoveredCard, setHoveredCard] = useState(null);
@@ -66,9 +138,14 @@ export default function Skills() {
 
       <section
         id="skills"
-        className="relative w-full py-24 border-t border-white/5"
-        style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(10,10,20,0.4) 100%)' }}
+        className="relative w-full py-24 border-t border-white/5 bg-black overflow-hidden"
       >
+        {/* Matrix Rain Background */}
+        <MatrixRain 
+          hoveredColor={hoveredCard !== null ? skillCategories[hoveredCard].accent : null} 
+          intensity={hoveredCard !== null ? 2.5 : 1}
+        />
+
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           {/* Header */}
           <Reveal>
@@ -102,7 +179,7 @@ export default function Skills() {
                   <div
                     onMouseEnter={() => setHoveredCard(i)}
                     onMouseLeave={() => setHoveredCard(null)}
-                    className="relative rounded-2xl cursor-default overflow-hidden group border border-white/10 transition-all duration-500 bg-white/5 backdrop-blur-sm h-full"
+                    className="relative rounded-2xl cursor-default overflow-hidden group border border-white/10 transition-all duration-500 bg-black/60 backdrop-blur-md h-full"
                     style={{
                       boxShadow: isHovered ? `inset 0 0 60px ${cat.glow}, 0 20px 60px ${cat.glow}` : 'none',
                       borderColor: isHovered ? cat.accent : 'rgba(255,255,255,0.1)'
