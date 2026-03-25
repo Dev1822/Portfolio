@@ -15,11 +15,21 @@ import AiJobsImg from '../assets/project/AIJobsEDA.png';
 import RoadAccidentImg from '../assets/project/RoadEDA.png';
 import HeartDiseaseEDAImg from '../assets/project/HeartEDA.png';
 import APIHub from '../assets/project/apihub.png';
+import House from '../assets/project/HousePrediction.png';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
 
   const projects = [
+    {
+      title: "House Price Prediction",
+      description: "A full-stack React and Flask web application that uses Machine Learning to predice house prices based on its features",
+      tech: ["Reactjs", "Tailwind CSS", "Flask", "Scikit Learn"],
+      category: "ML",
+      image: House,
+      github: "https://github.com/Dev1822/House-Price-Prediction",
+      demo: "https://dev-patel-house-price-prediction.vercel.app/"
+    },
     {
       title: "API Studio",
       description: "API Studio is a platform for managing and testing APIs.",
@@ -121,7 +131,7 @@ export default function Projects() {
     }
   ];
 
-  const categories = ['All', 'Website Clone', 'EDA','MERN'];
+  const categories = ['All', 'Website Clone', 'EDA', 'MERN',"ML"];
 
   const filteredProjects = projects.filter(project =>
     filter === 'All' ? true : project.category === filter
@@ -150,8 +160,8 @@ export default function Projects() {
                 key={index}
                 onClick={() => setFilter(cat)}
                 className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
-                    ? 'bg-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-accent'
-                    : 'bg-white/5 text-secondary hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/20'
+                  ? 'bg-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-accent'
+                  : 'bg-white/5 text-secondary hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/20'
                   }`}
               >
                 {cat}
