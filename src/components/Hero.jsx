@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Cpu, Globe, FileText } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Globe, FileText, Github, Linkedin, Youtube } from "lucide-react";
 import Scene3D from "./animations/Scene3D";
 import Reveal from "./animations/Reveal";
 
@@ -42,7 +42,7 @@ export default function Hero() {
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <a
                   href="#projects"
                   className="group px-8 py-3 rounded-xl bg-white text-black font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
@@ -65,6 +65,27 @@ export default function Hero() {
                     className="transition-transform group-hover:scale-110"
                   />
                 </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-4">
+              {[
+                { icon: Github, href: "https://github.com/Dev1822", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/dev-daxin-patel/", label: "LinkedIn" },
+                { icon: Code2, href: "https://leetcode.com/Dev_D_Patel", label: "LeetCode" },
+                { icon: Youtube, href: "https://www.youtube.com/@DevDaxinPatel", label: "YouTube" }
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="p-3 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 text-secondary hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                >
+                  <social.icon size={20} />
+                </a>
+              ))}
             </div>
 
           </div>
