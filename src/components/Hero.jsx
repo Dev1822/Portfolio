@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Cpu, Globe } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Globe, FileText } from "lucide-react";
 import Scene3D from "./animations/Scene3D";
 import Reveal from "./animations/Reveal";
 
@@ -51,6 +51,18 @@ export default function Hero() {
                   <ArrowRight
                     size={18}
                     className="transition-transform group-hover:translate-x-1"
+                  />
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/11cYTyj6HVcR-3ofjvhQQV2Zu98zRJvgj/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group px-8 py-3 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:bg-white/10"
+                >
+                  View Resume
+                  <FileText
+                    size={18}
+                    className="transition-transform group-hover:scale-110"
                   />
                 </a>
             </div>
