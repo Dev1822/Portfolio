@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Send, Linkedin, Github,Code2,Youtube,Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
 
@@ -67,6 +67,26 @@ export default function Contact() {
                 </div>
               </Tilt>
             </Reveal>
+            <div className="flex items-center gap-4">
+              {[
+                { icon: Github, href: "https://github.com/Dev1822", label: "GitHub" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/dev-daxin-patel/", label: "LinkedIn" },
+                { icon: Code2, href: "https://leetcode.com/Dev_D_Patel", label: "LeetCode" },
+                { icon: Youtube, href: "https://www.youtube.com/@DevDaxinPatel", label: "YouTube" },
+                { icon: Twitter, href: "https://x.com/DevPatel1822", label: "Twitter" }
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="p-3 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 text-secondary hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                >
+                  <social.icon size={20} />
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Contact Form */}
