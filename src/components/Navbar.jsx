@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import Reveal from "./animations/Reveal";
+import logo from "../assets/profile/logo.png";
 
 const navItems = [
   { name: "About", href: "#about" },
@@ -55,9 +56,14 @@ export default function Navbar() {
         <Reveal y={0} delay={0.1}>
           <a
             href="#"
-            className="font-syne text-xl font-bold tracking-tight text-white hover:text-accent transition-colors"
+            className="flex items-center gap-2 group"
           >
-            Dev<span className="text-accent">.</span>
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 group-hover:border-accent/50 transition-colors">
+              <img src={logo} alt="Dev Patel Logo" className="w-full h-full object-cover" />
+            </div>
+            <span className="font-syne text-xl font-bold tracking-tight text-white group-hover:text-accent transition-colors">
+              Dev<span className="text-accent">.</span>
+            </span>
           </a>
         </Reveal>
 

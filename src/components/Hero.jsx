@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Cpu, Globe, FileText, Github, Linkedin, Youtube } from "lucide-react";
+import { ArrowRight, Code2, Cpu, Globe, FileText, Github, Linkedin, Youtube , Twitter} from "lucide-react";
 import Scene3D from "./animations/Scene3D";
 import Reveal from "./animations/Reveal";
 
@@ -73,7 +73,8 @@ export default function Hero() {
                 { icon: Github, href: "https://github.com/Dev1822", label: "GitHub" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/dev-daxin-patel/", label: "LinkedIn" },
                 { icon: Code2, href: "https://leetcode.com/Dev_D_Patel", label: "LeetCode" },
-                { icon: Youtube, href: "https://www.youtube.com/@DevDaxinPatel", label: "YouTube" }
+                { icon: Youtube, href: "https://www.youtube.com/@DevDaxinPatel", label: "YouTube" },
+                { icon: Twitter, href: "https://x.com/DevPatel1822", label: "Twitter" }
               ].map((social, i) => (
                 <a
                   key={i}
