@@ -23,7 +23,7 @@ export default function Projects() {
   const projects = [
     {
       title: "House Price Prediction",
-      description: "A full-stack React and Flask web application that uses Machine Learning to predice house prices based on its features",
+      description: "House Price Predictor is a full-stack app using React, Flask, and scikit-learn that lets users input property details to get real-time house price estimates.",
       tech: ["Reactjs", "Tailwind CSS", "Flask", "Scikit Learn"],
       category: "ML",
       image: House,
@@ -32,7 +32,7 @@ export default function Projects() {
     },
     {
       title: "API Studio",
-      description: "API Studio is a platform for managing and testing APIs.",
+      description: "APIStudio is a Postman-inspired app built with React, Node, Express, and MongoDB that lets developers send, test, and save HTTP API requests easily.",
       tech: ["Reactjs", "Nodejs", "Express", "Mongodb"],
       category: "MERN",
       image: APIHub,
@@ -41,7 +41,7 @@ export default function Projects() {
     },
     {
       title: "Heart-Disease-EDA",
-      description: "Performed Exploratory Data Analysis on datasets consisting of Heart Disease Patients.",
+      description: "Heart Disease EDA is a Python-based project using Pandas, Seaborn, and Matplotlib to analyze patient data and uncover key risk factors and insights related to heart disease.",
       tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
       category: "EDA",
       image: HeartDiseaseEDAImg,
@@ -50,7 +50,7 @@ export default function Projects() {
     },
     {
       title: "Road-Accident-EDA",
-      description: "Performed Exploratory Data Analysis on datasets consisting of Road Accident data.",
+      description: "Road Accident EDA is a Python-based project using Pandas, Matplotlib, and Seaborn to analyze accident data, uncover patterns, and generate actionable insights.",
       tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
       category: "EDA",
       image: RoadAccidentImg,
@@ -59,7 +59,7 @@ export default function Projects() {
     },
     {
       title: "AI-Jobs-EDA",
-      description: "Performed Exploratory Data Analysis on datasets consisting of AI-related jobs.",
+      description: "AI Job Market EDA is a Python-based analysis using Pandas, NumPy, and visualization tools to uncover trends in demand, salaries, and work patterns across AI and data roles.",
       tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
       category: "EDA",
       image: AiJobsImg,
@@ -68,7 +68,7 @@ export default function Projects() {
     },
     {
       title: "Youtube",
-      description: "Youtube Clone made using HTML,CSS AND JS.",
+      description: "YouTube Clone is a dynamic web app built with HTML, CSS, and JavaScript that integrates APIs to deliver real-time video content, smart search, and interactive playback.",
       tech: ["HTML", "CSS", "JS"],
       category: "Website Clone",
       image: youtubeImg,
@@ -77,7 +77,7 @@ export default function Projects() {
     },
     {
       title: "Material Kitchen",
-      description: "Material Kitchen Clone made using HTML,CSS.",
+      description: "Material Kitchen Website Clone is a polished frontend project showcasing clean typography, responsive design, and improved UI/UX with smooth navigation and visual hierarchy.",
       tech: ["HTML", "CSS"],
       category: "Website Clone",
       image: materialImg,
@@ -86,7 +86,7 @@ export default function Projects() {
     },
     {
       title: "GreatJones",
-      description: "Great Jones Clone made using HTML,CSS.",
+      description: "A visually focused website clone project exploring CSS techniques like custom shapes and split layouts to enhance branding and overall design aesthetics.",
       tech: ["HTML", "CSS"],
       category: "Website Clone",
       image: jonesImg,
@@ -95,7 +95,7 @@ export default function Projects() {
     },
     {
       title: "Celestial AI",
-      description: "Celestial.ai Clone made using HTML,CSS.",
+      description: "An interaction-focused website clone project exploring responsive layouts, custom mobile navigation, and basic UI structuring to create more usable interfaces.",
       tech: ["HTML", "CSS"],
       category: "Website Clone",
       image: celestialImg,
@@ -104,7 +104,7 @@ export default function Projects() {
     },
     {
       title: "Lovable Labs",
-      description: "Lovable Labs Clone made using HTML,CSS.",
+      description: "A detail-focused website clone project emphasizing precise spacing, consistency, and pixel-perfect UI to enhance overall design quality.",
       tech: ["HTML", "CSS"],
       category: "Website Clone",
       image: lovableImg,
@@ -113,7 +113,7 @@ export default function Projects() {
     },
     {
       title: "ICC Website Clone",
-      description: "https://github.com/Dev1822/ICC",
+      description: "A content-driven website clone focused on organizing complex cricket data with structured layouts, sticky navigation, and clear visual alignment for better usability—like the ICC site.",
       tech: ["HTML", "CSS"],
       category: "Website Clone",
       image: iccImg,
@@ -122,7 +122,7 @@ export default function Projects() {
     },
     {
       title: "Marvel",
-      description: "Marvel Clone made using HTML,CSS.",
+      description: "A foundational HTML & CSS project focused on mastering layout structure, Flexbox, and image handling to build a strong base in positioning and design flow—like the Marvel website.",
       tech: ["HTML", "CSS"],
       category: "Website Clone",
       image: marvelImg,
