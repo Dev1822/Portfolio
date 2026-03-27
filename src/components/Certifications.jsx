@@ -14,36 +14,42 @@ export default function Certifications() {
     {
       title: "EDA for Machine Learning",
       issuer: "IBM",
+      description: "Explored advanced data analysis techniques to uncover patterns and insights from complex datasets.",
       image: cert6,
       skills: ["Python", "Pandas", "Matplotlib", "Seaborn"]
     },
     {
       title: "Doppleganger",
       issuer: "OpenPools",
+      description: "Developed an innovative project focused on solving real-world challenges during the hackathon.",
       image: cert5,
       skills: ["Innovation", "Hackathon"]
     },
     {
       title: "Electrosphere 2026",
       issuer: "Tech Fest",
+      description: "Recognized for technical excellence and creative problem-solving in a high-stakes competition.",
       image: cert1,
       skills: ["Innovation", "Hackathon"]
     },
     {
       title: "Data Science Stack",
       issuer: "Udemy",
+      description: "Gained proficiency in the essential Python libraries used for data processing and visualization.",
       image: cert4,
       skills: ["NumPy", "Pandas", "Matplotlib"]
     },
     {
       title: "Python Certification",
       issuer: "Guvi",
+      description: "Validated core Python programming skills and logical reasoning through rigorous assessment.",
       image: cert2,
       skills: ["Python"]
     },
     {
       title: "Python Programming",
       issuer: "IITM Pravartak",
+      description: "Mastered algorithmic foundations and professional coding standards in Python.",
       image: cert3,
       skills: ["Python"]
     },
@@ -91,7 +97,10 @@ export default function Certifications() {
               
               <div className="p-6 border-t border-white/5">
                 <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
-                <p className="text-emerald-400 text-sm font-medium mb-4">{cert.issuer}</p>
+                <div className="mb-4">
+                  <p className="text-emerald-400 text-sm font-medium">{cert.issuer}</p>
+                  <p className="text-secondary text-sm leading-relaxed mt-1 opacity-80">{cert.description}</p>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {cert.skills.map((skill, sIndex) => (
                     <span key={sIndex} className="px-2.5 py-1 text-xs rounded-md bg-white/5 border border-white/10 text-white/70">
