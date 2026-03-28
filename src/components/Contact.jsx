@@ -15,11 +15,18 @@ export default function Contact() {
     setIsSubmitting(true);
     setError(null);
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
+    if (!accessKey) {
+      setError('Web3Forms Access Key is missing. Please check your .env file.');
+      setIsSubmitting(false);
+      return;
+    }
+
     const formDataToSubmit = new FormData();
     formDataToSubmit.append('name', formData.name);
     formDataToSubmit.append('email', formData.email);
     formDataToSubmit.append('message', formData.message);
-    formDataToSubmit.append('access_key', import.meta.env.VITE_WEB3FORMS_KEY);
+    formDataToSubmit.append('access_key', accessKey);
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
