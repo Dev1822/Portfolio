@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Sparkles } from 'lucide-react';
+import { Github, ExternalLink, Sparkles, Youtube } from 'lucide-react';
+
 import Tilt from './animations/Tilt';
 import Reveal from './animations/Reveal';
 
@@ -28,7 +29,8 @@ export default function Projects() {
       category: "ML",
       image: House,
       github: "https://github.com/Dev1822/House-Price-Prediction",
-      demo: "https://dev-patel-house-price-prediction.vercel.app/"
+      demo: "https://dev-patel-house-price-prediction.vercel.app/",
+      youtube: "https://youtu.be/WZbXbY-t468?si=ByhUX8cU2xtfQdmy"
     },
     {
       title: "API Studio",
@@ -37,7 +39,8 @@ export default function Projects() {
       category: "MERN",
       image: APIHub,
       github: "https://github.com/Dev1822/APIStudio",
-      demo: "https://api-studio-gilt.vercel.app/"
+      demo: "https://api-studio-gilt.vercel.app/",
+      youtube: "https://youtu.be/A7olsHoMyVo?si=F8RdHvWFcCxUdDIn"
     },
     {
       title: "Heart-Disease-EDA",
@@ -46,7 +49,8 @@ export default function Projects() {
       category: "EDA",
       image: HeartDiseaseEDAImg,
       github: "https://github.com/Dev1822/Heart-Disease-EDA",
-      demo: "https://www.kaggle.com/code/devdaxinpatel/heart-disease-eda"
+      demo: "https://www.kaggle.com/code/devdaxinpatel/heart-disease-eda",
+      youtube: "https://youtu.be/51tybZ329-U?si=-jHoLbyBZVO7sJ9_"
     },
     {
       title: "Road-Accident-EDA",
@@ -55,7 +59,8 @@ export default function Projects() {
       category: "EDA",
       image: RoadAccidentImg,
       github: "https://github.com/Dev1822/Road-Accident-EDA",
-      demo: "https://www.kaggle.com/code/devdaxinpatel/road-accident-eda"
+      demo: "https://www.kaggle.com/code/devdaxinpatel/road-accident-eda",
+      youtube: "https://youtu.be/Xdwc3iRw7nQ?si=q0lw472rbFNRTMLI"
     },
     {
       title: "AI-Jobs-EDA",
@@ -64,7 +69,8 @@ export default function Projects() {
       category: "EDA",
       image: AiJobsImg,
       github: "https://github.com/Dev1822/AI-Jobs-EDA",
-      demo: "https://www.kaggle.com/code/devdaxinpatel/ai-jobs-eda"
+      demo: "https://www.kaggle.com/code/devdaxinpatel/ai-jobs-eda",
+      youtube: "https://youtu.be/tEBGd_WqtFQ?si=d0zG_bYLqn7XxB2D"
     },
     {
       title: "Youtube",
@@ -73,7 +79,8 @@ export default function Projects() {
       category: "Website Clone",
       image: youtubeImg,
       github: "https://github.com/Dev1822/Youtube",
-      demo: "https://devpatel-youtube.vercel.app/"
+      demo: "https://devpatel-youtube.vercel.app/",
+      youtube: "https://youtu.be/pSq221gyFOw?si=nL3i_qpWxBQYWSty"
     },
     {
       title: "Material Kitchen",
@@ -82,7 +89,8 @@ export default function Projects() {
       category: "Website Clone",
       image: materialImg,
       github: "https://github.com/Dev1822/MaterialKitchen",
-      demo: "https://devpatel-materialkitchen.netlify.app/"
+      demo: "https://devpatel-materialkitchen.netlify.app/",
+      youtube: "https://youtu.be/0bx3x5z91Uw?si=1ldwYtSuWgeDxBVj"
     },
     {
       title: "GreatJones",
@@ -91,7 +99,8 @@ export default function Projects() {
       category: "Website Clone",
       image: jonesImg,
       github: "https://github.com/Dev1822/GreatJones",
-      demo: "https://devpatel-greatjones.netlify.app/"
+      demo: "https://devpatel-greatjones.netlify.app/",
+      youtube: "https://youtu.be/Sl42Qp50gDg?si=6Qr-5N4UTNJmmBwU"
     },
     {
       title: "Celestial AI",
@@ -100,7 +109,8 @@ export default function Projects() {
       category: "Website Clone",
       image: celestialImg,
       github: "https://github.com/Dev1822/Celestial.ai",
-      demo: "https://devpatel-celestial.netlify.app/"
+      demo: "https://devpatel-celestial.netlify.app/",
+      youtube: "https://youtu.be/0cJ2_vgHXvU?si=v6dVuBhRLkOf0HuR"
     },
     {
       title: "Lovable Labs",
@@ -109,7 +119,8 @@ export default function Projects() {
       category: "Website Clone",
       image: lovableImg,
       github: "https://github.com/Dev1822/LovableLabs",
-      demo: "https://devpatel-lovelablelabs.netlify.app/"
+      demo: "https://devpatel-lovelablelabs.netlify.app/",
+      youtube: "https://youtu.be/hcp5zGBug4g?si=4TmAO2fATqnGvnY3"
     },
     {
       title: "ICC Website Clone",
@@ -118,7 +129,8 @@ export default function Projects() {
       category: "Website Clone",
       image: iccImg,
       github: "https://github.com/Dev1822/ICC",
-      demo: "https://devpatel-iccclone.netlify.app/"
+      demo: "https://devpatel-iccclone.netlify.app/",
+      youtube: "https://youtu.be/jV49mB7--u0?si=fKJwh6_tB0T8nan9"
     },
     {
       title: "Marvel",
@@ -127,7 +139,8 @@ export default function Projects() {
       category: "Website Clone",
       image: marvelImg,
       github: "https://github.com/Dev1822/Marvel",
-      demo: "https://devpatel-marvelclone.netlify.app/"
+      demo: "https://devpatel-marvelclone.netlify.app/",
+      youtube: "https://youtu.be/PZ7ooy59W0s?si=Y1T6J_juBC1BZsDU"
     }
   ];
 
@@ -193,14 +206,18 @@ export default function Projects() {
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
 
                       {/* Overlay Links */}
-                      <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 backdrop-blur-[2px]">
-                        <a href={project.github} className="p-3 bg-accent text-white rounded-full hover:scale-110 transition-all">
-                          <Github size={20} />
+                      <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 backdrop-blur-[2px]">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-accent text-white rounded-full hover:scale-110 transition-all" title="View Source">
+                          <Github size={18} />
                         </a>
-                        <a href={project.demo} className="p-3 bg-white text-black rounded-full hover:scale-110 transition-all">
-                          <ExternalLink size={20} />
+                        <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-red-600 text-white rounded-full hover:scale-110 transition-all" title="Watch Video">
+                          <Youtube size={18} />
+                        </a>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white text-black rounded-full hover:scale-110 transition-all" title="Live Demo">
+                          <ExternalLink size={18} />
                         </a>
                       </div>
+
                     </div>
 
                     {/* Project Info */}
