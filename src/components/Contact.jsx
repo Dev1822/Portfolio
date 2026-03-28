@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Send, Linkedin, Github,Code2,Youtube,Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
@@ -9,17 +8,42 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate network request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setIsSubmitted(false), 3000);
-    }, 1500);
-  };
+    setError(null);
+
+const formDataToSubmit = new FormData();
+formDataToSubmit.append('name', formData.name);
+formDataToSubmit.append('email', formData.email);
+formDataToSubmit.append('message', formData.message);
+formDataToSubmit.append('access_key', import.meta.env.VITE_WEB3FORMS_KEY);
+
+try {
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json' // ✅ FIX
+    },
+    body: formDataToSubmit
+  });
+
+  const data = await response.json();
+
+  if (data.success) {
+    setIsSubmitted(true);
+    setFormData({ name: '', email: '', message: '' });
+    setTimeout(() => setIsSubmitted(false), 5000);
+  } else {
+    setError(data.message || 'Something went wrong. Please try again.');
+  }
+} catch {
+  setError('Network error. Please try again later.');
+} finally {
+  setIsSubmitting(false);
+}
 
   return (
     <section id="contact" className="relative w-full py-24 border-t border-white/5 bg-surface/30">
@@ -141,6 +165,12 @@ export default function Contact() {
                 />
               </div>
 
+              {error && (
+                <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl text-sm">
+                  {error}
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -164,4 +194,5 @@ export default function Contact() {
       </div>
     </section>
   );
+}
 }
