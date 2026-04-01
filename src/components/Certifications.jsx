@@ -2,14 +2,29 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, CheckCircle } from 'lucide-react';
 
-
+import cert1 from '../assets/certificate/HTML.jpg';
 import cert2 from '../assets/certificate/Guvi Certification - Python.png';
 import cert3 from '../assets/certificate/IITM Pravartak Certificate - Python.jpg';
 import cert4 from '../assets/certificate/NumpyPandasMatplotlib.jpg';
+import cert5 from '../assets/certificate/JSBeginner.jpg';
 import cert6 from '../assets/certificate/EDAforML.jpg';
 
 export default function Certifications() {
   const certifications = [
+    {
+      title: "Introduction to JavaScript",
+      issuer: "Sololearn",
+      description: "Learned the fundamentals of JavaScript and how to create dynamic web pages.",
+      image: cert5,
+      skills: ["JavaScript"]
+    },
+    {
+      title: "Introduction to HTML",
+      issuer: "Sololearn",
+      description: "Learned the fundamentals of HTML and how to create web pages.",
+      image: cert1,
+      skills: ["HTML"]
+    },
     {
       title: "EDA for Machine Learning",
       issuer: "IBM",
