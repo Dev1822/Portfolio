@@ -2,11 +2,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, CheckCircle } from 'lucide-react';
 
-import cert1 from '../assets/certificate/Electrosphere 2026 Certificate.jpeg';
+
 import cert2 from '../assets/certificate/Guvi Certification - Python.png';
 import cert3 from '../assets/certificate/IITM Pravartak Certificate - Python.jpg';
 import cert4 from '../assets/certificate/NumpyPandasMatplotlib.jpg';
-import cert5 from '../assets/certificate/Doppleganger.jpg';
 import cert6 from '../assets/certificate/EDAforML.jpg';
 
 export default function Certifications() {
@@ -17,20 +16,6 @@ export default function Certifications() {
       description: "Explored advanced data analysis techniques to uncover patterns and insights from complex datasets.",
       image: cert6,
       skills: ["Python", "Pandas", "Matplotlib", "Seaborn"]
-    },
-    {
-      title: "Doppleganger",
-      issuer: "OpenPools",
-      description: "Developed an innovative project focused on solving real-world challenges during the hackathon.",
-      image: cert5,
-      skills: ["Innovation", "Hackathon"]
-    },
-    {
-      title: "Electrosphere 2026",
-      issuer: "Tech Fest",
-      description: "Recognized for technical excellence and creative problem-solving in a high-stakes competition.",
-      image: cert1,
-      skills: ["Innovation", "Hackathon"]
     },
     {
       title: "Data Science Stack",

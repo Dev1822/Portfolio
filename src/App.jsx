@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
+import Hackathons from './components/Hackathons';
 import Certifications from './components/Certifications';
 import GitHubSection from './components/GitHub';
 import LeetCodeSection from './components/LeetCode';
@@ -43,6 +44,7 @@ function App() {
         <About />
         <Skills />
         <Projects />
+        <Hackathons />
         <Certifications />
         <GitHubSection />
         <LeetCodeSection />
