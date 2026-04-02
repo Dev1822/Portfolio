@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Calendar, Github, ExternalLink, Sparkles, Code2 } from 'lucide-react';
+import { Trophy, Calendar, Github, ExternalLink, Sparkles } from 'lucide-react';
 
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
@@ -22,7 +22,7 @@ const hackathons = [
     project: {
       name: "Kalix AI",
       description: "Kalix AI features a clean chat interface with multi-chat support, image generation, voice interaction, and efficient local data management, powered by APIs for dynamic and scalable AI responses.",
-      tech: ["HTML","CSS","JS"],
+      tech: ["HTML", "CSS", "JS"],
       github: "https://github.com/Dev1822/Kalix",
       demo: "https://kalix-syntax-squad.vercel.app/"
     }
@@ -36,7 +36,7 @@ const hackathons = [
     project: {
       name: "PlantPal",
       description: "PlantPal is a plant care platform with smart watering schedules, AI-based pest detection, and a community forum for tips and support.",
-      tech: ["Reactjs","Nodejs","MySQL"],
+      tech: ["Reactjs", "Nodejs", "MySQL"],
       github: "https://github.com/Dev1822/PlantPal",
       demo: "https://plant-pal-ten.vercel.app/"
     }
@@ -61,81 +61,99 @@ export default function Hackathons() {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-12">
           {hackathons.map((hackathon, index) => (
             <Reveal key={index} delay={index * 0.1}>
               <Tilt>
                 <div className="glass-card group h-full overflow-hidden flex flex-col border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-accent/30 transition-all duration-500">
-                  {/* Top Header */}
-                  <div className="p-6 border-b border-white/5 bg-white/[0.01]">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-accent transition-colors">{hackathon.title}</h3>
-                      <div className="flex items-center gap-1.5 text-xs text-white/40 bg-white/5 px-2.5 py-1 rounded-full border border-white/10">
-                        <Calendar size={12} />
+                  {/* Header Section */}
+                  <div className="p-8 border-b border-white/[0.05] bg-white/[0.01]">
+                    <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
+                      <div>
+                        <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors font-syne tracking-tight">
+                          {hackathon.title}
+                        </h3>
+                        <p className="text-accent text-sm font-semibold mt-0.5">{hackathon.organization}</p>
+                      </div>
+                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-white/40 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
+                        <Calendar size={12} className="text-accent/60" />
                         <span>{hackathon.date}</span>
                       </div>
                     </div>
-                    <p className="text-accent text-sm font-medium mb-3">{hackathon.organization}</p>
-                    <p className="text-secondary text-sm leading-relaxed line-clamp-2">{hackathon.description}</p>
+                    <p className="text-secondary text-sm leading-relaxed max-w-3xl">{hackathon.description}</p>
                   </div>
 
                   {/* Content Split */}
-                  <div className="flex flex-col sm:flex-row flex-grow">
+                  <div className="flex flex-col lg:flex-row flex-grow">
                     {/* Certificate Left/Top */}
-                    <div className="sm:w-1/2 relative overflow-hidden group/cert bg-black/20 border-r border-white/5 min-h-[220px]">
-                      <div className="absolute inset-0 flex items-center justify-center p-4">
-                        <div className="w-full h-full relative border border-white/10 rounded-sm shadow-2xl overflow-hidden group-hover/cert:scale-[1.02] transition-transform duration-700">
-                           <img src={hackathon.certificate} alt="Certificate" className="w-full h-full object-contain" />
-                        </div>
+                    <div className="lg:w-[45%] relative group/cert overflow-hidden bg-black/40 border-r border-white/[0.05] min-h-[280px] flex items-center justify-center p-8">
+                      {/* Decorative Background Glow */}
+                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-700" />
+
+                      {/* Certificate Frame */}
+                      <div className="relative w-full h-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden border border-white/10 group-hover/cert:scale-[1.02] transition-all duration-700 ease-out">
+                        <img
+                          src={hackathon.certificate}
+                          alt={`${hackathon.title} Certificate`}
+                          className="w-full h-full object-cover grayscale-[0.2] group-hover/cert:grayscale-0 transition-all duration-700"
+                        />
+                        {/* Shine effect */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 -translate-x-full group-hover/cert:translate-x-full transition-transform duration-1000 delay-100" />
                       </div>
-                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-500" />
                     </div>
 
                     {/* Project Right/Bottom */}
-                    <div className="sm:w-1/2 p-6 flex flex-col h-full bg-white/[0.01]">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Code2 size={16} className="text-accent" />
-                        <span className="text-xs font-bold uppercase tracking-widest text-white/80">Project Built</span>
+                    <div className="lg:w-[55%] p-8 flex flex-col bg-white/[0.005]">
+                      <div className="flex items-center gap-2 mb-4">
+                        <div className="w-8 h-[1px] bg-accent/30" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent/80">Project Built</span>
                       </div>
-                      
-                      <h4 className="text-lg font-bold text-white mb-2">{hackathon.project.name}</h4>
-                      <p className="text-secondary text-xs leading-relaxed mb-4 flex-grow">
-                        {hackathon.project.description}
+
+                      <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                        {hackathon.project.name}
+                        <Sparkles size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </h4>
+                      <p className="text-secondary text-sm leading-relaxed mb-6 flex-grow italic opacity-90">
+                        "{hackathon.project.description}"
                       </p>
 
                       {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-1.5 mb-5">
+                      <div className="flex flex-wrap gap-2 mb-8">
                         {hackathon.project.tech.map((tech, tIndex) => (
-                          <span key={tIndex} className="px-2 py-0.5 text-[10px] rounded bg-white/5 border border-white/10 text-white/50">
+                          <span key={tIndex} className="px-2.5 py-1 text-[10px] font-medium rounded-md bg-white/5 border border-white/5 text-white/50 hover:border-accent/30 hover:text-accent transition-colors cursor-default">
                             {tech}
                           </span>
                         ))}
                       </div>
 
                       {/* Project Links */}
-                      <div className="flex items-center gap-3 mt-auto pt-4 border-t border-white/5">
-                        <a 
-                          href={hackathon.project.github} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="flex items-center gap-1.5 text-xs text-secondary hover:text-accent transition-colors"
+                      <div className="flex items-center gap-6 mt-auto pt-6 border-t border-white/[0.05]">
+                        <a
+                          href={hackathon.project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link flex items-center gap-2 text-xs font-bold text-secondary hover:text-white transition-colors"
                         >
-                          <Github size={14} />
+                          <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-all">
+                            <Github size={14} />
+                          </div>
                           <span>Code</span>
                         </a>
-                        <a 
-                          href={hackathon.project.demo} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="flex items-center gap-1.5 text-xs text-secondary hover:text-accent transition-colors"
+                        <a
+                          href={hackathon.project.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link flex items-center gap-2 text-xs font-bold text-secondary hover:text-white transition-colors"
                         >
-                          <ExternalLink size={14} />
+                          <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-all">
+                            <ExternalLink size={14} />
+                          </div>
                           <span>Live Demo</span>
                         </a>
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Decorative Sparkle */}
                   <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                     <Sparkles size={16} className="text-accent/30" />
