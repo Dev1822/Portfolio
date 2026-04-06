@@ -80,8 +80,20 @@ html.light .text-white {
 html.light .text-white\/90 {
   color: color-mix(in srgb, var(--color-primary) 90%, transparent) !important;
 }
+html.light .text-white\/80 {
+  color: color-mix(in srgb, var(--color-primary) 80%, transparent) !important;
+}
+html.light .text-white\/70 {
+  color: color-mix(in srgb, var(--color-primary) 70%, transparent) !important;
+}
+html.light .text-white\/60 {
+  color: color-mix(in srgb, var(--color-primary) 60%, transparent) !important;
+}
 html.light .text-white\/50 {
   color: var(--color-theme-text-muted) !important;
+}
+html.light .text-white\/40 {
+  color: color-mix(in srgb, var(--color-primary) 40%, transparent) !important;
 }
 html.light .text-white\/30 {
   color: color-mix(in srgb, var(--color-primary) 30%, transparent) !important;

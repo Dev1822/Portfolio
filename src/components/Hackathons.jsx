@@ -1,165 +1,386 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Trophy, Calendar, Github, ExternalLink, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Trophy,
+  Calendar,
+  Github,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  X,
+} from "lucide-react";
 
-import Reveal from './animations/Reveal';
-import Tilt from './animations/Tilt';
+import Reveal from "./animations/Reveal";
+import Tilt from "./animations/Tilt";
 
-// Import certificates
-import electrosphereCert from '../assets/certificate/Electrosphere 2026 Certificate.jpeg';
-import dopplegangerCert from '../assets/certificate/Doppleganger.jpg';
+// Certificates
+import electrosphereCert from "../assets/hackathon/Electrosphere/Certificate/Electrosphere 2026 Certificate.jpeg";
+import dopplegangerCert from "../assets/hackathon/Doppleganger/Certificate/Doppleganger.jpg";
 
+// Images
+import dImage1 from "../assets/hackathon/Doppleganger/image1.png";
+import dImage2 from "../assets/hackathon/Doppleganger/image2.png";
+import dImage3 from "../assets/hackathon/Doppleganger/image3.png";
+import dImage4 from "../assets/hackathon/Doppleganger/image4.png";
 
+import eImage1 from "../assets/hackathon/Electrosphere/image1.png";
+import eImage2 from "../assets/hackathon/Electrosphere/image2.png";
+import eImage3 from "../assets/hackathon/Electrosphere/image3.png";
+import eImage4 from "../assets/hackathon/Electrosphere/image4.png";
 
-// You can add your certificates and projects here
 const hackathons = [
   {
     title: "Doppleganger",
     organization: "OpenPools",
     date: "2026",
-    description: "An innovation-driven hackathon focused on solving real-world challenges through collaborative development.",
-    certificate: dopplegangerCert,
+    description:
+      "An innovation-driven hackathon focused on solving real-world challenges through collaborative development.",
+    images: [dopplegangerCert, dImage1, dImage2, dImage3, dImage4],
     project: {
       name: "PlantPal",
-      description: "PlantPal is a plant care platform with smart watering schedules, AI-based pest detection, and a community forum for tips and support.",
-      tech: ["Reactjs", "Nodejs", "MySQL"],
+      description:
+        "AI-powered plant care platform with smart watering, pest detection, and a community hub.",
+      tech: ["React", "Node", "MySQL"],
       github: "https://github.com/Dev1822/PlantPal",
-      demo: "https://plant-pal-ten.vercel.app/"
-    }
+      demo: "https://plant-pal-ten.vercel.app/",
+    },
   },
   {
     title: "Electrosphere 2026",
     organization: "Tech Fest",
     date: "2026",
-    description: "A high-stakes technical competition focusing on innovative engineering solutions and creative problem-solving.",
-    certificate: electrosphereCert,
+    description:
+      "A high-stakes technical competition focused on innovative engineering solutions.",
+    images: [electrosphereCert, eImage1, eImage2, eImage3, eImage4],
     project: {
       name: "Kalix AI",
-      description: "Kalix AI features a clean chat interface with multi-chat support, image generation, voice interaction, and efficient local data management, powered by APIs for dynamic and scalable AI responses.",
+      description:
+        "Modern AI assistant with chat and audio based reply for solving your queries.",
       tech: ["HTML", "CSS", "JS"],
       github: "https://github.com/Dev1822/Kalix",
-      demo: "https://kalix-syntax-squad.vercel.app/"
-    }
+      demo: "https://kalix-syntax-squad.vercel.app/",
+    },
   },
 ];
 
-export default function Hackathons() {
+const HackathonCard = ({ hackathon, onImageClick }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % hackathon.images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [hackathon.images.length]);
+
+  const next = () =>
+    setIndex((prev) => (prev + 1) % hackathon.images.length);
+  const prev = () =>
+    setIndex((prev) =>
+      (prev - 1 + hackathon.images.length) % hackathon.images.length
+    );
+
   return (
-    <section id="hackathons" className="relative w-full py-24 bg-surface/20">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Reveal>
-          <div className="mb-16 flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 mb-4">
-              <Trophy size={14} className="text-accent" />
-              <span className="text-xs font-medium text-accent tracking-wide uppercase font-syne">Hackathons & Competitions</span>
+    <div className="h-full">
+      <Tilt>
+        <motion.div
+          whileHover={{ y: -8 }}
+          transition={{ duration: 0.3 }}
+          className="group relative rounded-2xl overflow-hidden h-full flex flex-col
+          bg-gradient-to-br from-white/[0.05] to-white/[0.02]
+          border border-white/10 
+          shadow-[0_10px_40px_rgba(0,0,0,0.4)]
+          hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+          transition-all duration-500"
+        >
+          {/* GALLERY AREA */}
+          <div className="relative p-4 flex items-center justify-center bg-black/30">
+            <div 
+              className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 cursor-pointer"
+              onClick={() => onImageClick?.(hackathon, index)}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={index}
+                  src={hackathon.images[index]}
+                  initial={{ opacity: 0, scale: 1.05 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
+
+              {/* overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+
+              {/* controls */}
+              <div className="absolute inset-0 flex items-center justify-between px-3 opacity-0 group-hover:opacity-100 transition">
+                <button
+                  onClick={(e) => { e.stopPropagation(); prev(); }}
+                  className="p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); next(); }}
+                  className="p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+
+              {/* dots */}
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1">
+                {hackathon.images.map((_, i) => (
+                  <div
+                    key={i}
+                    className={`h-1.5 rounded-full ${
+                      i === index ? "w-4 bg-accent" : "w-1.5 bg-white/50"
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 font-syne">Hackathon Journey</h2>
-            <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
-            <p className="text-secondary max-w-2xl text-lg">
-              Showcasing my participation in coding marathons where I transform ideas into functional solutions under high pressure.
+          </div>
+
+          {/* OVERVIEW AREA */}
+          <div className="p-6 flex flex-col border-b border-white/10">
+            <div className="flex justify-between items-start mb-3">
+              <span className="text-xs uppercase tracking-widest text-accent">
+                Overview
+              </span>
+              <div className="flex items-center gap-2 text-xs text-white/60">
+                <Calendar size={14} />
+                {hackathon.date}
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-white mb-1">
+              {hackathon.title}
+            </h3>
+
+            <p className="text-accent text-sm font-medium mb-4">
+              {hackathon.organization}
+            </p>
+
+            <p className="text-white/70 text-sm leading-relaxed">
+              {hackathon.description}
+            </p>
+          </div>
+
+          {/* PROJECT AREA */}
+          <div className="p-6 flex flex-col flex-grow">
+            <span className="text-xs uppercase tracking-widest text-accent mb-3">
+              Project
+            </span>
+
+            <h4 className="text-lg font-semibold text-white mb-2">
+              {hackathon.project.name}
+            </h4>
+
+            <p className="text-white/70 text-sm mb-6 leading-relaxed">
+              {hackathon.project.description}
+            </p>
+
+            <div className="flex flex-wrap gap-2 mb-6">
+              {hackathon.project.tech.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-2 py-1 text-[11px] rounded-md 
+                  bg-white/[0.04] border border-white/10 text-white/70
+                  hover:bg-accent/10 hover:text-accent transition"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex gap-3 mt-auto">
+              <a
+                href={hackathon.project.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-1 justify-center items-center gap-2 px-4 py-2 rounded-lg 
+                bg-white/5 hover:bg-accent border border-white/10 
+                text-sm font-medium transition"
+              >
+                <Github size={16} /> Code
+              </a>
+
+              <a
+                href={hackathon.project.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="flex flex-1 justify-center items-center gap-2 px-4 py-2 rounded-lg 
+                bg-white/5 hover:bg-accent border border-white/10 
+                text-sm font-medium transition"
+              >
+                <ExternalLink size={16} /> Live
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </Tilt>
+    </div>
+  );
+};
+
+const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
+  const [index, setIndex] = useState(initialIndex);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % hackathon.images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [hackathon.images.length]);
+
+  const next = () => setIndex((prev) => (prev + 1) % hackathon.images.length);
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + hackathon.images.length) % hackathon.images.length);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [hackathon.images.length, onClose]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition z-50"
+      >
+        <X size={24} />
+      </button>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          prev();
+        }}
+        className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition z-50 hidden sm:block"
+      >
+        <ChevronLeft size={32} />
+      </button>
+      
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          next();
+        }}
+        className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition z-50 hidden sm:block"
+      >
+        <ChevronRight size={32} />
+      </button>
+
+      <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={index}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            src={hackathon.images[index]}
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl pointer-events-auto"
+          />
+        </AnimatePresence>
+      </div>
+
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-50">
+        {hackathon.images.map((_, i) => (
+          <button
+            key={i}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIndex(i);
+            }}
+            className={`h-2 rounded-full transition-all ${
+              i === index ? "w-6 bg-accent" : "w-2 bg-white/50 hover:bg-white/80"
+            }`}
+          />
+        ))}
+      </div>
+    </motion.div>
+  );
+};
+
+export default function Hackathons() {
+  const [selectedGallery, setSelectedGallery] = useState(null);
+
+  useEffect(() => {
+    if (selectedGallery) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedGallery]);
+
+  return (
+    <section id="hackathons" className="relative py-28">
+      {/* FULL SCREEN MODAL */}
+      <AnimatePresence>
+        {selectedGallery && (
+          <FullScreenGallery
+            hackathon={selectedGallery.hackathon}
+            initialIndex={selectedGallery.index}
+            onClose={() => setSelectedGallery(null)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* background glow */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/20 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* header */}
+        <Reveal>
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-accent/10 border border-accent/20 mb-6">
+              <Trophy size={14} className="text-accent" />
+              <span className="text-xs text-accent uppercase tracking-wider">
+                Hackathons
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+              Building Under Pressure
+            </h2>
+
+            <p className="text-white/70 max-w-2xl mx-auto text-lg">
+              Real-world projects built during intense hackathons where ideas
+              turn into working products.
             </p>
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-12">
-          {hackathons.map((hackathon, index) => (
-            <Reveal key={index} delay={index * 0.1}>
-              <Tilt>
-                <div className="glass-card group h-fit overflow-hidden flex flex-col border border-white/5 bg-white/2 backdrop-blur-md hover:border-accent/30 transition-all duration-500">
-                  {/* Header Section */}
-                  <div className="p-8 border-b border-white/5 bg-white/1">
-                    <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
-                      <div>
-                        <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors font-syne tracking-tight">
-                          {hackathon.title}
-                        </h3>
-                        <p className="text-accent text-sm font-semibold mt-0.5">{hackathon.organization}</p>
-                      </div>
-                      <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-white/40 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
-                        <Calendar size={12} className="text-accent/60" />
-                        <span>{hackathon.date}</span>
-                      </div>
-                    </div>
-                    <p className="text-secondary text-sm leading-relaxed max-w-3xl">{hackathon.description}</p>
-                  </div>
-
-                  {/* Content Split */}
-                  <div className="flex flex-col lg:flex-row grow">
-                    {/* Certificate Left/Top */}
-                    <div className="lg:w-[45%] relative group/cert overflow-hidden bg-black/40 border-r border-white/5 flex items-center justify-center">
-                      {/* Decorative Background Glow */}
-                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-700" />
-
-                      {/* Certificate Frame */}
-                      <div className="relative w-full h-full shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-sm overflow-hidden border border-white/10 group-hover/cert:scale-[1.02] transition-all duration-700 ease-out">
-                        <img
-                          src={hackathon.certificate}
-                          alt={`${hackathon.title} Certificate`}
-                          className="w-full h-auto object-cover grayscale-[0.2] group-hover/cert:grayscale-0 transition-all duration-700"
-                        />
-                        {/* Shine effect */}
-                        <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 -translate-x-full group-hover/cert:translate-x-full transition-transform duration-1000 delay-100" />
-                      </div>
-                    </div>
-
-                    {/* Project Right/Bottom */}
-                    <div className="lg:w-[55%] p-8 flex flex-col bg-white/0.5">
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className="w-8 h-px bg-accent/30" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent/80">Project Built</span>
-                      </div>
-
-                      <h4 className="text-xl font-bold text-white mb-2 flex items-center gap-2">
-                        {hackathon.project.name}
-                        <Sparkles size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </h4>
-                      <p className="text-secondary text-sm leading-relaxed mb-6 grow italic opacity-90">
-                        "{hackathon.project.description}"
-                      </p>
-
-                      {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {hackathon.project.tech.map((tech, tIndex) => (
-                          <span key={tIndex} className="px-2.5 py-1 text-[10px] font-medium rounded-md bg-white/5 border border-white/5 text-white/50 hover:border-accent/30 hover:text-accent transition-colors cursor-default">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-
-                      {/* Project Links */}
-                      <div className="flex items-center gap-6 mt-auto pt-6 border-t border-white/5">
-                        <a
-                          href={hackathon.project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/link flex items-center gap-2 text-xs font-bold text-secondary hover:text-white transition-colors"
-                        >
-                          <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-all">
-                            <Github size={14} />
-                          </div>
-                          <span>Code</span>
-                        </a>
-                        <a
-                          href={hackathon.project.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/link flex items-center gap-2 text-xs font-bold text-secondary hover:text-white transition-colors"
-                        >
-                          <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover/link:bg-accent group-hover/link:text-white transition-all">
-                            <ExternalLink size={14} />
-                          </div>
-                          <span>Live Demo</span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Decorative Sparkle */}
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                    <Sparkles size={16} className="text-accent/30" />
-                  </div>
-                </div>
-              </Tilt>
+        {/* cards */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
+          {hackathons.map((h, i) => (
+            <Reveal key={i} delay={i * 0.1}>
+              <HackathonCard 
+                hackathon={h} 
+                onImageClick={(hackathon, index) => setSelectedGallery({ hackathon, index })} 
+              />
             </Reveal>
           ))}
         </div>
