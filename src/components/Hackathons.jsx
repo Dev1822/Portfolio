@@ -14,6 +14,20 @@ import dopplegangerCert from '../assets/certificate/Doppleganger.jpg';
 // You can add your certificates and projects here
 const hackathons = [
   {
+    title: "Doppleganger",
+    organization: "OpenPools",
+    date: "2026",
+    description: "An innovation-driven hackathon focused on solving real-world challenges through collaborative development.",
+    certificate: dopplegangerCert,
+    project: {
+      name: "PlantPal",
+      description: "PlantPal is a plant care platform with smart watering schedules, AI-based pest detection, and a community forum for tips and support.",
+      tech: ["Reactjs", "Nodejs", "MySQL"],
+      github: "https://github.com/Dev1822/PlantPal",
+      demo: "https://plant-pal-ten.vercel.app/"
+    }
+  },
+  {
     title: "Electrosphere 2026",
     organization: "Tech Fest",
     date: "2026",
@@ -27,20 +41,6 @@ const hackathons = [
       demo: "https://kalix-syntax-squad.vercel.app/"
     }
   },
-  {
-    title: "Doppleganger",
-    organization: "OpenPools",
-    date: "2026",
-    description: "An innovation-driven hackathon focused on solving real-world challenges through collaborative development.",
-    certificate: dopplegangerCert,
-    project: {
-      name: "PlantPal",
-      description: "PlantPal is a plant care platform with smart watering schedules, AI-based pest detection, and a community forum for tips and support.",
-      tech: ["Reactjs", "Nodejs", "MySQL"],
-      github: "https://github.com/Dev1822/PlantPal",
-      demo: "https://plant-pal-ten.vercel.app/"
-    }
-  }
 ];
 
 export default function Hackathons() {
@@ -65,9 +65,9 @@ export default function Hackathons() {
           {hackathons.map((hackathon, index) => (
             <Reveal key={index} delay={index * 0.1}>
               <Tilt>
-                <div className="glass-card group h-full overflow-hidden flex flex-col border border-white/5 bg-white/[0.02] backdrop-blur-md hover:border-accent/30 transition-all duration-500">
+                <div className="glass-card group h-fit overflow-hidden flex flex-col border border-white/5 bg-white/2 backdrop-blur-md hover:border-accent/30 transition-all duration-500">
                   {/* Header Section */}
-                  <div className="p-8 border-b border-white/[0.05] bg-white/[0.01]">
+                  <div className="p-8 border-b border-white/5 bg-white/1">
                     <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
                       <div>
                         <h3 className="text-2xl font-bold text-white group-hover:text-accent transition-colors font-syne tracking-tight">
@@ -84,9 +84,9 @@ export default function Hackathons() {
                   </div>
 
                   {/* Content Split */}
-                  <div className="flex flex-col lg:flex-row flex-grow">
+                  <div className="flex flex-col lg:flex-row grow">
                     {/* Certificate Left/Top */}
-                    <div className="lg:w-[45%] relative group/cert overflow-hidden bg-black/40 border-r border-white/[0.05] min-h-[280px] flex items-center justify-center p-8">
+                    <div className="lg:w-[45%] relative group/cert overflow-hidden bg-black/40 border-r border-white/5 flex items-center justify-center">
                       {/* Decorative Background Glow */}
                       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover/cert:opacity-100 transition-opacity duration-700" />
 
@@ -95,17 +95,17 @@ export default function Hackathons() {
                         <img
                           src={hackathon.certificate}
                           alt={`${hackathon.title} Certificate`}
-                          className="w-full h-full object-cover grayscale-[0.2] group-hover/cert:grayscale-0 transition-all duration-700"
+                          className="w-full h-auto object-cover grayscale-[0.2] group-hover/cert:grayscale-0 transition-all duration-700"
                         />
                         {/* Shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 -translate-x-full group-hover/cert:translate-x-full transition-transform duration-1000 delay-100" />
+                        <div className="absolute inset-0 bg-linear-to-tr from-white/0 via-white/5 to-white/0 -translate-x-full group-hover/cert:translate-x-full transition-transform duration-1000 delay-100" />
                       </div>
                     </div>
 
                     {/* Project Right/Bottom */}
-                    <div className="lg:w-[55%] p-8 flex flex-col bg-white/[0.005]">
+                    <div className="lg:w-[55%] p-8 flex flex-col bg-white/0.5">
                       <div className="flex items-center gap-2 mb-4">
-                        <div className="w-8 h-[1px] bg-accent/30" />
+                        <div className="w-8 h-px bg-accent/30" />
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-accent/80">Project Built</span>
                       </div>
 
@@ -113,7 +113,7 @@ export default function Hackathons() {
                         {hackathon.project.name}
                         <Sparkles size={14} className="text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                       </h4>
-                      <p className="text-secondary text-sm leading-relaxed mb-6 flex-grow italic opacity-90">
+                      <p className="text-secondary text-sm leading-relaxed mb-6 grow italic opacity-90">
                         "{hackathon.project.description}"
                       </p>
 
@@ -127,7 +127,7 @@ export default function Hackathons() {
                       </div>
 
                       {/* Project Links */}
-                      <div className="flex items-center gap-6 mt-auto pt-6 border-t border-white/[0.05]">
+                      <div className="flex items-center gap-6 mt-auto pt-6 border-t border-white/5">
                         <a
                           href={hackathon.project.github}
                           target="_blank"

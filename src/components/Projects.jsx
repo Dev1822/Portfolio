@@ -221,9 +221,9 @@ export default function Projects() {
                     </div>
 
                     {/* Project Info */}
-                    <div className="p-6 flex flex-col flex-grow">
+                    <div className="p-6 flex flex-col grow">
                       <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors text-white/90">{project.title}</h3>
-                      <p className="text-secondary text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
+                      <p className="text-secondary text-sm leading-relaxed mb-6 grow">{project.description}</p>
 
                       <div className="flex flex-wrap gap-2 mt-auto">
                         {project.tech.map((tech, tIndex) => (

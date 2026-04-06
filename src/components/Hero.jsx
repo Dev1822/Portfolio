@@ -25,11 +25,11 @@ export default function Hero() {
             {/* Heading */}
             <h1 className="font-syne text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
               Hi, I'm{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white to-gray-500">
                 Dev Patel
               </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-blue-400">
                 Building the future.
               </span>
             </h1>
