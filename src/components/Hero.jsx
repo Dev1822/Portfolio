@@ -54,7 +54,7 @@ export default function Hero() {
                   />
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1v783DJyCjDaTTu31dFYblV-qY7Xm3XnW/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1e4cV6O19AZDJb_8H65gfloPN06Q3ksgJ/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group px-8 py-3 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:bg-white/10"
