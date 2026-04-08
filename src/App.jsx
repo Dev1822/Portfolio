@@ -1,22 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Hackathons from './components/Hackathons';
-import Certifications from './components/Certifications';
-import GitHubSection from './components/GitHub';
-import LeetCodeSection from './components/LeetCode';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+const About = lazy(() => import('./components/About'));
+const Skills = lazy(() => import('./components/Skills'));
+const Projects = lazy(() => import('./components/Projects'));
+const Hackathons = lazy(() => import('./components/Hackathons'));
+const Certifications = lazy(() => import('./components/Certifications'));
+const GitHubSection = lazy(() => import('./components/GitHub'));
+const LeetCodeSection = lazy(() => import('./components/LeetCode'));
+const Contact = lazy(() => import('./components/Contact'));
 
 import SmoothScroll from './components/animations/SmoothScroll';
 import CustomCursor from './components/animations/CustomCursor';
 import Noise from './components/animations/Noise';
 import Reveal from './components/animations/Reveal';
+
+const PageLoader = () => (
+  <div className="flex justify-center items-center py-20 w-full min-h-[50vh]">
+    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent"></div>
+  </div>
+);
 
 function App() {
   const [isMounted, setIsMounted] = useState(false);
@@ -58,24 +65,26 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
-              <About />
-              <Skills />
-              <Projects />
-              <Hackathons />
-              <Certifications />
-              <GitHubSection />
-              <LeetCodeSection />
-              <Contact />
+              <Suspense fallback={<PageLoader />}>
+                <About />
+                <Skills />
+                <Projects />
+                <Hackathons />
+                <Certifications />
+                <GitHubSection />
+                <LeetCodeSection />
+                <Contact />
+              </Suspense>
             </>
           } />
-          <Route path="/about-dev-patel" element={<About />} />
-          <Route path="/developer-skills" element={<Skills />} />
-          <Route path="/software-projects" element={<Projects />} />
-          <Route path="/hackathon-experience" element={<Hackathons />} />
-          <Route path="/tech-certifications" element={<Certifications />} />
-          <Route path="/github-contributions" element={<GitHubSection />} />
-          <Route path="/leetcode-profile" element={<LeetCodeSection />} />
-          <Route path="/contact-dev-patel" element={<Contact />} />
+          <Route path="/about-dev-patel" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
+          <Route path="/developer-skills" element={<Suspense fallback={<PageLoader />}><Skills /></Suspense>} />
+          <Route path="/software-projects" element={<Suspense fallback={<PageLoader />}><Projects /></Suspense>} />
+          <Route path="/hackathon-experience" element={<Suspense fallback={<PageLoader />}><Hackathons /></Suspense>} />
+          <Route path="/tech-certifications" element={<Suspense fallback={<PageLoader />}><Certifications /></Suspense>} />
+          <Route path="/github-contributions" element={<Suspense fallback={<PageLoader />}><GitHubSection /></Suspense>} />
+          <Route path="/leetcode-profile" element={<Suspense fallback={<PageLoader />}><LeetCodeSection /></Suspense>} />
+          <Route path="/contact-dev-patel" element={<Suspense fallback={<PageLoader />}><Contact /></Suspense>} />
         </Routes>
       </main>
 
