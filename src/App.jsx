@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -27,6 +28,18 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-white">
+      <Helmet>
+        <title>Dev Patel | Portfolio Website</title>
+        <meta name="description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+        <meta name="keywords" content="Dev Patel, Portfolio, Developer, AI Engineer, Machine Learning, React Developer, Full Stack Developer" />
+        <meta name="author" content="Dev Patel" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Dev Patel | Portfolio Website" />
+        <meta property="og:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Dev Patel | Portfolio Website" />
+        <meta property="twitter:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+      </Helmet>
       <SmoothScroll />
       <CustomCursor />
       <Noise />
