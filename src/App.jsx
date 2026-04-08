@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -53,15 +54,29 @@ function App() {
       <Navbar />
       
       <main className="relative z-10 flex flex-col items-center w-full">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Hackathons />
-        <Certifications />
-        <GitHubSection />
-        <LeetCodeSection />
-        <Contact />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <About />
+              <Skills />
+              <Projects />
+              <Hackathons />
+              <Certifications />
+              <GitHubSection />
+              <LeetCodeSection />
+              <Contact />
+            </>
+          } />
+          <Route path="/about-dev-patel" element={<About />} />
+          <Route path="/developer-skills" element={<Skills />} />
+          <Route path="/software-projects" element={<Projects />} />
+          <Route path="/hackathon-experience" element={<Hackathons />} />
+          <Route path="/tech-certifications" element={<Certifications />} />
+          <Route path="/github-contributions" element={<GitHubSection />} />
+          <Route path="/leetcode-profile" element={<LeetCodeSection />} />
+          <Route path="/contact-dev-patel" element={<Contact />} />
+        </Routes>
       </main>
 
       <Footer />

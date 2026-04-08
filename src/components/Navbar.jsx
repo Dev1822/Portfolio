@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import Reveal from "./animations/Reveal";
 import logo from "../assets/profile/logo.png";
 
 const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Hackathons", href: "#hackathons" },
-  { name: "Certifications", href: "#certifications" },
-  { name: "GitHub", href: "#github" },
-  { name: "LeetCode", href: "#leetcode" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "/about-dev-patel" },
+  { name: "Skills", href: "/developer-skills" },
+  { name: "Projects", href: "/software-projects" },
+  { name: "Hackathons", href: "/hackathon-experience" },
+  { name: "Certifications", href: "/tech-certifications" },
+  { name: "GitHub", href: "/github-contributions" },
+  { name: "LeetCode", href: "/leetcode-profile" },
+  { name: "Contact", href: "/contact-dev-patel" },
 ];
 
 export default function Navbar() {
@@ -55,8 +56,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <Reveal y={0} delay={0.1}>
-          <a
-            href="#"
+          <Link
+            to="/"
             className="flex items-center gap-2 group"
           >
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 group-hover:border-accent/50 transition-colors">
@@ -65,20 +66,20 @@ export default function Navbar() {
             <span className="font-syne text-xl font-bold tracking-tight text-white group-hover:text-accent transition-colors">
               Dev<span className="text-accent">.</span>
             </span>
-          </a>
+          </Link>
         </Reveal>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8">
           {navItems.map((item, idx) => (
             <Reveal key={item.name} y={0} delay={0.1 + idx * 0.05}>
-              <a
-                href={item.href}
+              <Link
+                to={item.href}
                 className="font-sans text-sm text-secondary hover:text-white transition-colors relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-              </a>
+              </Link>
             </Reveal>
           ))}
 
@@ -145,14 +146,14 @@ export default function Navbar() {
             className="absolute top-full left-0 right-0 backdrop-blur-lg bg-black/80 border-b border-white/10 p-4 flex flex-col space-y-4 md:hidden"
           >
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.href}
+                to={item.href}
                 onClick={() => setMobileMenuOpen(false)}
                 className="font-sans text-sm text-secondary hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors"
               >
                 {item.name}
-              </a>
+              </Link>
             ))}
           </motion.div>
         )}
