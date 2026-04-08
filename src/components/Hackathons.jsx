@@ -94,7 +94,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
           transition-all duration-500"
         >
           {/* GALLERY AREA */}
-          <div className="relative p-4 flex items-center justify-center bg-black/30">
+          <div className="relative p-3 sm:p-4 flex items-center justify-center bg-black/30">
             <div 
               className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 cursor-pointer"
               onClick={() => onImageClick?.(hackathon, index)}
@@ -145,7 +145,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
           </div>
 
           {/* OVERVIEW AREA */}
-          <div className="p-6 flex flex-col border-b border-white/10">
+          <div className="p-5 sm:p-6 flex flex-col border-b border-white/10">
             <div className="flex justify-between items-start mb-3">
               <span className="text-xs uppercase tracking-widest text-accent">
                 Overview
@@ -170,7 +170,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
           </div>
 
           {/* PROJECT AREA */}
-          <div className="p-6 flex flex-col flex-grow">
+          <div className="p-5 sm:p-6 flex flex-col flex-grow">
             <span className="text-xs uppercase tracking-widest text-accent mb-3">
               Project
             </span>
@@ -196,7 +196,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
               ))}
             </div>
 
-            <div className="flex gap-3 mt-auto">
+            <div className="flex flex-wrap gap-3 mt-auto">
               <a
                 href={hackathon.project.github}
                 target="_blank"
@@ -350,7 +350,7 @@ export default function Hackathons() {
         <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/20 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
         {/* header */}
         <Reveal>
@@ -362,7 +362,7 @@ export default function Hackathons() {
               </span>
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6">
               Building Under Pressure
             </h2>
 
@@ -374,13 +374,15 @@ export default function Hackathons() {
         </Reveal>
 
         {/* cards */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14 justify-items-center">
           {hackathons.map((h, i) => (
             <Reveal key={i} delay={i * 0.1}>
-              <HackathonCard 
-                hackathon={h} 
-                onImageClick={(hackathon, index) => setSelectedGallery({ hackathon, index })} 
-              />
+              <div className="max-w-md lg:max-w-none w-full h-full">
+                <HackathonCard 
+                  hackathon={h} 
+                  onImageClick={(hackathon, index) => setSelectedGallery({ hackathon, index })} 
+                />
+              </div>
             </Reveal>
           ))}
         </div>

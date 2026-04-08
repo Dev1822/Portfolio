@@ -60,7 +60,7 @@ function App() {
 
       <Navbar />
       
-      <main className="relative z-10 flex flex-col items-center w-full">
+      <main className="relative z-10 flex flex-col items-center w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={
             <>

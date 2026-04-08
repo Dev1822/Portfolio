@@ -52,7 +52,7 @@ html.light {
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 * {
@@ -60,7 +60,7 @@ html {
 }
 
 body {
-  @apply bg-background text-primary font-sans antialiased overflow-x-hidden;
+  @apply bg-background text-primary font-sans antialiased overflow-x-clip;
 }
 
 @utility glass {
@@ -160,4 +160,11 @@ html.light .to-gray-500 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-secondary);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

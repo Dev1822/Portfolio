@@ -14,11 +14,11 @@ export default function About() {
 
   return (
     <section id="about" className="relative w-full py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         
         <Reveal>
           <div className="mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">About Me</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">About Me</h2>
             <div className="w-20 h-1 bg-accent rounded-full"></div>
           </div>
         </Reveal>
@@ -29,7 +29,7 @@ export default function About() {
             {/* Profile Image */}
             <Reveal x={-30} delay={0.2}>
               <Tilt>
-                <div className="glass-card w-full h-[500px] rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
+                <div className="glass-card w-full h-[350px] lg:h-[500px] rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
                   <img 
                     src={profileImg} 
@@ -46,7 +46,7 @@ export default function About() {
           <div className="space-y-8">
             <Reveal x={30} delay={0.4}>
               <Tilt>
-                <div className="glass-card p-8 relative overflow-hidden group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
+                <div className="glass-card p-5 sm:p-6 lg:p-8 relative overflow-hidden group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[50px] group-hover:bg-accent/20 transition-all duration-500"></div>
                   <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-white/90">
                     <User className="text-accent" />
@@ -62,7 +62,7 @@ export default function About() {
 
             <Reveal x={30} delay={0.6}>
               <Tilt>
-                <div className="glass-card p-8 relative overflow-hidden group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
+                <div className="glass-card p-5 sm:p-6 lg:p-8 relative overflow-hidden group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[50px] group-hover:bg-blue-500/20 transition-all duration-500"></div>
                   <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-white/90">
                     <Target className="text-blue-400" />

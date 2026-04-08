@@ -10,9 +10,9 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <Scene3D />
 
-      <div className="max-w-7xl mx-auto px-6 w-full z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full z-10">
         <Reveal delay={0.2} stagger={0.1}>
-          <div className="max-w-4xl">
+          <div className="max-w-4xl flex flex-col items-center text-center md:items-start md:text-left transition-all duration-500">
 
             {/* Status Badge */}
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full backdrop-blur-lg bg-white/5 border border-white/10 mb-6">
@@ -23,7 +23,7 @@ export default function Hero() {
             </div>
 
             {/* Heading */}
-            <h1 className="font-syne text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
+            <h1 className="font-syne text-2xl sm:text-4xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] mb-6">
               Hi, I'm{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white to-gray-500">
                 Dev Patel
@@ -35,14 +35,14 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="font-sans text-lg md:text-xl text-secondary max-w-2xl mb-10 leading-relaxed">
-              Computer Engineering Student | Full Stack Developer.
+            <p className="font-sans text-sm sm:text-base md:text-xl text-secondary max-w-xl mb-10 leading-relaxed">
+              Computer Engineering Student | Full Stack Developer.{" "}
               <br className="hidden md:block" />
-              Frontend Developer | Backend Developer | Data Science Enthusiast.
+              Building modern AI applications and scalable web solutions.
             </p>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto">
                 <a
                   href="#projects"
                   className="group px-8 py-3 rounded-xl bg-white text-black font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
@@ -68,7 +68,7 @@ export default function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center justify-center md:justify-start flex-wrap gap-2 sm:gap-4">
               {[
                 { icon: Github, href: "https://github.com/Dev1822", label: "GitHub" },
                 { icon: Linkedin, href: "https://www.linkedin.com/in/dev-daxin-patel/", label: "LinkedIn" },

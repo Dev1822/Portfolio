@@ -152,14 +152,14 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative w-full py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
         <Reveal>
           <div className="mb-16 flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 mb-4">
               <Sparkles size={14} className="text-accent" />
               <span className="text-xs font-medium text-secondary tracking-wide uppercase">Featured Work</span>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Selected Projects</h2>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">Selected Projects</h2>
             <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
             <p className="text-secondary max-w-2xl text-lg">A showcase of my technical abilities, featuring intelligent applications, pixel-perfect clones, and modern web platforms.</p>
           </div>
@@ -167,12 +167,12 @@ export default function Projects() {
 
         {/* Filter Buttons */}
         <Reveal delay={0.2}>
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12">
+          <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-4 mb-12 no-scrollbar scroll-smooth">
             {categories.map((cat, index) => (
               <button
                 key={index}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
+                className={`flex-shrink-0 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
                   ? 'bg-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-accent'
                   : 'bg-white/5 text-secondary hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/20'
                   }`}
@@ -206,7 +206,7 @@ export default function Projects() {
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
 
                       {/* Overlay Links */}
-                      <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 backdrop-blur-[2px]">
+                      <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3 px-4 opacity-100 translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300 backdrop-blur-[2px] bg-black/20 md:bg-transparent">
                         <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-accent text-white rounded-full hover:scale-110 transition-all" title="View Source">
                           <Github size={18} />
                         </a>
@@ -221,13 +221,13 @@ export default function Projects() {
                     </div>
 
                     {/* Project Info */}
-                    <div className="p-6 flex flex-col grow">
+                    <div className="p-5 sm:p-6 flex flex-col grow">
                       <h3 className="text-xl font-bold mb-2 group-hover:text-accent transition-colors text-white/90">{project.title}</h3>
                       <p className="text-secondary text-sm leading-relaxed mb-6 grow">{project.description}</p>
 
                       <div className="flex flex-wrap gap-2 mt-auto">
                         {project.tech.map((tech, tIndex) => (
-                          <span key={tIndex} className="px-2.5 py-1 text-[10px] font-medium rounded-md bg-white/5 border border-white/10 text-white/60">
+                          <span key={tIndex} className="px-2.5 py-1 text-[11px] sm:text-xs font-medium rounded-md bg-white/5 border border-white/10 text-white/60">
                             {tech}
                           </span>
                         ))}

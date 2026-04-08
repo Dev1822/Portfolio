@@ -53,7 +53,7 @@ export default function Navbar() {
           : "py-6 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-between items-center">
         {/* Logo */}
         <Reveal y={0} delay={0.1}>
           <Link
@@ -70,7 +70,7 @@ export default function Navbar() {
         </Reveal>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
           {navItems.map((item, idx) => (
             <Reveal key={item.name} y={0} delay={0.1 + idx * 0.05}>
               <Link
@@ -108,7 +108,7 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Controls */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300"
@@ -143,7 +143,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 backdrop-blur-lg bg-black/80 border-b border-white/10 p-4 flex flex-col space-y-4 md:hidden"
+            className="absolute top-full left-0 right-0 backdrop-blur-xl bg-black/90 border-b border-white/10 p-6 flex flex-col space-y-3 lg:hidden max-h-[85vh] overflow-y-auto shadow-2xl"
           >
             {navItems.map((item) => (
               <Link

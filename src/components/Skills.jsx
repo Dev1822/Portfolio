@@ -162,7 +162,7 @@ export default function Skills() {
           isLightMode={isLightMode}
         />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 relative z-10">
           {/* Header */}
           <Reveal>
             <div className="mb-16">
@@ -173,7 +173,7 @@ export default function Skills() {
               </div>
 
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                <h2 className="font-syne font-extrabold tracking-tight leading-[0.9] text-5xl md:text-7xl text-primary">
+                <h2 className="font-syne font-extrabold tracking-tight leading-[0.9] text-3xl sm:text-4xl md:text-7xl text-primary">
                   Technical<br />
                   <span style={{ WebkitTextStroke: '1px var(--color-theme-border)', color: 'transparent' }}>Skills</span>
                 </h2>
@@ -203,7 +203,7 @@ export default function Skills() {
                   >
                     {isHovered && <div className="card-shimmer" />}
 
-                    <div className="p-7 h-full flex flex-col relative z-10">
+                    <div className="p-5 sm:p-7 h-full flex flex-col relative z-10">
                       <div className="flex items-start justify-between mb-6">
                         <div
                           className="w-11 h-11 flex items-center justify-center rounded-xl transition-all duration-500"
