@@ -15,9 +15,11 @@ export default function Footer() {
         </div>
         
         <div className="flex items-center gap-6 text-sm text-secondary">
-          <a href="https://x.com/DevPatel1822" className="hover:text-white transition-colors">Twitter</a>
-          <a href="https://www.linkedin.com/in/dev-daxin-patel/" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="https://github.com/Dev1822" className="hover:text-white transition-colors">GitHub</a>
+          <a href="https://x.com/DevPatel1822" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
+          <a href="https://www.linkedin.com/in/dev-daxin-patel/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://github.com/Dev1822" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
+          <a href="https://leetcode.com/Dev_D_Patel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LeetCode</a>
+          <a href="https://www.youtube.com/@DevDaxinPatel" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">YouTube</a>
         </div>
         
         <button 
