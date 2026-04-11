@@ -172,7 +172,7 @@ export default function Projects() {
               <button
                 key={index}
                 onClick={() => setFilter(cat)}
-                className={`flex-shrink-0 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
+                className={`shrink-0 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
                   ? 'bg-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-accent'
                   : 'bg-white/5 text-secondary hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/20'
                   }`}

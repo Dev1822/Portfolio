@@ -87,7 +87,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
           whileHover={{ y: -8 }}
           transition={{ duration: 0.3 }}
           className="group relative rounded-2xl overflow-hidden h-full flex flex-col
-          bg-gradient-to-br from-white/[0.05] to-white/[0.02]
+          bg-linear-to-br from-white/5 to-white/2
           border border-white/10 
           shadow-[0_10px_40px_rgba(0,0,0,0.4)]
           hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
@@ -112,7 +112,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
               </AnimatePresence>
 
               {/* overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
 
               {/* controls */}
               <div className="absolute inset-0 flex items-center justify-between px-3 opacity-0 group-hover:opacity-100 transition">
@@ -170,7 +170,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
           </div>
 
           {/* PROJECT AREA */}
-          <div className="p-5 sm:p-6 flex flex-col flex-grow">
+          <div className="p-5 sm:p-6 flex flex-col grow">
             <span className="text-xs uppercase tracking-widest text-accent mb-3">
               Project
             </span>
@@ -188,7 +188,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
                 <span
                   key={i}
                   className="px-2 py-1 text-[11px] rounded-md 
-                  bg-white/[0.04] border border-white/10 text-white/70
+                  bg-white/4 border border-white/10 text-white/70
                   hover:bg-accent/10 hover:text-accent transition"
                 >
                   {tech}
@@ -256,7 +256,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
     >
       <button
         onClick={onClose}
@@ -347,7 +347,7 @@ export default function Hackathons() {
 
       {/* background glow */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/20 blur-[120px] rounded-full" />
+        <div className="absolute -top-37.5 left-1/2 -translate-x-1/2 w-150 h-150 bg-accent/20 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">

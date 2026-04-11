@@ -78,7 +78,7 @@ export default function Navbar() {
                 className="font-sans text-sm text-secondary hover:text-white transition-colors relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
               </Link>
             </Reveal>
           ))}

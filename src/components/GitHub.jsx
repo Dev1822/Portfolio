@@ -34,7 +34,7 @@ export default function GitHubSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6 }}
-            className="glass-card p-6 flex flex-col items-center justify-center min-h-[220px] group transition-all hover:bg-surfaceLight/70 text-center"
+            className="glass-card p-6 flex flex-col items-center justify-center min-h-55 group transition-all hover:bg-surfaceLight/70 text-center"
           >
             <Github size={48} className="text-secondary mb-4 opacity-50 group-hover:opacity-100 group-hover:text-accent transition-all duration-300" />
             <h3 className="text-lg font-bold text-white mb-2">GitHub Statistics</h3>
@@ -55,7 +55,7 @@ export default function GitHubSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-6 flex flex-col items-center justify-center min-h-[220px] group transition-all hover:bg-surfaceLight/70 text-center"
+            className="glass-card p-6 flex flex-col items-center justify-center min-h-55 group transition-all hover:bg-surfaceLight/70 text-center"
           >
             <Activity size={48} className="text-secondary mb-4 opacity-50 group-hover:opacity-100 group-hover:text-blue-400 transition-all duration-300" />
             <h3 className="text-lg font-bold text-white mb-2">Top Languages</h3>

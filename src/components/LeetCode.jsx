@@ -40,7 +40,7 @@ export default function LeetCodeSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full glass-card p-6 flex flex-col items-center justify-center min-h-[240px] group hover:bg-surfaceLight/70 transition-all text-center overflow-hidden"
+          className="w-full glass-card p-6 flex flex-col items-center justify-center min-h-60 group hover:bg-surfaceLight/70 transition-all text-center overflow-hidden"
         >
           <div className="flex items-center gap-3 mb-4">
             <Activity size={28} className="text-orange-400" />

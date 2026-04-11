@@ -29,8 +29,8 @@ export default function About() {
             {/* Profile Image */}
             <Reveal x={-30} delay={0.2}>
               <Tilt>
-                <div className="glass-card w-full h-[350px] lg:h-[500px] rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
+                <div className="glass-card w-full h-87.5 lg:h-125 rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
+                  <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
                   <img 
                     src={profileImg} 
                     alt="Dev Patel" 
