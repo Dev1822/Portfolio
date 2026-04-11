@@ -95,7 +95,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
         >
           {/* GALLERY AREA */}
           <div className="relative p-3 sm:p-4 flex items-center justify-center bg-black/30">
-            <div 
+            <div
               className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 cursor-pointer"
               onClick={() => onImageClick?.(hackathon, index)}
             >
@@ -135,9 +135,8 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
                 {hackathon.images.map((_, i) => (
                   <div
                     key={i}
-                    className={`h-1.5 rounded-full ${
-                      i === index ? "w-4 bg-accent" : "w-1.5 bg-white/50"
-                    }`}
+                    className={`h-1.5 rounded-full ${i === index ? "w-4 bg-accent" : "w-1.5 bg-white/50"
+                      }`}
                   />
                 ))}
               </div>
@@ -274,7 +273,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
       >
         <ChevronLeft size={32} />
       </button>
-      
+
       <button
         onClick={(e) => {
           e.stopPropagation();
@@ -308,9 +307,8 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
               e.stopPropagation();
               setIndex(i);
             }}
-            className={`h-2 rounded-full transition-all ${
-              i === index ? "w-6 bg-accent" : "w-2 bg-white/50 hover:bg-white/80"
-            }`}
+            className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-accent" : "w-2 bg-white/50 hover:bg-white/80"
+              }`}
           />
         ))}
       </div>
@@ -378,9 +376,9 @@ export default function Hackathons() {
           {hackathons.map((h, i) => (
             <Reveal key={i} delay={i * 0.1}>
               <div className="max-w-md lg:max-w-none w-full h-full">
-                <HackathonCard 
-                  hackathon={h} 
-                  onImageClick={(hackathon, index) => setSelectedGallery({ hackathon, index })} 
+                <HackathonCard
+                  hackathon={h}
+                  onImageClick={(hackathon, index) => setSelectedGallery({ hackathon, index })}
                 />
               </div>
             </Reveal>

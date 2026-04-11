@@ -15,7 +15,7 @@ export default function About() {
   return (
     <section id="about" className="relative w-full py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        
+
         <Reveal>
           <div className="mb-16">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">About Me</h2>
@@ -31,9 +31,9 @@ export default function About() {
               <Tilt>
                 <div className="glass-card w-full h-87.5 lg:h-125 rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
                   <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
-                  <img 
-                    src={profileImg} 
-                    alt="Dev Patel" 
+                  <img
+                    src={profileImg}
+                    alt="Dev Patel"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     style={{ objectPosition: "50% 20%" }}
                   />
@@ -53,7 +53,7 @@ export default function About() {
                     Who I am
                   </h3>
                   <p className="text-secondary leading-relaxed text-lg">
-                    I am a Computer Engineering student with a profound passion for Data Science and Full Stack Development. <br className="mb-4"/>
+                    I am a Computer Engineering student with a profound passion for Data Science and Full Stack Development. <br className="mb-4" />
                     My philosophy centers on building products that aren't just technical experiments, but real-world solutions. I thrive at the intersection of aesthetic design and intelligent engineering, constantly pushing the boundaries of what modern web experiences can be.
                   </p>
                 </div>

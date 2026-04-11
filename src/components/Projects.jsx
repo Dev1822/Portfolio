@@ -144,7 +144,7 @@ export default function Projects() {
     }
   ];
 
-  const categories = ['All', 'Website Clone', 'EDA', 'MERN',"ML"];
+  const categories = ['All', 'Website Clone', 'EDA', 'MERN', "ML"];
 
   const filteredProjects = projects.filter(project =>
     filter === 'All' ? true : project.category === filter

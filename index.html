@@ -1,27 +1,101 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
   <head>
+    <!-- Character Encoding -->
     <meta charset="UTF-8" />
 
-    <link rel="icon" type="image/svg+xml" href="/src/assets/profile/logo.png" />
-
+    <!-- Mobile Responsiveness -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Browser Compatibility -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Title -->
+    <title>
+      Dev Patel | Full Stack Developer | AI & ML Enthusiast | Portfolio
+    </title>
+
+    <!-- Primary Meta Description -->
     <meta
       name="description"
-      content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio"
+      content="Dev Patel is a Full Stack Developer specializing in AI & ML. Explore projects, hackathon wins, certifications, and technical achievements."
     />
 
+    <!-- Keywords (Optional, for completeness) -->
     <meta
       name="keywords"
-      content="Dev Patel, Portfolio, Developer, AI Engineer, Machine Learning, React Developer, Full Stack Developer"
+      content="Dev Patel, full stack developer, mern stack developer, portfolio, hackathon, coding projects, certifications"
     />
 
+    <!-- Author -->
     <meta name="author" content="Dev Patel" />
 
-    <title>Dev Patel | Portfolio Website</title>
+    <!-- Theme Color (Mobile Browsers) -->
+    <meta name="theme-color" content="#0f172a" />
 
-    <!-- Google Fonts Performance Optimization -->
+    <!-- Canonical URL (Avoid duplicate content issues) -->
+    <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/src/assets/profile/logo.png" />
+
+    <!-- Open Graph (For WhatsApp, LinkedIn, Facebook sharing) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dev Patel | Portfolio Website" />
+    <meta
+      property="og:description"
+      content="Portfolio showcasing projects, hackathons, certifications, and achievements."
+    />
+    <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/" />
+    <meta
+      property="og:image"
+      content="/src/assets/profile/logo.png"
+    />
+
+    <!-- Twitter Card (For Twitter/X sharing) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dev Patel Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Explore my projects, achievements, and certifications."
+    />
+    <meta
+      name="twitter:image"
+      content="/src/assets/profile/logo.png"
+    />
+
+    <!-- Robots Instruction -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Structured Data (Schema.org for better indexing) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Dev Patel",
+        "url": "https://dev-d-patel-portfolio.vercel.app",
+        "image": "/src/assets/profile/logo.png",
+        "sameAs": [
+          "https://github.com/Dev1822",
+          "https://linkedin.com/in/dev-daxin-patel/"
+        ],
+        "jobTitle": "Full Stack Developer",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Computer Engineering"
+        },
+        "knowsAbout": [
+          "React",
+          "JavaScript",
+          "Node.js",
+          "MongoDB",
+          "Frontend Development",
+          "AI/ML"
+        ]
+      }
+    </script>
+
+    <!-- Preconnect for Performance (Optional but Good Practice) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -34,8 +108,19 @@
   </head>
 
   <body class="font-sans bg-background text-primary">
+    <!-- Root Element for React -->
     <div id="root"></div>
 
+    <!-- Vite/React Module Script -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Fallback content for SEO (if JS fails) -->
+    <noscript>
+      <h1>Dev Patel - Full Stack Developer Portfolio</h1>
+      <p>
+        This portfolio includes projects, hackathons, certifications, and
+        achievements of Dev Patel.
+      </p>
+    </noscript>
   </body>
 </html>

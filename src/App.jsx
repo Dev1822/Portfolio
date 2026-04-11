@@ -1,6 +1,5 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Footer from './components/Footer';
@@ -36,22 +35,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-white">
-      <Helmet>
-        <title>Dev Patel | Portfolio Website</title>
-        <meta name="description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
-        <meta name="keywords" content="Dev Patel, Portfolio, Developer, AI Engineer, Machine Learning, React Developer, Full Stack Developer" />
-        <meta name="author" content="Dev Patel" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Dev Patel | Portfolio Website" />
-        <meta property="og:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:title" content="Dev Patel | Portfolio Website" />
-        <meta property="twitter:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
-      </Helmet>
       <SmoothScroll />
       <CustomCursor />
       <Noise />
-      
+
       {/* Background ambient blobs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-accent/10 blur-[120px] animate-blob" />
@@ -59,11 +46,21 @@ function App() {
       </div>
 
       <Navbar />
-      
+
       <main className="relative z-10 flex flex-col items-center w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={
             <>
+              <title>Dev Patel | Portfolio Website</title>
+              <meta name="description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+              <meta name="keywords" content="Dev Patel, Portfolio, Developer, AI Engineer, Machine Learning, React Developer, Full Stack Developer" />
+              <meta name="author" content="Dev Patel" />
+              <meta property="og:type" content="website" />
+              <meta property="og:title" content="Dev Patel | Portfolio Website" />
+              <meta property="og:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+              <meta property="twitter:card" content="summary_large_image" />
+              <meta property="twitter:title" content="Dev Patel | Portfolio Website" />
+              <meta property="twitter:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
               <Hero />
               <Suspense fallback={<PageLoader />}>
                 <About />
@@ -77,14 +74,62 @@ function App() {
               </Suspense>
             </>
           } />
-          <Route path="/about-dev-patel" element={<Suspense fallback={<PageLoader />}><About /></Suspense>} />
-          <Route path="/developer-skills" element={<Suspense fallback={<PageLoader />}><Skills /></Suspense>} />
-          <Route path="/software-projects" element={<Suspense fallback={<PageLoader />}><Projects /></Suspense>} />
-          <Route path="/hackathon-experience" element={<Suspense fallback={<PageLoader />}><Hackathons /></Suspense>} />
-          <Route path="/tech-certifications" element={<Suspense fallback={<PageLoader />}><Certifications /></Suspense>} />
-          <Route path="/github-contributions" element={<Suspense fallback={<PageLoader />}><GitHubSection /></Suspense>} />
-          <Route path="/leetcode-profile" element={<Suspense fallback={<PageLoader />}><LeetCodeSection /></Suspense>} />
-          <Route path="/contact-dev-patel" element={<Suspense fallback={<PageLoader />}><Contact /></Suspense>} />
+          <Route path="/about-dev-patel" element={
+            <>
+              <title>About Dev Patel | Full Stack Developer & AI Enthusiast</title>
+              <meta name="description" content="Learn more about Dev Patel, a Computer Engineering student passionate about AI, ML, and Full Stack Development." />
+              <Suspense fallback={<PageLoader />}><About /></Suspense>
+            </>
+          } />
+          <Route path="/developer-skills" element={
+            <>
+              <title>Skills & Expertise | Dev Patel</title>
+              <meta name="description" content="Explore the technical skills and expertise of Dev Patel, including React, AI/ML, and modern web technologies." />
+              <Suspense fallback={<PageLoader />}><Skills /></Suspense>
+            </>
+          } />
+          <Route path="/software-projects" element={
+            <>
+              <title>Software Projects | Dev Patel Portfolio</title>
+              <meta name="description" content="Discover the software projects built by Dev Patel, ranging from web applications to AI-powered solutions." />
+              <Suspense fallback={<PageLoader />}><Projects /></Suspense>
+            </>
+          } />
+          <Route path="/hackathon-experience" element={
+            <>
+              <title>Hackathon Experience | Dev Patel</title>
+              <meta name="description" content="A showcase of hackathons attended and projects built by Dev Patel in competitive environments." />
+              <Suspense fallback={<PageLoader />}><Hackathons /></Suspense>
+            </>
+          } />
+          <Route path="/tech-certifications" element={
+            <>
+              <title>Technical Certifications | Dev Patel</title>
+              <meta name="description" content="View the professional certifications and achievements earned by Dev Patel in the field of technology." />
+              <Suspense fallback={<PageLoader />}><Certifications /></Suspense>
+            </>
+          } />
+          <Route path="/github-contributions" element={
+            <>
+              <title>GitHub Contributions | Dev Patel</title>
+              <meta name="description" content="Explore Dev Patel's open-source contributions and activity on GitHub." />
+              <Suspense fallback={<PageLoader />}><GitHubSection /></Suspense>
+            </>
+          } />
+          <Route path="/leetcode-profile" element={
+            <>
+              <title>LeetCode Profile | Dev Patel</title>
+              <meta name="description" content="Check out Dev Patel's problem-solving journey and achievements on LeetCode." />
+              <Suspense fallback={<PageLoader />}><LeetCodeSection /></Suspense>
+            </>
+          } />
+          <Route path="/contact-dev-patel" element={
+            <>
+              <title>Contact Dev Patel | Get In Touch</title>
+              <meta name="description" content="Reach out to Dev Patel for collaborations, opportunities, or just to say hi." />
+              <Suspense fallback={<PageLoader />}><Contact /></Suspense>
+            </>
+          } />
         </Routes>
       </main>
 

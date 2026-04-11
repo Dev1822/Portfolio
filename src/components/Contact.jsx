@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Linkedin, Github,Code2,Youtube,Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Send, Linkedin, Github, Code2, Youtube, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
 
@@ -81,7 +81,7 @@ export default function Contact() {
                       { icon: MapPin, label: "Location", value: "Kalol, Gujarat, India", href: "https://maps.google.com/?q=Kalol,Gujarat,India" }
                     ].map((item, i) => (
                       <Reveal key={i} x={-20} delay={0.2 + i * 0.1}>
-                        <a 
+                        <a
                           href={item.href}
                           className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-accent/40 hover:bg-white/10 transition-all duration-300"
                         >

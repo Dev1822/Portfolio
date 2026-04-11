@@ -33,16 +33,16 @@ const MatrixRain = ({ hoveredColor, intensity = 1, isLightMode }) => {
 
       for (let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];
-        
+
         // Use hoveredColor if active, otherwise subtle grey/black based on mode
         ctx.fillStyle = hoveredColor ? hoveredColor : (isLightMode ? 'rgba(0, 0, 0, 0.15)' : 'rgba(255, 255, 255, 0.15)');
-        
+
         // Add glow if hovered
         if (hoveredColor) {
-           ctx.shadowBlur = 5;
-           ctx.shadowColor = hoveredColor;
+          ctx.shadowBlur = 5;
+          ctx.shadowColor = hoveredColor;
         } else {
-           ctx.shadowBlur = 0;
+          ctx.shadowBlur = 0;
         }
 
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
@@ -67,8 +67,8 @@ const MatrixRain = ({ hoveredColor, intensity = 1, isLightMode }) => {
   }, [hoveredColor, intensity, isLightMode]);
 
   return (
-    <canvas 
-      ref={canvasRef} 
+    <canvas
+      ref={canvasRef}
       className="absolute inset-0 z-0 pointer-events-none opacity-40"
     />
   );
@@ -82,14 +82,14 @@ export default function Skills() {
     const checkTheme = () => {
       setIsLightMode(document.documentElement.classList.contains('light'));
     };
-    
+
     // Initial check
     checkTheme();
-    
+
     // Observe class changes on html element
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -98,7 +98,7 @@ export default function Skills() {
       title: "Programming",
       label: "01",
       icon: Code2,
-      skills: ["Python", "C", "JavaScript","C++"],
+      skills: ["Python", "C", "JavaScript", "C++"],
       accent: "#60A5FA",
       glow: "rgba(96,165,250,0.2)",
       tag: "CORE LANGUAGES"
@@ -156,8 +156,8 @@ export default function Skills() {
         className="relative w-full py-24 border-t border-theme-border bg-background overflow-hidden"
       >
         {/* Matrix Rain Background */}
-        <MatrixRain 
-          hoveredColor={hoveredCard !== null ? skillCategories[hoveredCard].accent : null} 
+        <MatrixRain
+          hoveredColor={hoveredCard !== null ? skillCategories[hoveredCard].accent : null}
           intensity={hoveredCard !== null ? 2.5 : 1}
           isLightMode={isLightMode}
         />

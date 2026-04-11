@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, Cpu, Globe, FileText, Github, Linkedin, Youtube , Twitter} from "lucide-react";
+import { ArrowRight, Code2, Cpu, Globe, FileText, Github, Linkedin, Youtube, Twitter } from "lucide-react";
 import Scene3D from "./animations/Scene3D";
 import Reveal from "./animations/Reveal";
 
@@ -43,28 +43,28 @@ export default function Hero() {
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto">
-                <a
-                  href="#projects"
-                  className="group px-8 py-3 rounded-xl bg-white text-black font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
-                >
-                  View Projects
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </a>
-                <a
-                  href="https://drive.google.com/file/d/1e4cV6O19AZDJb_8H65gfloPN06Q3ksgJ/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group px-8 py-3 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:bg-white/10"
-                >
-                  View Resume
-                  <FileText
-                    size={18}
-                    className="transition-transform group-hover:scale-110"
-                  />
-                </a>
+              <a
+                href="#projects"
+                className="group px-8 py-3 rounded-xl bg-white text-black font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105"
+              >
+                View Projects
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </a>
+              <a
+                href="https://drive.google.com/file/d/1e4cV6O19AZDJb_8H65gfloPN06Q3ksgJ/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-3 rounded-xl backdrop-blur-lg bg-white/5 border border-white/10 text-white font-semibold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:bg-white/10"
+              >
+                View Resume
+                <FileText
+                  size={18}
+                  className="transition-transform group-hover:scale-110"
+                />
+              </a>
             </div>
 
             {/* Social Links */}

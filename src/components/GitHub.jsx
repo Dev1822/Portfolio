@@ -8,7 +8,7 @@ export default function GitHubSection() {
   return (
     <section id="github" className="relative w-full py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -29,7 +29,7 @@ export default function GitHubSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* GitHub Stats */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -39,7 +39,7 @@ export default function GitHubSection() {
             <Github size={48} className="text-secondary mb-4 opacity-50 group-hover:opacity-100 group-hover:text-accent transition-all duration-300" />
             <h3 className="text-lg font-bold text-white mb-2">GitHub Statistics</h3>
             <p className="text-secondary text-sm">View my complete statistics and open-source contributions directly on GitHub.</p>
-            <a 
+            <a
               href={`https://github.com/${username}`}
               target="_blank"
               rel="noreferrer"
@@ -50,7 +50,7 @@ export default function GitHubSection() {
           </motion.div>
 
           {/* Top Languages */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
@@ -61,29 +61,29 @@ export default function GitHubSection() {
             <h3 className="text-lg font-bold text-white mb-2">Top Languages</h3>
             <p className="text-secondary text-sm">Python, JavaScript, React, Tailwind CSS, C/C++</p>
             <div className="mt-6 flex flex-wrap justify-center gap-2">
-               <span className="px-2 py-1 text-xs rounded bg-blue-500/20 text-blue-400 border border-blue-500/20">Python</span>
-               <span className="px-2 py-1 text-xs rounded bg-yellow-500/20 text-yellow-400 border border-yellow-500/20">JavaScript</span>
-               <span className="px-2 py-1 text-xs rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/20">React</span>
+              <span className="px-2 py-1 text-xs rounded bg-blue-500/20 text-blue-400 border border-blue-500/20">Python</span>
+              <span className="px-2 py-1 text-xs rounded bg-yellow-500/20 text-yellow-400 border border-yellow-500/20">JavaScript</span>
+              <span className="px-2 py-1 text-xs rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/20">React</span>
             </div>
           </motion.div>
         </div>
 
         {/* Contribution Graph (Placeholder using third-party image/widget) */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mt-8 glass-card p-6 flex flex-col items-center justify-center w-full overflow-hidden group hover:bg-surfaceLight/70 transition-all"
         >
-          <img 
-            src={`https://ghchart.rshah.org/3b82f6/${username}`} 
-            alt="GitHub Contribution Graph" 
+          <img
+            src={`https://ghchart.rshah.org/3b82f6/${username}`}
+            alt="GitHub Contribution Graph"
             className="w-full max-w-5xl object-contain filter drop-shadow opacity-80 group-hover:opacity-100 transition-opacity"
-            onError={(e) => { 
+            onError={(e) => {
               // Fallback if ghchart is down
-              e.target.style.display = 'none'; 
-              e.target.parentElement.innerHTML += '<p class="text-secondary py-10">Contribution graph currently unavailable.</p>'; 
+              e.target.style.display = 'none';
+              e.target.parentElement.innerHTML += '<p class="text-secondary py-10">Contribution graph currently unavailable.</p>';
             }}
           />
         </motion.div>

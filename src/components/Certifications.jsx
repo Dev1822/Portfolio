@@ -58,7 +58,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="relative w-full py-24 border-t border-white/5 bg-surface/30">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -79,7 +79,7 @@ export default function Certifications() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {certifications.map((cert, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -88,13 +88,13 @@ export default function Certifications() {
               className="glass-card overflow-hidden group flex flex-col"
             >
               <div className="w-full h-64 sm:h-80 relative overflow-hidden bg-surfaceLight/80">
-                <img 
-                  src={cert.image} 
-                  alt={cert.title} 
+                <img
+                  src={cert.image}
+                  alt={cert.title}
                   className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-700"
                 />
               </div>
-              
+
               <div className="p-6 border-t border-white/5">
                 <h3 className="text-xl font-bold text-white mb-2">{cert.title}</h3>
                 <div className="mb-4">
