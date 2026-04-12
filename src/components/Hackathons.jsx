@@ -120,12 +120,14 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
                 <button
                   onClick={(e) => { e.stopPropagation(); prev(); }}
                   className="p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition"
+                  aria-label="Previous image"
                 >
                   <ChevronLeft size={16} />
                 </button>
                 <button
                   onClick={(e) => { e.stopPropagation(); next(); }}
                   className="p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition"
+                  aria-label="Next image"
                 >
                   <ChevronRight size={16} />
                 </button>
@@ -261,6 +263,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
       <button
         onClick={onClose}
         className="absolute top-6 right-6 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition z-50"
+        aria-label="Close gallery"
       >
         <X size={24} />
       </button>
@@ -271,6 +274,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
           prev();
         }}
         className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition z-50 hidden sm:block"
+        aria-label="Previous image"
       >
         <ChevronLeft size={32} />
       </button>
@@ -281,6 +285,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
           next();
         }}
         className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-white/10 hover:bg-white/20 text-white rounded-full transition z-50 hidden sm:block"
+        aria-label="Next image"
       >
         <ChevronRight size={32} />
       </button>
@@ -309,6 +314,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
               e.stopPropagation();
               setIndex(i);
             }}
+            aria-label={`Go to image ${i + 1}`}
             className={`h-2 rounded-full transition-all ${i === index ? "w-6 bg-accent" : "w-2 bg-white/50 hover:bg-white/80"
               }`}
           />

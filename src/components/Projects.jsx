@@ -207,13 +207,13 @@ export default function Projects() {
 
                       {/* Overlay Links */}
                       <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3 px-4 opacity-100 translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300 backdrop-blur-[2px] bg-black/20 md:bg-transparent">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-accent text-white rounded-full hover:scale-110 transition-all" title="View Source">
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-accent text-white rounded-full hover:scale-110 transition-all" title="View Source" aria-label={`View Source code for ${project.title}`}>
                           <Github size={18} />
                         </a>
-                        <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-red-600 text-white rounded-full hover:scale-110 transition-all" title="Watch Video">
+                        <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-red-600 text-white rounded-full hover:scale-110 transition-all" title="Watch Video" aria-label={`Watch Video for ${project.title}`}>
                           <Youtube size={18} />
                         </a>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white text-black rounded-full hover:scale-110 transition-all" title="Live Demo">
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white text-black rounded-full hover:scale-110 transition-all" title="Live Demo" aria-label={`View Live Demo for ${project.title}`}>
                           <ExternalLink size={18} />
                         </a>
                       </div>

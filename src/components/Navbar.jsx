@@ -111,6 +111,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
           <button
             onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300"
           >
             <motion.div
@@ -130,6 +131,7 @@ export default function Navbar() {
           <button
             className="text-secondary hover:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
