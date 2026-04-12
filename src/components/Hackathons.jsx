@@ -103,6 +103,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
                 <motion.img
                   key={index}
                   src={hackathon.images[index]}
+                  alt={`${hackathon.title} gallery image ${index + 1}`}
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
@@ -293,6 +294,7 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             src={hackathon.images[index]}
+            alt={`${hackathon.title} full screen gallery image ${index + 1}`}
             onClick={(e) => e.stopPropagation()}
             className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl pointer-events-auto"
           />
