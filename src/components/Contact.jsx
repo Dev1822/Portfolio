@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { Send, Linkedin, Github, Code2, Youtube, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
@@ -15,39 +16,37 @@ export default function Contact() {
     setIsSubmitting(true);
     setError(null);
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY;
-    if (!accessKey) {
-      setError('Web3Forms Access Key is missing. Please check your .env file.');
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setError('EmailJS configuration is missing. Please check your .env file.');
       setIsSubmitting(false);
       return;
     }
 
-    const formDataToSubmit = new FormData();
-    formDataToSubmit.append('name', formData.name);
-    formDataToSubmit.append('email', formData.email);
-    formDataToSubmit.append('message', formData.message);
-    formDataToSubmit.append('access_key', accessKey);
-
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json'
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          message: formData.message,
         },
-        body: formDataToSubmit
-      });
+        publicKey
+      );
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (result.status === 200) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setIsSubmitted(false), 5000);
       } else {
-        setError(data.message || 'Something went wrong. Please try again.');
+        setError('Something went wrong. Please try again.');
       }
-    } catch {
-      setError('Network error. Please try again later.');
+    } catch (err) {
+      setError(err.text || 'Network error. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
