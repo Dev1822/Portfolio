@@ -49,7 +49,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "py-4 backdrop-blur-lg bg-black/40 border-b border-white/10"
+          ? "py-4 backdrop-blur-lg bg-surface/80 border-b border-theme-border"
           : "py-6 bg-transparent"
       }`}
     >
@@ -60,7 +60,7 @@ export default function Navbar() {
             to="/"
             className="flex items-center gap-2 group"
           >
-            <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 group-hover:border-accent/50 transition-colors">
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-theme-border group-hover:border-accent/50 transition-colors">
               <img src={logo} alt="Dev Patel Logo" className="w-full h-full object-cover" />
             </div>
             <span className="font-syne text-xl font-bold tracking-tight text-white group-hover:text-accent transition-colors">
@@ -145,7 +145,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 backdrop-blur-xl bg-black/90 border-b border-white/10 p-6 flex flex-col space-y-3 lg:hidden max-h-[85vh] overflow-y-auto shadow-2xl"
+            className="absolute top-full left-0 right-0 backdrop-blur-xl bg-surface/95 border-b border-theme-border p-6 flex flex-col space-y-3 lg:hidden max-h-[85vh] overflow-y-auto shadow-2xl"
           >
             {navItems.map((item) => (
               <Link

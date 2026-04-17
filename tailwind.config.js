@@ -19,7 +19,7 @@ export default {
         surfaceLight: "#1e1e1e",
         primary: "#ffffff",
         secondary: "#a1a1aa",
-        accent: "#3b82f6",
+        accent: "#2563eb",
       },
 
       animation: {
