@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink, Sparkles, Youtube } from 'lucide-react';
-
-import Tilt from './animations/Tilt';
-import Reveal from './animations/Reveal';
+import { Github, ExternalLink, Sparkles, Youtube, Figma, FileText } from 'lucide-react';
 
 import celestialImg from '../assets/project/celestial.png';
 import iccImg from '../assets/project/icc.png';
@@ -17,6 +13,8 @@ import RoadAccidentImg from '../assets/project/RoadEDA.png';
 import HeartDiseaseEDAImg from '../assets/project/HeartEDA.png';
 import APIHub from '../assets/project/apihub.png';
 import House from '../assets/project/HousePrediction.png';
+import CodingGita from '../assets/project/CodingGita.png';
+import BookmyShow from '../assets/project/BookmyShow.png';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
@@ -36,11 +34,12 @@ export default function Projects() {
       title: "API Studio",
       description: "APIStudio is a Postman-inspired app built with React, Node, Express, and MongoDB that lets developers send, test, and save HTTP API requests easily.",
       tech: ["Reactjs", "Nodejs", "Express", "Mongodb"],
-      category: "MERN",
+      category: "Full-Stack",
       image: APIHub,
       github: "https://github.com/Dev1822/APIStudio",
       demo: "https://api-studio-gilt.vercel.app/",
-      youtube: "https://youtu.be/A7olsHoMyVo?si=F8RdHvWFcCxUdDIn"
+      youtube: "https://youtu.be/A7olsHoMyVo?si=F8RdHvWFcCxUdDIn",
+      documentation: "https://api-studio.docs.buildwithfern.com"
     },
     {
       title: "Heart-Disease-EDA",
@@ -141,10 +140,26 @@ export default function Projects() {
       github: "https://github.com/Dev1822/Marvel",
       demo: "https://devpatel-marvelclone.netlify.app/",
       youtube: "https://youtu.be/PZ7ooy59W0s?si=Y1T6J_juBC1BZsDU"
-    }
+    },
+    {
+      title: "CodingGita Website UI",
+      description: "A comprehensive UI design system of CodingGitabuilt in Figma, focusing on accessibility, modularity, and modern aesthetics for a fintech application.",
+      tech: ["Figma", "UI/UX"],
+      category: "Figma",
+      image: CodingGita,
+      demo: "https://www.figma.com/design/v7oAom74sFxLaaf0JO8UvI/Untitled?node-id=64-11&t=eRqg7RX5Tedkqwgt-1"
+    },
+    {
+      title: "BookmyShow Website UI",
+      description: "A comprehensive UI design system of BookmyShow built in Figma, focusing on accessibility, modularity, and modern aesthetics for a fintech application.",
+      tech: ["Figma", "UI/UX"],
+      category: "Figma",
+      image: BookmyShow,
+      demo: "https://www.figma.com/design/v7oAom74sFxLaaf0JO8UvI/Untitled?node-id=82-419&t=eRqg7RX5Tedkqwgt-1"
+    },
   ];
 
-  const categories = ['All', 'Website Clone', 'EDA', 'MERN', "ML"];
+  const categories = ['All', 'Website Clone', 'EDA', 'Full-Stack', 'ML', 'Figma'];
 
   const filteredProjects = projects.filter(project =>
     filter === 'All' ? true : project.category === filter
@@ -153,69 +168,77 @@ export default function Projects() {
   return (
     <section id="projects" className="relative w-full py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
-        <Reveal>
-          <div className="mb-16 flex flex-col items-center text-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 mb-4">
-              <Sparkles size={14} className="text-accent" />
-              <span className="text-xs font-medium text-secondary tracking-wide uppercase">Featured Work</span>
-            </div>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">Selected Projects</h2>
-            <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
-            <p className="text-secondary max-w-2xl text-lg">A showcase of my technical abilities, featuring intelligent applications, pixel-perfect clones, and modern web platforms.</p>
+        <div className="mb-16 flex flex-col items-center text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass border border-white/10 mb-4">
+            <Sparkles size={14} className="text-accent" />
+            <span className="text-xs font-medium text-secondary tracking-wide uppercase">Featured Work</span>
           </div>
-        </Reveal>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">Selected Projects</h2>
+          <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
+          <p className="text-secondary max-w-2xl text-lg">A showcase of my technical abilities, featuring intelligent applications, pixel-perfect clones, and modern web platforms.</p>
+        </div>
 
         {/* Filter Buttons */}
-        <Reveal delay={0.2}>
-          <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-4 mb-12 no-scrollbar scroll-smooth">
-            {categories.map((cat, index) => (
-              <button
-                key={index}
-                onClick={() => setFilter(cat)}
-                className={`shrink-0 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
-                  ? 'bg-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-accent'
-                  : 'bg-white/5 text-secondary hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/20'
-                  }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </Reveal>
+        <div className="flex overflow-x-auto pb-4 sm:pb-0 sm:flex-wrap justify-start sm:justify-center gap-3 sm:gap-4 mb-12 no-scrollbar scroll-smooth">
+          {categories.map((cat, index) => (
+            <button
+              key={index}
+              onClick={() => setFilter(cat)}
+              className={`shrink-0 px-5 py-2 sm:px-6 sm:py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${filter === cat
+                ? 'bg-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-accent'
+                : 'bg-white/5 text-secondary hover:bg-white/10 hover:text-white border border-white/10 hover:border-white/20'
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => (
-              <Reveal key={project.title} delay={index * 0.1}>
-                <Tilt>
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.4 }}
-                    className="group glass-card overflow-hidden flex flex-col h-full bg-white/5 backdrop-blur-sm border border-white/10"
-                  >
+          {filteredProjects.map((project, index) => (
+            <div
+              key={project.title}
+              className="group glass-card overflow-hidden flex flex-col h-full bg-white/5 backdrop-blur-sm border border-white/10"
+            >
                     {/* Project Image */}
                     <div className="w-full h-48 relative overflow-hidden">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${project.category === 'Figma' ? 'object-top' : ''}`}
                       />
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
 
                       {/* Overlay Links */}
                       <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3 px-4 opacity-100 translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300 backdrop-blur-[2px] bg-black/20 md:bg-transparent">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-accent text-white rounded-full hover:scale-110 transition-all" title="View Source" aria-label={`View Source code for ${project.title}`}>
-                          <Github size={18} />
-                        </a>
-                        <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-red-600 text-white rounded-full hover:scale-110 transition-all" title="Watch Video" aria-label={`Watch Video for ${project.title}`}>
-                          <Youtube size={18} />
-                        </a>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white text-black rounded-full hover:scale-110 transition-all" title="Live Demo" aria-label={`View Live Demo for ${project.title}`}>
-                          <ExternalLink size={18} />
-                        </a>
+
+                        {/* GitHub Link - Hide for Figma */}
+                        {project.github && project.category !== 'Figma' && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-accent text-white rounded-full hover:scale-110 transition-all" title="View Source" aria-label={`View Source code for ${project.title}`}>
+                            <Github size={18} />
+                          </a>
+                        )}
+
+                        {/* YouTube Link - Hide for Figma */}
+                        {project.youtube && project.category !== 'Figma' && (
+                          <a href={project.youtube} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-red-600 text-white rounded-full hover:scale-110 transition-all" title="Watch Video" aria-label={`Watch Video for ${project.title}`}>
+                            <Youtube size={18} />
+                          </a>
+                        )}
+
+                        {/* Demo/Figma Link */}
+                        {project.demo && (
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-white text-black rounded-full hover:scale-110 transition-all" title={project.category === 'Figma' ? "Figma Design" : "Live Demo"} aria-label={project.category === 'Figma' ? `View Figma Design for ${project.title}` : `View Live Demo for ${project.title}`}>
+                            {project.category === 'Figma' ? <Figma size={18} /> : <ExternalLink size={18} />}
+                          </a>
+                        )}
+
+                        {/* API Documentation Link - For MERN stack or projects with docs */}
+                        {project.documentation && (
+                          <a href={project.documentation} target="_blank" rel="noopener noreferrer" className="p-2.5 bg-blue-500 text-white rounded-full hover:scale-110 transition-all" title="API Documentation" aria-label={`View API Documentation for ${project.title}`}>
+                            <FileText size={18} />
+                          </a>
+                        )}
                       </div>
 
                     </div>
@@ -233,11 +256,8 @@ export default function Projects() {
                         ))}
                       </div>
                     </div>
-                  </motion.div>
-                </Tilt>
-              </Reveal>
-            ))}
-          </AnimatePresence>
+            </div>
+          ))}
         </div>
       </div>
     </section>
