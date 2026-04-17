@@ -1,36 +1,72 @@
 import React, { useRef, useEffect } from 'react';
 
-const MatrixRain = ({ hoveredColor, intensity = 1, opacity = 0.4 }) => {
+const MatrixRain = ({ hoveredColor, intensity = 1, opacity = 0.4, isLightMode = false }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
+    if (!canvas) return;
+    
     const ctx = canvas.getContext('2d');
     let animationFrameId;
+    
+    // Cache dimensions to avoid layout thrashing in the draw loop
+    let width = 0;
+    let height = 0;
 
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = canvas.parentElement.offsetHeight || window.innerHeight;
+    const updateDimensions = () => {
+      if (!canvas.parentElement) return;
+      
+      const newWidth = window.innerWidth;
+      const newHeight = canvas.parentElement.offsetHeight || window.innerHeight;
+      
+      // Only update if dimensions actually changed to avoid unnecessary canvas resets
+      if (newWidth !== width || newHeight !== height) {
+        width = newWidth;
+        height = newHeight;
+        canvas.width = width;
+        canvas.height = height;
+        
+        // Re-calculate drops on resize
+        initDrops();
+      }
     };
-
-    window.addEventListener('resize', resize);
-    resize();
 
     const chars = "{}[]<>/\\*&%#@0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const fontSize = 14;
-    const columns = Math.ceil(canvas.width / fontSize);
-    const drops = new Array(columns).fill(1).map(() => Math.random() * -100);
+    let columns = 0;
+    let drops = [];
+
+    const initDrops = () => {
+      columns = Math.ceil(width / fontSize);
+      drops = new Array(columns).fill(1).map(() => Math.random() * -100);
+    };
+
+    // Use ResizeObserver for more robust size tracking of the parent
+    const resizeObserver = new ResizeObserver(() => {
+      updateDimensions();
+    });
+    
+    if (canvas.parentElement) {
+      resizeObserver.observe(canvas.parentElement);
+    }
+    
+    // Initial call
+    updateDimensions();
 
     const draw = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // Semi-transparent color to create trailing effect - based on theme
+      // Use cached width/height
+      ctx.fillStyle = isLightMode ? 'rgba(245, 245, 247, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+      ctx.fillRect(0, 0, width, height);
 
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];
         
-        ctx.fillStyle = hoveredColor ? hoveredColor : 'rgba(255, 255, 255, 0.15)';
+        // Use hoveredColor if active, otherwise subtle grey/black based on mode
+        ctx.fillStyle = hoveredColor ? hoveredColor : (isLightMode ? 'rgba(0, 0, 0, 0.15)' : 'rgba(255, 255, 255, 0.15)');
         
         if (hoveredColor) {
            ctx.shadowBlur = 5;
@@ -41,10 +77,12 @@ const MatrixRain = ({ hoveredColor, intensity = 1, opacity = 0.4 }) => {
 
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        // Reset drop to top if it reaches bottom, or randomly for varied rain
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
           drops[i] = 0;
         }
 
+        // Increment position based on intensity
         drops[i] += (0.5 * intensity) + (Math.random() * 0.5);
       }
       animationFrameId = requestAnimationFrame(draw);
@@ -53,10 +91,10 @@ const MatrixRain = ({ hoveredColor, intensity = 1, opacity = 0.4 }) => {
     draw();
 
     return () => {
-      window.removeEventListener('resize', resize);
+      resizeObserver.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
-  }, [hoveredColor, intensity]);
+  }, [hoveredColor, intensity, isLightMode]);
 
   return (
     <canvas 

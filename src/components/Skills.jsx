@@ -1,78 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Brain, Wrench } from 'lucide-react';
 import Reveal from './animations/Reveal';
-
-const MatrixRain = ({ hoveredColor, intensity = 1, isLightMode }) => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = canvas.parentElement.offsetHeight;
-    };
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    const chars = "{}[]<>/\\*&%#@01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const fontSize = 14;
-    const columns = Math.ceil(canvas.width / fontSize);
-    const drops = new Array(columns).fill(1).map(() => Math.random() * -100);
-
-    const draw = () => {
-      // Semi-transparent color to create trailing effect - based on theme
-      ctx.fillStyle = isLightMode ? 'rgba(245, 245, 247, 0.1)' : 'rgba(0, 0, 0, 0.1)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = chars[Math.floor(Math.random() * chars.length)];
-
-        // Use hoveredColor if active, otherwise subtle grey/black based on mode
-        ctx.fillStyle = hoveredColor ? hoveredColor : (isLightMode ? 'rgba(0, 0, 0, 0.15)' : 'rgba(255, 255, 255, 0.15)');
-
-        // Add glow if hovered
-        if (hoveredColor) {
-          ctx.shadowBlur = 5;
-          ctx.shadowColor = hoveredColor;
-        } else {
-          ctx.shadowBlur = 0;
-        }
-
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        // Reset drop to top if it reaches bottom, or randomly for varied rain
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-
-        // Increment position based on intensity
-        drops[i] += (0.5 * intensity) + (Math.random() * 0.5);
-      }
-      animationFrameId = requestAnimationFrame(draw);
-    };
-
-    draw();
-
-    return () => {
-      window.removeEventListener('resize', resize);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [hoveredColor, intensity, isLightMode]);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 z-0 pointer-events-none opacity-40"
-    />
-  );
-};
+import MatrixRain from './animations/MatrixRain';
 
 export default function Skills() {
   const [hoveredCard, setHoveredCard] = useState(null);
