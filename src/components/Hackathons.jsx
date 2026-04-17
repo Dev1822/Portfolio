@@ -10,24 +10,23 @@ import {
   X,
 } from "lucide-react";
 
-import OptimizedImage from "./OptimizedImage";
 import Reveal from "./animations/Reveal";
 import Tilt from "./animations/Tilt";
 
 // Certificates
-import electrosphereCert from "../assets/hackathon/Electrosphere/Certificate/Electrosphere 2026 Certificate.webp";
-import dopplegangerCert from "../assets/hackathon/Doppleganger/Certificate/Doppleganger.webp";
+import electrosphereCert from "../assets/hackathon/Electrosphere/Certificate/Electrosphere 2026 Certificate.jpeg";
+import dopplegangerCert from "../assets/hackathon/Doppleganger/Certificate/Doppleganger.jpg";
 
 // Images
-import dImage1 from "../assets/hackathon/Doppleganger/image1.webp";
-import dImage2 from "../assets/hackathon/Doppleganger/image2.webp";
-import dImage3 from "../assets/hackathon/Doppleganger/image3.webp";
-import dImage4 from "../assets/hackathon/Doppleganger/image4.webp";
+import dImage1 from "../assets/hackathon/Doppleganger/image1.png";
+import dImage2 from "../assets/hackathon/Doppleganger/image2.png";
+import dImage3 from "../assets/hackathon/Doppleganger/image3.png";
+import dImage4 from "../assets/hackathon/Doppleganger/image4.png";
 
-import eImage1 from "../assets/hackathon/Electrosphere/image1.webp";
-import eImage2 from "../assets/hackathon/Electrosphere/image2.webp";
-import eImage3 from "../assets/hackathon/Electrosphere/image3.webp";
-import eImage4 from "../assets/hackathon/Electrosphere/image4.webp";
+import eImage1 from "../assets/hackathon/Electrosphere/image1.png";
+import eImage2 from "../assets/hackathon/Electrosphere/image2.png";
+import eImage3 from "../assets/hackathon/Electrosphere/image3.png";
+import eImage4 from "../assets/hackathon/Electrosphere/image4.png";
 
 const hackathons = [
   {
@@ -101,15 +100,15 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
               onClick={() => onImageClick?.(hackathon, index)}
             >
               <AnimatePresence mode="wait">
-                <OptimizedImage
+                <motion.img
                   key={index}
                   src={hackathon.images[index]}
                   alt={`${hackathon.title} gallery image ${index + 1}`}
-                  className="absolute inset-0 w-full h-full object-cover"
                   initial={{ opacity: 0, scale: 1.05 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
               </AnimatePresence>
 
@@ -293,14 +292,14 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
 
       <div className="relative w-full h-full flex items-center justify-center pointer-events-none">
         <AnimatePresence mode="wait">
-          <OptimizedImage
+          <motion.img
             key={index}
-            src={hackathon.images[index]}
-            alt={`${hackathon.title} full screen gallery image ${index + 1}`}
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
+            src={hackathon.images[index]}
+            alt={`${hackathon.title} full screen gallery image ${index + 1}`}
             onClick={(e) => e.stopPropagation()}
             className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl pointer-events-auto"
           />

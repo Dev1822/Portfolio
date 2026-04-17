@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User, BookOpen, Target, ChevronRight } from 'lucide-react';
-import profileImg from '../assets/profile/profile.webp';
-import OptimizedImage from './OptimizedImage';
+import profileImg from '../assets/profile/profile.jpeg';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
 
@@ -32,7 +31,7 @@ export default function About() {
               <Tilt>
                 <div className="glass-card w-full h-87.5 lg:h-125 rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
                   <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
-                  <OptimizedImage
+                  <img
                     src={profileImg}
                     alt="Dev Patel"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"

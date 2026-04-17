@@ -1,16 +1,14 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Code2, Cpu, Globe, FileText, Github, Linkedin, Youtube, Twitter } from "lucide-react";
-const Scene3D = lazy(() => import("./animations/Scene3D"));
+import Scene3D from "./animations/Scene3D";
 import Reveal from "./animations/Reveal";
 
 export default function Hero() {
 
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      <Suspense fallback={<div className="absolute inset-0 bg-background" />}>
-        <Scene3D />
-      </Suspense>
+      <Scene3D />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full z-10">
         <Reveal delay={0.2} stagger={0.1}>

@@ -1,21 +1,20 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, Sparkles, Youtube, Figma, FileText } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
 
-import celestialImg from '../assets/project/celestial.webp';
-import iccImg from '../assets/project/icc.webp';
-import lovableImg from '../assets/project/lovablelabs.webp';
-import jonesImg from '../assets/project/greatjones.webp';
-import materialImg from '../assets/project/material.webp';
-import marvelImg from '../assets/project/marvel.webp';
-import youtubeImg from '../assets/project/youtube.webp';
-import AiJobsImg from '../assets/project/AIJobsEDA.webp';
-import RoadAccidentImg from '../assets/project/RoadEDA.webp';
-import HeartDiseaseEDAImg from '../assets/project/HeartEDA.webp';
-import APIHub from '../assets/project/apihub.webp';
-import House from '../assets/project/HousePrediction.webp';
-import CodingGita from '../assets/project/CodingGita.webp';
-import BookmyShow from '../assets/project/BookMyShow.webp';
+import celestialImg from '../assets/project/celestial.png';
+import iccImg from '../assets/project/icc.png';
+import lovableImg from '../assets/project/lovablelabs.png';
+import jonesImg from '../assets/project/greatjones.png';
+import materialImg from '../assets/project/material.png';
+import marvelImg from '../assets/project/marvel.png';
+import youtubeImg from '../assets/project/youtube.png';
+import AiJobsImg from '../assets/project/AIJobsEDA.png';
+import RoadAccidentImg from '../assets/project/RoadEDA.png';
+import HeartDiseaseEDAImg from '../assets/project/HeartEDA.png';
+import APIHub from '../assets/project/apihub.png';
+import House from '../assets/project/HousePrediction.png';
+import CodingGita from '../assets/project/CodingGita.png';
+import BookmyShow from '../assets/project/BookMyShow.png';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
@@ -203,7 +202,7 @@ export default function Projects() {
             >
                     {/* Project Image */}
                     <div className="w-full h-48 relative overflow-hidden">
-                      <OptimizedImage
+                      <img
                         src={project.image}
                         alt={project.title}
                         className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${project.category === 'Figma' ? 'object-top' : ''}`}
