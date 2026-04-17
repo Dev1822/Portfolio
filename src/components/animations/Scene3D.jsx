@@ -15,7 +15,7 @@ const Orb = ({ position, color, speed, distort }) => {
   return (
     <Float speed={2} rotationIntensity={1} floatIntensity={1}>
       <mesh ref={meshRef} position={position}>
-        <sphereGeometry args={[1, 64, 64]} />
+        <sphereGeometry args={[1, 32, 32]} />
         <MeshDistortMaterial
           color={color}
           speed={distort}
@@ -70,12 +70,19 @@ const Particles = ({ count = 50 }) => {
 const Scene3D = () => {
   return (
     <div className="absolute inset-0 z-0 opacity-40">
-      <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 75 }}
+        dpr={[1, 2]} // Limit pixel density to 2x for performance
+        gl={{ 
+          antialias: false, // Performance over perfect edges
+          powerPreference: "high-performance" 
+        }}
+      >
         <ambientLight intensity={0.5} />
         <pointLight position={[10, 10, 10]} />
         <Orb position={[-2, 1, 0]} color="#3b82f6" speed={1.5} distort={2} />
         <Orb position={[2, -1, -1]} color="#60a5fa" speed={1} distort={1.5} />
-        <Particles count={100} />
+        <Particles count={60} />
       </Canvas>
     </div>
   );

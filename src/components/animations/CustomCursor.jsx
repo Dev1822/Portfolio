@@ -9,20 +9,33 @@ const CustomCursor = () => {
   useEffect(() => {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
+    
+    // Check if touch device
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) {
+      if (cursor) cursor.style.display = 'none';
+      if (follower) follower.style.display = 'none';
+      return;
+    }
+
+    // Use quickSetter for high-frequency updates
+    const xCursor = gsap.quickSetter(cursor, "x", "px");
+    const yCursor = gsap.quickSetter(cursor, "y", "px");
+    const xFollower = gsap.quickSetter(follower, "x", "px");
+    const yFollower = gsap.quickSetter(follower, "y", "px");
 
     const onMouseMove = (e) => {
       const { clientX, clientY } = e;
       
-      gsap.to(cursor, {
-        x: clientX,
-        y: clientY,
-        duration: 0.1,
-      });
+      xCursor(clientX);
+      yCursor(clientY);
 
       gsap.to(follower, {
         x: clientX,
         y: clientY,
         duration: 0.3,
+        ease: "power2.out",
+        overwrite: "auto"
       });
     };
 

@@ -69,8 +69,7 @@ export default function Contact() {
           {/* Contact Info */}
           <div className="flex flex-col space-y-8">
             <Reveal x={-30} delay={0.2}>
-              <Tilt>
-                <div className="glass-card p-8 group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
+              <div className="glass-card p-8 group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
                   <h3 className="text-2xl font-semibold mb-6 text-white/90">Contact Information</h3>
 
                   <div className="space-y-6">
@@ -82,21 +81,20 @@ export default function Contact() {
                       <Reveal key={i} x={-20} delay={0.2 + i * 0.1}>
                         <a
                           href={item.href}
-                          className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-accent/40 hover:bg-white/10 transition-all duration-300"
+                          className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-accent/20 hover:bg-white/5 transition-all duration-300"
                         >
-                          <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                          <div className="w-12 h-12 rounded-lg bg-accent/5 flex items-center justify-center text-accent transition-all duration-300">
                             <item.icon size={20} />
                           </div>
                           <div>
                             <p className="text-xs text-secondary uppercase tracking-widest font-spacemono">{item.label}</p>
-                            <p className="text-white font-medium">{item.value}</p>
+                            <p className="text-white font-medium group-hover:text-accent transition-colors">{item.value}</p>
                           </div>
                         </a>
                       </Reveal>
                     ))}
                   </div>
-                </div>
-              </Tilt>
+              </div>
             </Reveal>
             <div className="flex items-center gap-4">
               {[

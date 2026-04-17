@@ -26,14 +26,6 @@ const PageLoader = () => (
 );
 
 function App() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
   return (
     <div className="min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-white">
       <SmoothScroll />
