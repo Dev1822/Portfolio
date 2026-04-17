@@ -14,7 +14,7 @@ import HeartDiseaseEDAImg from '../assets/project/HeartEDA.png';
 import APIHub from '../assets/project/apihub.png';
 import House from '../assets/project/HousePrediction.png';
 import CodingGita from '../assets/project/CodingGita.png';
-import BookmyShow from '../assets/project/BookmyShow.png';
+import BookmyShow from '../assets/project/BookMyShow.png';
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');
