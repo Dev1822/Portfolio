@@ -14,19 +14,19 @@ import Reveal from "./animations/Reveal";
 import Tilt from "./animations/Tilt";
 
 // Certificates
-import electrosphereCert from "../assets/hackathon/Electrosphere/Certificate/Electrosphere 2026 Certificate.jpeg";
-import dopplegangerCert from "../assets/hackathon/Doppleganger/Certificate/Doppleganger.jpg";
+import electrosphereCert from "../assets/hackathon/Electrosphere/Certificate/Electrosphere 2026 Certificate.webp";
+import dopplegangerCert from "../assets/hackathon/Doppleganger/Certificate/Doppleganger.webp";
 
 // Images
-import dImage1 from "../assets/hackathon/Doppleganger/image1.png";
-import dImage2 from "../assets/hackathon/Doppleganger/image2.png";
-import dImage3 from "../assets/hackathon/Doppleganger/image3.png";
-import dImage4 from "../assets/hackathon/Doppleganger/image4.png";
+import dImage1 from "../assets/hackathon/Doppleganger/image1.webp";
+import dImage2 from "../assets/hackathon/Doppleganger/image2.webp";
+import dImage3 from "../assets/hackathon/Doppleganger/image3.webp";
+import dImage4 from "../assets/hackathon/Doppleganger/image4.webp";
 
-import eImage1 from "../assets/hackathon/Electrosphere/image1.png";
-import eImage2 from "../assets/hackathon/Electrosphere/image2.png";
-import eImage3 from "../assets/hackathon/Electrosphere/image3.png";
-import eImage4 from "../assets/hackathon/Electrosphere/image4.png";
+import eImage1 from "../assets/hackathon/Electrosphere/image1.webp";
+import eImage2 from "../assets/hackathon/Electrosphere/image2.webp";
+import eImage3 from "../assets/hackathon/Electrosphere/image3.webp";
+import eImage4 from "../assets/hackathon/Electrosphere/image4.webp";
 
 const hackathons = [
   {

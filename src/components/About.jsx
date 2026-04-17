@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { User, BookOpen, Target, ChevronRight } from 'lucide-react';
-import profileImg from '../assets/profile/profile.jpeg';
+import profileImg from '../assets/profile/profile.webp';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
 
