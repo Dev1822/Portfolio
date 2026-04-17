@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ExternalLink, CheckCircle } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
-import cert1 from '../assets/certificate/HTML.jpg';
-import cert2 from '../assets/certificate/Guvi Certification - Python.png';
-import cert3 from '../assets/certificate/IITM Pravartak Certificate - Python.jpg';
-import cert4 from '../assets/certificate/NumpyPandasMatplotlib.jpg';
-import cert5 from '../assets/certificate/JSBeginner.jpg';
-import cert6 from '../assets/certificate/EDAforML.jpg';
+import cert1 from '../assets/certificate/HTML.webp';
+import cert2 from '../assets/certificate/Guvi Certification - Python.webp';
+import cert3 from '../assets/certificate/IITM Pravartak Certificate - Python.webp';
+import cert4 from '../assets/certificate/NumpyPandasMatplotlib-1000w.webp';
+import cert5 from '../assets/certificate/JSBeginner.webp';
+import cert6 from '../assets/certificate/EDAforML.webp';
 
 export default function Certifications() {
   const certifications = [
@@ -88,7 +89,7 @@ export default function Certifications() {
               className="glass-card overflow-hidden group flex flex-col"
             >
               <div className="w-full h-64 sm:h-80 relative overflow-hidden bg-surfaceLight/80">
-                <img
+                <OptimizedImage
                   src={cert.image}
                   alt={cert.title}
                   className="w-full h-full object-contain p-4 group-hover:scale-[1.03] transition-transform duration-700"
