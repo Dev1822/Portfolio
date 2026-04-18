@@ -28,6 +28,12 @@ import eImage2 from "../assets/hackathon/Electrosphere/image2.webp";
 import eImage3 from "../assets/hackathon/Electrosphere/image3.webp";
 import eImage4 from "../assets/hackathon/Electrosphere/image4.webp";
 
+// CharusatXOceanlabs
+import charusatCert from "../assets/hackathon/CharusatXOceanlabs/Certificate/CharusatXOceanlabs.webp";
+import cImage1 from "../assets/hackathon/CharusatXOceanlabs/image1.webp";
+import cImage2 from "../assets/hackathon/CharusatXOceanlabs/image2.webp";
+import cImage3 from "../assets/hackathon/CharusatXOceanlabs/image3.webp";
+
 const hackathons = [
   {
     title: "Doppleganger",
@@ -59,6 +65,22 @@ const hackathons = [
       tech: ["HTML", "CSS", "JS"],
       github: "https://github.com/Dev1822/Kalix",
       demo: "https://kalix-syntax-squad.vercel.app/",
+    },
+  },
+  {
+    title: "OceanLab X CHARUSAT Hacks",
+    organization: "DEPSTAR & OceanLab",
+    date: "2026",
+    description:
+      "A national-level 48-hour offline hackathon focused on building AI-first SaaS solutions.",
+    images: [charusatCert, cImage1, cImage2, cImage3],
+    project: {
+      name: "Venture AI",
+      description:
+        "An AI-powered startup validator that analyzes business ideas using market data and competitor analysis.",
+      tech: ["React", "Tailwind","Node.js","Express","MongoDB"],
+      github: "https://github.com/Dev1822/VentureAI",
+      demo: "https://venture-ai-devduo.vercel.app/",
     },
   },
 ];
