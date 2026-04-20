@@ -11,7 +11,6 @@ import {
 } from "lucide-react";
 
 import Reveal from "./animations/Reveal";
-import Tilt from "./animations/Tilt";
 
 // Certificates
 import electrosphereCert from "../assets/hackathon/Electrosphere/Certificate/Electrosphere 2026 Certificate.webp";
@@ -104,16 +103,11 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
 
   return (
     <div className="h-full">
-      <Tilt>
-        <motion.div
-          whileHover={{ y: -8 }}
-          transition={{ duration: 0.3 }}
+        <div
           className="group relative rounded-2xl overflow-hidden h-full flex flex-col
           bg-linear-to-br from-white/5 to-white/2
           border border-white/10 
-          shadow-[0_10px_40px_rgba(0,0,0,0.4)]
-          hover:shadow-[0_20px_60px_rgba(0,0,0,0.6)]
-          transition-all duration-500"
+          shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
         >
           {/* GALLERY AREA */}
           <div className="relative p-3 sm:p-4 flex items-center justify-center bg-black/30">
@@ -244,8 +238,7 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
               </a>
             </div>
           </div>
-        </motion.div>
-      </Tilt>
+      </div>
     </div>
   );
 };
