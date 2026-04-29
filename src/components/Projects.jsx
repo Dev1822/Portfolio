@@ -16,7 +16,8 @@ import House from '../assets/project/HousePrediction.webp';
 import CodingGita from '../assets/project/CodingGita.webp';
 import BookmyShow from '../assets/project/BookMyShow.webp';
 
-export default function Projects() {
+export default function Projects({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const [filter, setFilter] = useState('All');
 
   const projects = [
@@ -173,7 +174,7 @@ export default function Projects() {
             <Sparkles size={14} className="text-accent" />
             <span className="text-xs font-medium text-secondary tracking-wide uppercase">Featured Work</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">Selected Projects</h2>
+          <TitleTag className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4">Selected Projects</TitleTag>
           <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
           <p className="text-secondary max-w-2xl text-lg">A showcase of my technical abilities, featuring intelligent applications, pixel-perfect clones, and modern web platforms.</p>
         </div>

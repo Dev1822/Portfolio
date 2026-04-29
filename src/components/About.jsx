@@ -5,7 +5,8 @@ import profileImg from '../assets/profile/profile.webp';
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
 
-export default function About() {
+export default function About({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const timeline = [
     { year: "2024 - Present", title: "AI & ML Specialization", desc: "Exploring deep learning, LLMs, and deploying intelligent systems." },
     { year: "2023 - 2024", title: "Full Stack Development", desc: "Mastered React, Node.js, and modern high-performance web architectures." },
@@ -18,7 +19,7 @@ export default function About() {
 
         <Reveal>
           <div className="mb-16">
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">About Me</h2>
+            <TitleTag className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">About Me</TitleTag>
             <div className="w-20 h-1 bg-accent rounded-full"></div>
           </div>
         </Reveal>

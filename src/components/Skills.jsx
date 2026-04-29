@@ -4,7 +4,8 @@ import { Code2, Layout, Brain, Wrench } from 'lucide-react';
 import Reveal from './animations/Reveal';
 import MatrixRain from './animations/MatrixRain';
 
-export default function Skills() {
+export default function Skills({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const [hoveredCard, setHoveredCard] = useState(null);
   const [isLightMode, setIsLightMode] = useState(false);
 
@@ -103,10 +104,10 @@ export default function Skills() {
               </div>
 
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                <h2 className="font-syne font-extrabold tracking-tight leading-[0.9] text-3xl sm:text-4xl md:text-7xl text-primary">
+                <TitleTag className="font-syne font-extrabold tracking-tight leading-[0.9] text-3xl sm:text-4xl md:text-7xl text-primary">
                   Technical<br />
                   <span style={{ WebkitTextStroke: '1px var(--color-theme-border)', color: 'transparent' }}>Skills</span>
-                </h2>
+                </TitleTag>
                 <p className="font-sans text-sm leading-[1.8] text-primary/35 max-w-xs">
                   A curated set of technologies I work with — from systems programming to intelligent data pipelines.
                 </p>

@@ -4,7 +4,8 @@ import { Send, Linkedin, Github, Code2, Youtube, Twitter, Mail, Phone, MapPin } 
 import Reveal from './animations/Reveal';
 import Tilt from './animations/Tilt';
 
-export default function Contact() {
+export default function Contact({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -59,7 +60,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <Reveal>
           <div className="mb-16 text-center flex flex-col items-center">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">Let's Connect</h2>
+            <TitleTag className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-white/90">Let's Connect</TitleTag>
             <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
             <p className="text-secondary max-w-xl text-lg">Looking to collaborate on a project? Drop a message below.</p>
           </div>

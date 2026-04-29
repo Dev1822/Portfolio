@@ -339,7 +339,8 @@ const FullScreenGallery = ({ hackathon, initialIndex = 0, onClose }) => {
   );
 };
 
-export default function Hackathons() {
+export default function Hackathons({ isPage = false }) {
+  const TitleTag = isPage ? "h1" : "h2";
   const [selectedGallery, setSelectedGallery] = useState(null);
 
   useEffect(() => {
@@ -383,9 +384,9 @@ export default function Hackathons() {
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6">
+            <TitleTag className="text-2xl sm:text-4xl md:text-6xl font-bold mb-6">
               Building Under Pressure
-            </h2>
+            </TitleTag>
 
             <p className="text-white/70 max-w-2xl mx-auto text-lg">
               Real-world projects built during intense hackathons where ideas

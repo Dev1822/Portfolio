@@ -75,7 +75,7 @@ function App() {
                 <title>About Dev Patel | Full Stack Developer & AI Enthusiast</title>
                 <meta name="description" content="Learn more about Dev Patel, a Computer Engineering student passionate about AI, ML, and Full Stack Development." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><About /></Suspense>
+              <Suspense fallback={<PageLoader />}><About isPage={true} /></Suspense>
             </>
           } />
           <Route path="/developer-skills" element={
@@ -84,7 +84,7 @@ function App() {
                 <title>Skills & Expertise | Dev Patel</title>
                 <meta name="description" content="Explore the technical skills and expertise of Dev Patel, including React, AI/ML, and modern web technologies." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><Skills /></Suspense>
+              <Suspense fallback={<PageLoader />}><Skills isPage={true} /></Suspense>
             </>
           } />
           <Route path="/software-projects" element={
@@ -93,7 +93,7 @@ function App() {
                 <title>Software Projects | Dev Patel Portfolio</title>
                 <meta name="description" content="Discover the software projects built by Dev Patel, ranging from web applications to AI-powered solutions." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><Projects /></Suspense>
+              <Suspense fallback={<PageLoader />}><Projects isPage={true} /></Suspense>
             </>
           } />
           <Route path="/hackathon-experience" element={
@@ -102,7 +102,7 @@ function App() {
                 <title>Hackathon Experience | Dev Patel</title>
                 <meta name="description" content="A showcase of hackathons attended and projects built by Dev Patel in competitive environments." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><Hackathons /></Suspense>
+              <Suspense fallback={<PageLoader />}><Hackathons isPage={true} /></Suspense>
             </>
           } />
           <Route path="/tech-certifications" element={
@@ -111,7 +111,7 @@ function App() {
                 <title>Technical Certifications | Dev Patel</title>
                 <meta name="description" content="View the professional certifications and achievements earned by Dev Patel in the field of technology." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><Certifications /></Suspense>
+              <Suspense fallback={<PageLoader />}><Certifications isPage={true} /></Suspense>
             </>
           } />
           <Route path="/github-contributions" element={
@@ -120,7 +120,7 @@ function App() {
                 <title>GitHub Contributions | Dev Patel</title>
                 <meta name="description" content="Explore Dev Patel's open-source contributions and activity on GitHub." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><GitHubSection /></Suspense>
+              <Suspense fallback={<PageLoader />}><GitHubSection isPage={true} /></Suspense>
             </>
           } />
           <Route path="/leetcode-profile" element={
@@ -129,7 +129,7 @@ function App() {
                 <title>LeetCode Profile | Dev Patel</title>
                 <meta name="description" content="Check out Dev Patel's problem-solving journey and achievements on LeetCode." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><LeetCodeSection /></Suspense>
+              <Suspense fallback={<PageLoader />}><LeetCodeSection isPage={true} /></Suspense>
             </>
           } />
           <Route path="/contact-dev-patel" element={
@@ -138,7 +138,7 @@ function App() {
                 <title>Contact Dev Patel | Get In Touch</title>
                 <meta name="description" content="Reach out to Dev Patel for collaborations, opportunities, or just to say hi." />
               </Helmet>
-              <Suspense fallback={<PageLoader />}><Contact /></Suspense>
+              <Suspense fallback={<PageLoader />}><Contact isPage={true} /></Suspense>
             </>
           } />
         </Routes>

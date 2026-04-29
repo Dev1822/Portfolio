@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Target, Activity } from 'lucide-react';
 
-export default function LeetCodeSection() {
+export default function LeetCodeSection({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const username = "Dev_D_Patel";
 
   return (
@@ -22,10 +23,10 @@ export default function LeetCodeSection() {
             </span>
           </div>
 
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-3">
+          <TitleTag className="text-3xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-3">
             <Code2 size={40} className="text-orange-500" />
             LeetCode Stats
-          </h2>
+          </TitleTag>
 
           <div className="w-20 h-1 bg-orange-500 rounded-full mb-6"></div>
 

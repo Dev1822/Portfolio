@@ -9,7 +9,8 @@ import cert4 from '../assets/certificate/NumpyPandasMatplotlib.webp';
 import cert5 from '../assets/certificate/JSBeginner.webp';
 import cert6 from '../assets/certificate/EDAforML.webp';
 
-export default function Certifications() {
+export default function Certifications({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const certifications = [
     {
       title: "Introduction to JavaScript",
@@ -69,10 +70,10 @@ export default function Certifications() {
             <Award size={14} className="text-emerald-400" />
             <span className="text-xs font-medium text-emerald-400 tracking-wide uppercase">Credentials</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-3">
+          <TitleTag className="text-3xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-3">
             <CheckCircle size={40} className="text-white" />
             Certifications
-          </h2>
+          </TitleTag>
           <div className="w-20 h-1 bg-emerald-500 rounded-full mb-6"></div>
           <p className="text-secondary max-w-2xl text-lg md:text-left text-center">Formal recognition of my technical skills and achievements from leading institutions.</p>
         </motion.div>

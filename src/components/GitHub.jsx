@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, Activity } from 'lucide-react';
 
-export default function GitHubSection() {
+export default function GitHubSection({ isPage = false }) {
+  const TitleTag = isPage ? 'h1' : 'h2';
   const username = "Dev1822"; // Placeholder username
 
   return (
@@ -19,10 +20,10 @@ export default function GitHubSection() {
             <Activity size={14} className="text-accent" />
             <span className="text-xs font-medium text-secondary tracking-wide uppercase">Open Source</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-4">
+          <TitleTag className="text-3xl md:text-5xl font-bold tracking-tight mb-4 flex items-center gap-4">
             <Github size={40} className="text-white" />
             GitHub Activity
-          </h2>
+          </TitleTag>
           <div className="w-20 h-1 bg-accent rounded-full mb-6"></div>
           <p className="text-secondary max-w-2xl text-lg md:text-left text-center">Constantly building, breaking, and shipping code. Here's a look at my open-source contributions and statistics.</p>
         </motion.div>
