@@ -36,7 +36,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="font-sans text-sm sm:text-base md:text-xl text-secondary max-w-xl mb-10 leading-relaxed">
-              Computer Engineering Student | Full Stack Developer.{" "}
+              Full Stack Developer | Data Analyst.{" "}
               <br className="hidden md:block" />
               Building modern AI applications and scalable web solutions.
             </p>
