@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Layout, Brain, Wrench } from 'lucide-react';
+import { Code2, Layout, Brain, Wrench, Database } from 'lucide-react';
 import Reveal from './animations/Reveal';
 import MatrixRain from './animations/MatrixRain';
 
@@ -56,10 +56,19 @@ export default function Skills({ isPage = false }) {
       title: "Tools",
       label: "04",
       icon: Wrench,
-      skills: ["Git", "GitHub", "VS Code", "Vite", "Figma"],
+      skills: ["Git", "GitHub", "VS Code", "Vite", "Figma", "PowerBI"],
       accent: "#FB923C",
       glow: "rgba(251,146,60,0.2)",
       tag: "DEV ENVIRONMENT"
+    },
+    {
+      title: "Database",
+      label: "05",
+      icon: Database,
+      skills: ["MongoDB","MySQL"],
+      accent: "#FACC15",
+      glow: "rgba(250,204,21,0.2)",
+      tag: "DATA STORAGE & MANAGEMENT"
     }
   ];
 
