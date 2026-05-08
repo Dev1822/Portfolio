@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { User, BookOpen, Target, ChevronRight } from 'lucide-react';
 import profileImg from '../assets/profile/profile.webp';
 import Reveal from './animations/Reveal';
-import Tilt from './animations/Tilt';
 
 export default function About({ isPage = false }) {
   const TitleTag = isPage ? 'h1' : 'h2';
@@ -29,51 +28,45 @@ export default function About({ isPage = false }) {
           <div className="flex flex-col space-y-8">
             {/* Profile Image */}
             <Reveal x={-30} delay={0.2}>
-              <Tilt>
-                <div className="glass-card w-full h-87.5 lg:h-125 rounded-2xl overflow-hidden relative group border border-white/5 bg-white/5 backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
-                  <img
-                    src={profileImg}
-                    alt="Dev Patel"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    style={{ objectPosition: "50% 20%" }}
-                  />
-                </div>
-              </Tilt>
+              <div className="glass-card w-full h-87.5 lg:h-125 rounded-2xl overflow-hidden relative border border-white/5 bg-white/5 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
+                <img
+                  src={profileImg}
+                  alt="Dev Patel"
+                  className="w-full h-full object-cover transition-transform duration-700"
+                  style={{ objectPosition: "50% 20%" }}
+                />
+              </div>
             </Reveal>
           </div>
 
           {/* Timeline Side */}
           <div className="space-y-8">
             <Reveal x={30} delay={0.4}>
-              <Tilt>
-                <div className="glass-card p-5 sm:p-6 lg:p-8 relative overflow-hidden group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[50px] group-hover:bg-accent/20 transition-all duration-500"></div>
-                  <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-white/90">
-                    <User className="text-accent" />
-                    Who I am
-                  </h3>
-                  <p className="text-secondary leading-relaxed text-lg">
-                    I am a Computer Engineering student with a profound passion for Data Science and Full Stack Development. <br className="mb-4" />
-                    My philosophy centers on building products that aren't just technical experiments, but real-world solutions. I thrive at the intersection of aesthetic design and intelligent engineering, constantly pushing the boundaries of what modern web experiences can be.
-                  </p>
-                </div>
-              </Tilt>
+              <div className="glass-card p-5 sm:p-6 lg:p-8 relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[50px] transition-all duration-500"></div>
+                <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-white/90">
+                  <User className="text-accent" />
+                  Who I am
+                </h3>
+                <p className="text-secondary leading-relaxed text-lg">
+                  I am a Computer Engineering student with a profound passion for Data Science and Full Stack Development. <br className="mb-4" />
+                  My philosophy centers on building products that aren't just technical experiments, but real-world solutions. I thrive at the intersection of aesthetic design and intelligent engineering, constantly pushing the boundaries of what modern web experiences can be.
+                </p>
+              </div>
             </Reveal>
 
             <Reveal x={30} delay={0.6}>
-              <Tilt>
-                <div className="glass-card p-5 sm:p-6 lg:p-8 relative overflow-hidden group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[50px] group-hover:bg-blue-500/20 transition-all duration-500"></div>
-                  <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-white/90">
-                    <Target className="text-blue-400" />
-                    My Vision
-                  </h3>
-                  <p className="text-secondary leading-relaxed text-lg">
-                    I aim to build intelligent systems that solve real-world problems at scale. I focus on continuously in building practical projects that demonstrate real value.
-                  </p>
-                </div>
-              </Tilt>
+              <div className="glass-card p-5 sm:p-6 lg:p-8 relative overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl h-full">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-[50px] transition-all duration-500"></div>
+                <h3 className="text-2xl font-semibold mb-4 flex items-center gap-3 text-white/90">
+                  <Target className="text-blue-400" />
+                  My Vision
+                </h3>
+                <p className="text-secondary leading-relaxed text-lg">
+                  I aim to build intelligent systems that solve real-world problems at scale. I focus on continuously in building practical projects that demonstrate real value.
+                </p>
+              </div>
             </Reveal>
           </div>
         </div>
