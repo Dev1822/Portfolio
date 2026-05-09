@@ -15,12 +15,23 @@ import APIHub from '../assets/project/apihub.webp';
 import House from '../assets/project/HousePrediction.webp';
 import CodingGita from '../assets/project/CodingGita.webp';
 import BookmyShow from '../assets/project/BookMyShow.webp';
+import FoodDeliveryAnalysis from '../assets/project/FoodDeliveryAnalysis.webp';
 
 export default function Projects({ isPage = false }) {
   const TitleTag = isPage ? 'h1' : 'h2';
   const [filter, setFilter] = useState('All');
 
   const projects = [
+    {
+      title: "Food Delivery Analysis",
+      description: "This project provides a comprehensive end-to-end analysis of a food delivery platform operating across four major Indian cities: Bangalore, Mumbai, Hyderabad, and Delhi.",
+      tech: ["Python", "Pandas", "Matplotlib", "Seaborn","PowerBI","MySQL"],
+      category: "Data Analysis",
+      image: FoodDeliveryAnalysis,
+      github: "https://github.com/Dev1822/Food-Delivery-Platform-Analysis",
+      demo: "https://github.com/Dev1822/Food-Delivery-Platform-Analysis/blob/master/dashboard.pbix",
+      youtube: "https://youtu.be/zk62gzj_63g?si=4CmKlGCl_8VwPvfp"
+    },
     {
       title: "House Price Prediction",
       description: "House Price Predictor is a full-stack app using React, Flask, and scikit-learn that lets users input property details to get real-time house price estimates.",
@@ -46,7 +57,7 @@ export default function Projects({ isPage = false }) {
       title: "Heart-Disease-EDA",
       description: "Heart Disease EDA is a Python-based project using Pandas, Seaborn, and Matplotlib to analyze patient data and uncover key risk factors and insights related to heart disease.",
       tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-      category: "EDA",
+      category: "Data Analysis",
       image: HeartDiseaseEDAImg,
       github: "https://github.com/Dev1822/Heart-Disease-EDA",
       demo: "https://www.kaggle.com/code/devdaxinpatel/heart-disease-eda",
@@ -56,7 +67,7 @@ export default function Projects({ isPage = false }) {
       title: "Road-Accident-EDA",
       description: "Road Accident EDA is a Python-based project using Pandas, Matplotlib, and Seaborn to analyze accident data, uncover patterns, and generate actionable insights.",
       tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-      category: "EDA",
+      category: "Data Analysis",
       image: RoadAccidentImg,
       github: "https://github.com/Dev1822/Road-Accident-EDA",
       demo: "https://www.kaggle.com/code/devdaxinpatel/road-accident-eda",
@@ -66,7 +77,7 @@ export default function Projects({ isPage = false }) {
       title: "AI-Jobs-EDA",
       description: "AI Job Market EDA is a Python-based analysis using Pandas, NumPy, and visualization tools to uncover trends in demand, salaries, and work patterns across AI and data roles.",
       tech: ["Python", "Pandas", "Matplotlib", "Seaborn"],
-      category: "EDA",
+      category: "Data Analysis",
       image: AiJobsImg,
       github: "https://github.com/Dev1822/AI-Jobs-EDA",
       demo: "https://www.kaggle.com/code/devdaxinpatel/ai-jobs-eda",
@@ -160,7 +171,7 @@ export default function Projects({ isPage = false }) {
     },
   ];
 
-  const categories = ['All', 'Website Clone', 'EDA', 'Full-Stack', 'ML', 'Figma'];
+  const categories = ['All', 'Website Clone', 'Data Analysis', 'Full-Stack', 'ML', 'Figma'];
 
   const filteredProjects = projects.filter(project =>
     filter === 'All' ? true : project.category === filter
