@@ -49,12 +49,16 @@ function App() {
                 <meta name="description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
                 <meta name="keywords" content="Dev Patel, Portfolio, Developer, AI Engineer, Machine Learning, React Developer, Full Stack Developer" />
                 <meta name="author" content="Dev Patel" />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="Dev Patel | Portfolio Website" />
                 <meta property="og:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/" />
+                <meta property="og:image" content="https://dev-d-patel-portfolio.vercel.app/logo.webp" />
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:title" content="Dev Patel | Portfolio Website" />
                 <meta property="twitter:description" content="Dev Patel - Computer Engineering Student | AI & ML Enthusiast | Full Stack Developer Portfolio" />
+                <meta property="twitter:image" content="https://dev-d-patel-portfolio.vercel.app/logo.webp" />
               </Helmet>
               <Hero />
               <Suspense fallback={<PageLoader />}>
@@ -74,6 +78,10 @@ function App() {
               <Helmet>
                 <title>About Dev Patel | Full Stack Developer & AI Enthusiast</title>
                 <meta name="description" content="Learn more about Dev Patel, a Computer Engineering student passionate about AI, ML, and Full Stack Development." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/about-dev-patel" />
+                <meta property="og:title" content="About Dev Patel | Portfolio" />
+                <meta property="og:description" content="Learn more about Dev Patel, a Computer Engineering student passionate about AI, ML, and Full Stack Development." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/about-dev-patel" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><About isPage={true} /></Suspense>
             </>
@@ -83,6 +91,10 @@ function App() {
               <Helmet>
                 <title>Skills & Expertise | Dev Patel</title>
                 <meta name="description" content="Explore the technical skills and expertise of Dev Patel, including React, AI/ML, and modern web technologies." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/developer-skills" />
+                <meta property="og:title" content="Skills & Expertise | Dev Patel" />
+                <meta property="og:description" content="Explore the technical skills and expertise of Dev Patel, including React, AI/ML, and modern web technologies." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/developer-skills" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><Skills isPage={true} /></Suspense>
             </>
@@ -92,6 +104,10 @@ function App() {
               <Helmet>
                 <title>Software Projects | Dev Patel Portfolio</title>
                 <meta name="description" content="Discover the software projects built by Dev Patel, ranging from web applications to AI-powered solutions." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/software-projects" />
+                <meta property="og:title" content="Software Projects | Dev Patel" />
+                <meta property="og:description" content="Discover the software projects built by Dev Patel, ranging from web applications to AI-powered solutions." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/software-projects" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><Projects isPage={true} /></Suspense>
             </>
@@ -101,6 +117,10 @@ function App() {
               <Helmet>
                 <title>Hackathon Experience | Dev Patel</title>
                 <meta name="description" content="A showcase of hackathons attended and projects built by Dev Patel in competitive environments." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/hackathon-experience" />
+                <meta property="og:title" content="Hackathon Experience | Dev Patel" />
+                <meta property="og:description" content="A showcase of hackathons attended and projects built by Dev Patel in competitive environments." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/hackathon-experience" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><Hackathons isPage={true} /></Suspense>
             </>
@@ -110,6 +130,10 @@ function App() {
               <Helmet>
                 <title>Technical Certifications | Dev Patel</title>
                 <meta name="description" content="View the professional certifications and achievements earned by Dev Patel in the field of technology." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/tech-certifications" />
+                <meta property="og:title" content="Technical Certifications | Dev Patel" />
+                <meta property="og:description" content="View the professional certifications and achievements earned by Dev Patel in the field of technology." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/tech-certifications" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><Certifications isPage={true} /></Suspense>
             </>
@@ -119,6 +143,10 @@ function App() {
               <Helmet>
                 <title>GitHub Contributions | Dev Patel</title>
                 <meta name="description" content="Explore Dev Patel's open-source contributions and activity on GitHub." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/github-contributions" />
+                <meta property="og:title" content="GitHub Contributions | Dev Patel" />
+                <meta property="og:description" content="Explore Dev Patel's open-source contributions and activity on GitHub." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/github-contributions" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><GitHubSection isPage={true} /></Suspense>
             </>
@@ -128,6 +156,10 @@ function App() {
               <Helmet>
                 <title>LeetCode Profile | Dev Patel</title>
                 <meta name="description" content="Check out Dev Patel's problem-solving journey and achievements on LeetCode." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/leetcode-profile" />
+                <meta property="og:title" content="LeetCode Profile | Dev Patel" />
+                <meta property="og:description" content="Check out Dev Patel's problem-solving journey and achievements on LeetCode." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/leetcode-profile" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><LeetCodeSection isPage={true} /></Suspense>
             </>
@@ -137,6 +169,10 @@ function App() {
               <Helmet>
                 <title>Contact Dev Patel | Get In Touch</title>
                 <meta name="description" content="Reach out to Dev Patel for collaborations, opportunities, or just to say hi." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/contact-dev-patel" />
+                <meta property="og:title" content="Contact Dev Patel | Portfolio" />
+                <meta property="og:description" content="Reach out to Dev Patel for collaborations, opportunities, or just to say hi." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/contact-dev-patel" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><Contact isPage={true} /></Suspense>
             </>
