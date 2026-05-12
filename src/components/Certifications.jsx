@@ -8,10 +8,45 @@ import cert3 from '../assets/certificate/IITM Pravartak Certificate - Python.web
 import cert4 from '../assets/certificate/NumpyPandasMatplotlib.webp';
 import cert5 from '../assets/certificate/JSBeginner.webp';
 import cert6 from '../assets/certificate/EDAforML.webp';
+import cert7 from '../assets/certificate/CBeginner.webp';
+import cert8 from '../assets/certificate/CppBeginner.webp';
+import cert9 from '../assets/certificate/DelloiteJobSimulation.webp';
+import cert10 from '../assets/certificate/MLRegression.webp';
+import cert11 from '../assets/certificate/MySQLBeginner.webp';
+import cert12 from '../assets/certificate/PythonBeginner.webp';
+import cert13 from '../assets/certificate/PythonIntermediate.webp';
 
 export default function Certifications({ isPage = false }) {
   const TitleTag = isPage ? 'h1' : 'h2';
   const certifications = [
+    {
+      title: "Technology Job Simulation",
+      issuer: "Deloitte",
+      description: "Completed a virtual internship simulating real-world technology consulting tasks at Deloitte.",
+      image: cert9,
+      skills: ["Consulting", "Analysis"]
+    },
+    {
+      title: "Machine Learning: Regression",
+      issuer: "IBM",
+      description: "In-depth study of regression models and their applications in machine learning.",
+      image: cert10,
+      skills: ["Machine Learning", "Regression", "Python"]
+    },
+    {
+      title: "EDA for Machine Learning",
+      issuer: "IBM",
+      description: "Explored advanced data analysis techniques to uncover patterns and insights from complex datasets.",
+      image: cert6,
+      skills: ["Python", "Pandas", "Matplotlib", "Seaborn"]
+    },
+    {
+      title: "Data Science Stack",
+      issuer: "Unstop",
+      description: "Gained proficiency in the essential Python libraries used for data processing and visualization.",
+      image: cert4,
+      skills: ["NumPy", "Pandas", "Matplotlib"]
+    },
     {
       title: "Introduction to JavaScript",
       issuer: "Sololearn",
@@ -27,20 +62,6 @@ export default function Certifications({ isPage = false }) {
       skills: ["HTML"]
     },
     {
-      title: "EDA for Machine Learning",
-      issuer: "IBM",
-      description: "Explored advanced data analysis techniques to uncover patterns and insights from complex datasets.",
-      image: cert6,
-      skills: ["Python", "Pandas", "Matplotlib", "Seaborn"]
-    },
-    {
-      title: "Data Science Stack",
-      issuer: "Udemy",
-      description: "Gained proficiency in the essential Python libraries used for data processing and visualization.",
-      image: cert4,
-      skills: ["NumPy", "Pandas", "Matplotlib"]
-    },
-    {
       title: "Python Certification",
       issuer: "Guvi",
       description: "Validated core Python programming skills and logical reasoning through rigorous assessment.",
@@ -53,6 +74,41 @@ export default function Certifications({ isPage = false }) {
       description: "Mastered algorithmic foundations and professional coding standards in Python.",
       image: cert3,
       skills: ["Python"]
+    },
+    {
+      title: "MySQL for Beginners",
+      issuer: "Sololearn",
+      description: "Gained foundational knowledge in database management and SQL queries.",
+      image: cert11,
+      skills: ["MySQL", "SQL"]
+    },
+    {
+      title: "Python Intermediate",
+      issuer: "Sololearn",
+      description: "Deepened knowledge of Python with advanced topics like decorators and generators.",
+      image: cert13,
+      skills: ["Python"]
+    },
+    {
+      title: "Python for Beginners",
+      issuer: "Sololearn",
+      description: "Learned the basics of Python programming and problem-solving.",
+      image: cert12,
+      skills: ["Python"]
+    },
+    {
+      title: "C for Beginners",
+      issuer: "Sololearn",
+      description: "Mastered the basics of C programming, including variables, loops, and functions.",
+      image: cert7,
+      skills: ["C"]
+    },
+    {
+      title: "C++ for Beginners",
+      issuer: "Sololearn",
+      description: "Learned the fundamentals of C++ and object-oriented programming.",
+      image: cert8,
+      skills: ["C++", "OOP"]
     },
   ];
 
