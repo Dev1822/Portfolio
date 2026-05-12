@@ -1,8 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Layout, Brain, Wrench, Database } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import Reveal from './animations/Reveal';
 import MatrixRain from './animations/MatrixRain';
+
+const SkillOrbit = ({ slugs, accent, isHovered }) => {
+  const radius = 90; // Orbit radius
+  const logoSize = 24;
+
+  return (
+    <div className="absolute inset-0 flex items-center justify-center">
+      <motion.div
+        animate={isHovered ? { rotate: 360 } : { rotate: 0 }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="relative flex items-center justify-center"
+        style={{ width: radius * 2, height: radius * 2 }}
+      >
+        {slugs.map((slug, idx) => {
+          const angle = (idx / slugs.length) * (2 * Math.PI);
+          const x = Math.cos(angle) * radius;
+          const y = Math.sin(angle) * radius;
+
+          return (
+            <motion.div
+              key={slug}
+              className="absolute flex items-center justify-center p-1.5 rounded-lg bg-surface/80 backdrop-blur-sm border border-theme-border-light shadow-xl"
+              style={{
+                x,
+                y,
+                left: `calc(50% - ${logoSize / 2}px)`,
+                top: `calc(50% - ${logoSize / 2}px)`,
+              }}
+              animate={isHovered ? { rotate: -360 } : { rotate: 0 }}
+              transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            >
+              <Icon
+                icon={slug}
+                className="w-5 h-5 opacity-80"
+                style={{ color: accent }}
+              />
+            </motion.div>
+          );
+        })}
+      </motion.div>
+    </div>
+  );
+};
 
 export default function Skills({ isPage = false }) {
   const TitleTag = isPage ? 'h1' : 'h2';
@@ -30,6 +74,7 @@ export default function Skills({ isPage = false }) {
       label: "01",
       icon: Code2,
       skills: ["Python", "C", "JavaScript", "C++"],
+      slugs: ["simple-icons:python", "simple-icons:c", "simple-icons:javascript", "simple-icons:cplusplus"],
       accent: "#60A5FA",
       glow: "rgba(96,165,250,0.2)",
       tag: "CORE LANGUAGES"
@@ -39,6 +84,7 @@ export default function Skills({ isPage = false }) {
       label: "02",
       icon: Layout,
       skills: ["HTML", "CSS", "React", "Node.js", "Tailwind CSS"],
+      slugs: ["simple-icons:html5", "simple-icons:css3", "simple-icons:react", "simple-icons:nodedotjs", "simple-icons:tailwindcss"],
       accent: "#C084FC",
       glow: "rgba(192,132,252,0.2)",
       tag: "FRONTEND & BACKEND"
@@ -48,6 +94,7 @@ export default function Skills({ isPage = false }) {
       label: "03",
       icon: Brain,
       skills: ["Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+      slugs: ["simple-icons:pandas", "simple-icons:numpy", "devicon:matplotlib", "simple-icons:scikitlearn"],
       accent: "#34D399",
       glow: "rgba(52,211,153,0.2)",
       tag: "DATA & INTELLIGENCE"
@@ -57,6 +104,7 @@ export default function Skills({ isPage = false }) {
       label: "04",
       icon: Wrench,
       skills: ["Git", "GitHub", "VS Code", "Vite", "Figma", "PowerBI"],
+      slugs: ["simple-icons:git", "simple-icons:github", "simple-icons:visualstudiocode", "simple-icons:vite", "simple-icons:figma", "simple-icons:powerbi"],
       accent: "#FB923C",
       glow: "rgba(251,146,60,0.2)",
       tag: "DEV ENVIRONMENT"
@@ -66,6 +114,7 @@ export default function Skills({ isPage = false }) {
       label: "05",
       icon: Database,
       skills: ["MongoDB","MySQL"],
+      slugs: ["simple-icons:mongodb", "simple-icons:mysql"],
       accent: "#FACC15",
       glow: "rgba(250,204,21,0.2)",
       tag: "DATA STORAGE & MANAGEMENT"
@@ -143,7 +192,14 @@ export default function Skills({ isPage = false }) {
                   >
                     {isHovered && <div className="card-shimmer" />}
 
-                    <div className="p-5 sm:p-7 h-full flex flex-col relative z-10">
+                    {/* Orbiting Logos */}
+                    <div className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                      <SkillOrbit slugs={cat.slugs} accent={cat.accent} isHovered={isHovered} />
+                    </div>
+
+                    <div 
+                      className={`p-5 sm:p-7 h-full flex flex-col relative z-10 transition-all duration-500 ${isHovered ? 'blur-md opacity-10 scale-[0.95]' : 'blur-0 opacity-100 scale-100'}`}
+                    >
                       <div className="flex items-start justify-between mb-6">
                         <div
                           className="w-11 h-11 flex items-center justify-center rounded-xl transition-all duration-500"
