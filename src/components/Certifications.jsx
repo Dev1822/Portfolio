@@ -21,7 +21,7 @@ export default function Certifications({ isPage = false }) {
   
   const certifications = [
     {
-      title: "Technology Job Simulation",
+      title: "Data Analyst Job Simulation",
       issuer: "Deloitte",
       description: "Completed a virtual internship simulating real-world technology consulting tasks at Deloitte.",
       image: cert9,
