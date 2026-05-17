@@ -222,7 +222,7 @@ export default function Projects({ isPage = false }) {
                       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500"></div>
 
                       {/* Overlay Links */}
-                      <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3 px-4 opacity-100 translate-y-0 md:opacity-0 md:group-hover:opacity-100 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-300 backdrop-blur-[2px] bg-black/20 md:bg-transparent">
+                      <div className="absolute inset-0 flex flex-wrap items-center justify-center gap-3 px-4 opacity-100 translate-y-0 lg:opacity-0 lg:group-hover:opacity-100 lg:translate-y-4 lg:group-hover:translate-y-0 transition-all duration-300 backdrop-blur-[2px] bg-black/20 lg:bg-transparent">
 
                         {/* GitHub Link - Hide for Figma */}
                         {project.github && project.category !== 'Figma' && (

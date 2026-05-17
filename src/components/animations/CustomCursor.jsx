@@ -10,8 +10,11 @@ const CustomCursor = () => {
     const cursor = cursorRef.current;
     const follower = followerRef.current;
     
-    // Check if touch device
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // Check if touch device or smaller screen (tablet/phone)
+    const isTouchDevice = 
+      'ontouchstart' in window || 
+      navigator.maxTouchPoints > 0 || 
+      window.innerWidth < 1024;
     if (isTouchDevice) {
       if (cursor) cursor.style.display = 'none';
       if (follower) follower.style.display = 'none';
@@ -112,12 +115,12 @@ const CustomCursor = () => {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-2 h-2 bg-accent rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        className="hidden lg:block fixed top-0 left-0 w-2 h-2 bg-accent rounded-full pointer-events-none z-[9999] mix-blend-difference"
         style={{ transform: 'translate(-50%, -50%)' }}
       />
       <div
         ref={followerRef}
-        className="fixed top-0 left-0 w-8 h-8 border border-accent/30 rounded-full pointer-events-none z-[9998] mix-blend-difference"
+        className="hidden lg:block fixed top-0 left-0 w-8 h-8 border border-accent/30 rounded-full pointer-events-none z-[9998] mix-blend-difference"
         style={{ transform: 'translate(-50%, -50%)', backgroundColor: 'rgba(255, 255, 255, 0.05)' }}
       />
     </>
