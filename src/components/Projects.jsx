@@ -31,7 +31,8 @@ export default function Projects({ isPage = false }) {
       image: PaySphere,
       github: "https://github.com/Dev1822/paySphere",
       demo: "https://paysphere-dev-patel.vercel.app/",
-      youtube: "https://www.youtube.com/watch?v=N3SizOsiNGw"
+      youtube: "https://www.youtube.com/watch?v=N3SizOsiNGw",
+      documentation: "https://documenter.getpostman.com/view/50839751/2sBXqKofJr"
     },
     {
       title: "Food Delivery Analysis",
