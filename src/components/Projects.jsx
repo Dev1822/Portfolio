@@ -16,12 +16,23 @@ import House from '../assets/project/HousePrediction.webp';
 import CodingGita from '../assets/project/CodingGita.webp';
 import BookmyShow from '../assets/project/BookMyShow.webp';
 import FoodDeliveryAnalysis from '../assets/project/FoodDeliveryAnalysis.webp';
+import PaySphere from '../assets/project/PaySphere.webp';
 
 export default function Projects({ isPage = false }) {
   const TitleTag = isPage ? 'h1' : 'h2';
   const [filter, setFilter] = useState('All');
 
   const projects = [
+    {
+      title: "PaySphere",
+      description: "PaySphere is a lightweight, responsive payroll management system designed specifically for small businesses in India to automate and simplify salary calculations, employee tracking, and payslip generation in seconds.",
+      tech: ["Reactjs", "Nodejs", "Express", "Mongodb"],
+      category: "Full-Stack",
+      image: PaySphere,
+      github: "https://github.com/Dev1822/paySphere",
+      demo: "https://paysphere-dev-patel.vercel.app/",
+      youtube: "https://www.youtube.com/watch?v=N3SizOsiNGw"
+    },
     {
       title: "Food Delivery Analysis",
       description: "This project provides a comprehensive end-to-end analysis of a food delivery platform operating across four major Indian cities: Bangalore, Mumbai, Hyderabad, and Delhi.",
