@@ -27,7 +27,7 @@ const PageLoader = () => (
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-white">
+    <div className="min-h-screen bg-background text-primary selection:bg-accent/30 selection:text-primary">
       <SmoothScroll />
       <CustomCursor />
       <Noise />

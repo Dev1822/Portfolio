@@ -162,7 +162,7 @@ body {
 
 /* Light mode: override hardcoded white text to use theme primary, 
    but preserve white text on dark/accent backgrounds */
-html.light .text-white:not(.bg-accent, .bg-accent *, .bg-red-600, .bg-red-600 *, .p-2.5) {
+html.light .text-white:not(.bg-accent, .bg-accent *, .bg-red-600, .bg-red-600 *, .p-2\.5) {
   color: var(--color-primary) !important;
 }
 html.light .text-white\/90:not(.bg-accent *, .bg-red-600 *) {
@@ -243,6 +243,12 @@ html.light .via-white {
 }
 html.light .to-gray-500 {
   --tw-gradient-to: #6b7280;
+}
+html.light .to-white\/60 {
+  --tw-gradient-to: color-mix(in srgb, var(--color-primary) 60%, transparent);
+}
+html.light .to-white {
+  --tw-gradient-to: var(--color-primary);
 }
 
 /* Custom Scrollbar */
