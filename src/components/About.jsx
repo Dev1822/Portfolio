@@ -28,7 +28,7 @@ export default function About({ isPage = false }) {
           <div className="flex flex-col space-y-8">
             {/* Profile Image */}
             <Reveal x={-30} delay={0.2}>
-              <div className="glass-card w-full h-87.5 lg:h-125 rounded-2xl overflow-hidden relative border border-white/5 bg-white/5 backdrop-blur-sm">
+              <div className="glass-card w-full max-w-md mx-auto lg:max-w-none h-87.5 md:h-[400px] lg:h-125 rounded-2xl overflow-hidden relative border border-white/5 bg-white/5 backdrop-blur-sm">
                 <div className="absolute inset-0 bg-linear-to-t from-background via-transparent to-transparent z-10 opacity-60"></div>
                 <img
                   src={profileImg}
