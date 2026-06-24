@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import Footer from './components/Footer';
 
 const About = lazy(() => import('./components/About'));
+const Education = lazy(() => import('./components/Education'));
 const Skills = lazy(() => import('./components/Skills'));
 const Projects = lazy(() => import('./components/Projects'));
 const Hackathons = lazy(() => import('./components/Hackathons'));
@@ -63,6 +64,7 @@ function App() {
               <Hero />
               <Suspense fallback={<PageLoader />}>
                 <About />
+                <Education />
                 <Skills />
                 <Projects />
                 <Hackathons />
@@ -84,6 +86,19 @@ function App() {
                 <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/about-dev-patel" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><About isPage={true} /></Suspense>
+            </>
+          } />
+          <Route path="/academic-education" element={
+            <>
+              <Helmet>
+                <title>Education | Dev Patel Portfolio</title>
+                <meta name="description" content="Academic background and educational achievements of Dev Patel." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/academic-education" />
+                <meta property="og:title" content="Education | Dev Patel" />
+                <meta property="og:description" content="Academic background and educational achievements of Dev Patel." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/academic-education" />
+              </Helmet>
+              <Suspense fallback={<PageLoader />}><Education isPage={true} /></Suspense>
             </>
           } />
           <Route path="/developer-skills" element={

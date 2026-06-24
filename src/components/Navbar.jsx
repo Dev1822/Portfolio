@@ -7,6 +7,7 @@ import logo from "../assets/profile/logo.webp";
 
 const navItems = [
   { name: "About", href: "/about-dev-patel" },
+  { name: "Education", href: "/academic-education" },
   { name: "Skills", href: "/developer-skills" },
   { name: "Projects", href: "/software-projects" },
   { name: "Hackathons", href: "/hackathon-experience" },
