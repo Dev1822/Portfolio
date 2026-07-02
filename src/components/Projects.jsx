@@ -17,12 +17,23 @@ import CodingGita from '../assets/project/CodingGita.webp';
 import BookmyShow from '../assets/project/BookMyShow.webp';
 import FoodDeliveryAnalysis from '../assets/project/FoodDeliveryAnalysis.webp';
 import PaySphere from '../assets/project/PaySphere.webp';
+import Loan from "../assets/project/LoanApproval.webp";
 
 export default function Projects({ isPage = false }) {
   const TitleTag = isPage ? 'h1' : 'h2';
   const [filter, setFilter] = useState('All');
 
   const projects = [
+    {
+      title: "Loan Approval Predictor",
+      description: "This is a full-stack web application designed to predict the likelihood of loan approval based on user data. The project consists of a Python backend that serves a machine learning model and a React frontend for the user interface.",
+      tech: ["Reactjs", "Flask", "Scikit-Learn"],
+      category: "ML",
+      image: Loan,
+      github: "https://github.com/Dev1822/Loan-Approval-Predictor",
+      demo: "https://loan-approval-predictor-dev-patel.vercel.app/",
+      youtube: "https://www.youtube.com/watch?v=DqfZXuGVrFU",
+    },
     {
       title: "PaySphere",
       description: "PaySphere is a lightweight, responsive payroll management system designed specifically for small businesses in India to automate and simplify salary calculations, employee tracking, and payslip generation in seconds.",
