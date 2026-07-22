@@ -8,6 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
+  Medal,
 } from "lucide-react";
 
 import Reveal from "./animations/Reveal";
@@ -33,7 +34,32 @@ import cImage1 from "../assets/hackathon/CharusatXOceanlabs/image1.webp";
 import cImage2 from "../assets/hackathon/CharusatXOceanlabs/image2.webp";
 import cImage3 from "../assets/hackathon/CharusatXOceanlabs/image3.webp";
 
+// HackSprint
+import hacksprintCert from "../assets/hackathon/Hacksprint/Certificate/Hacksprint.webp";
+import hImage1 from "../assets/hackathon/Hacksprint/image1.webp";
+import hImage2 from "../assets/hackathon/Hacksprint/image2.webp";
+import hImage3 from "../assets/hackathon/Hacksprint/image3.webp";
+import hImage4 from "../assets/hackathon/Hacksprint/image4.webp";
+import hImage5 from "../assets/hackathon/Hacksprint/image5.webp";
+
 const hackathons = [
+  {
+    title: "HackSprint",
+    organization: "CodingGita",
+    date: "2026",
+    badge: { type: "bronze", text: "3rd Place" },
+    description:
+      "It's a platform to innovate, learn, and build real-world solutions. Collaborate with your peers, challenge yourself, and create something that makes a difference.",
+    images: [hacksprintCert, hImage1, hImage2, hImage3, hImage4, hImage5],
+    project: {
+      name: "Tales Beyond the Tomb - Multiplayer Horror Game",
+      description:
+        "An immersive, real-time multiplayer horror mystery game. Players join haunted lobbies, communicate via live voice chat, explore chilling environments, uncover AI-generated clues, and vote to accuse the suspect hiding among them.",
+      tech: ["React", "Node", "MongoDB"],
+      github: "https://github.com/Dev1822/syntaxsquad",
+      demo: "https://tales-beyond-the-tomb-syntax-squad.vercel.app/",
+    },
+  },
   {
     title: "Doppleganger",
     organization: "OpenPools",
@@ -109,6 +135,16 @@ const HackathonCard = ({ hackathon, onImageClick }) => {
           border border-white/10 
           shadow-[0_10px_40px_rgba(0,0,0,0.4)]"
         >
+          {hackathon.badge && (
+            <div className={`absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold shadow-xl border
+              ${hackathon.badge.type === 'bronze' ? 'bg-gradient-to-r from-[#CD7F32] to-[#8B4513] text-white border-[#CD7F32]/50' : ''}
+              ${hackathon.badge.type === 'silver' ? 'bg-gradient-to-r from-[#C0C0C0] to-[#808080] text-white border-[#C0C0C0]/50' : ''}
+              ${hackathon.badge.type === 'gold' ? 'bg-gradient-to-r from-[#FFD700] to-[#B8860B] text-black border-[#FFD700]/50' : ''}
+            `}>
+              <Medal size={14} className={hackathon.badge.type === 'gold' ? 'text-black' : 'text-white'} />
+              {hackathon.badge.text}
+            </div>
+          )}
           {/* GALLERY AREA */}
           <div className="relative p-3 sm:p-4 flex items-center justify-center bg-black/30">
             <div
