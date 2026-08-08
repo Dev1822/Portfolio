@@ -2,6 +2,7 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, Sphere, MeshDistortMaterial, Trail } from '@react-three/drei';
 import * as THREE from 'three';
+import { useInView } from 'framer-motion';
 
 const Orb = ({ position, color, speed, distort }) => {
   const meshRef = useRef();
@@ -68,9 +69,13 @@ const Particles = ({ count = 50 }) => {
 };
 
 const Scene3D = () => {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef);
+
   return (
-    <div className="absolute inset-0 z-0 opacity-40">
+    <div ref={containerRef} className="absolute inset-0 z-0 opacity-40">
       <Canvas 
+        frameloop={isInView ? "always" : "demand"}
         camera={{ position: [0, 0, 5], fov: 75 }}
         dpr={[1, 2]} // Limit pixel density to 2x for performance
         gl={{ 
