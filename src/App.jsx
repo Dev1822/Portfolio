@@ -11,6 +11,7 @@ const Skills = lazy(() => import('./components/Skills'));
 const Projects = lazy(() => import('./components/Projects'));
 const Hackathons = lazy(() => import('./components/Hackathons'));
 const Certifications = lazy(() => import('./components/Certifications'));
+const OpenSource = lazy(() => import('./components/OpenSource'));
 const GitHubSection = lazy(() => import('./components/GitHub'));
 const LeetCodeSection = lazy(() => import('./components/LeetCode'));
 const Contact = lazy(() => import('./components/Contact'));
@@ -68,11 +69,24 @@ function App() {
                 <Skills />
                 <Projects />
                 <Hackathons />
+                <OpenSource />
                 <Certifications />
-                <GitHubSection />
                 <LeetCodeSection />
                 <Contact />
               </Suspense>
+            </>
+          } />
+          <Route path="/open-source-contributions" element={
+            <>
+              <Helmet>
+                <title>Open Source Contributions | Dev Patel</title>
+                <meta name="description" content="Explore open-source achievements of Dev Patel in ECSoC '26, ElUSoC '26, and GSSoC '26." />
+                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/open-source-contributions" />
+                <meta property="og:title" content="Open Source Contributions | Dev Patel" />
+                <meta property="og:description" content="Explore open-source achievements of Dev Patel in ECSoC '26, ElUSoC '26, and GSSoC '26." />
+                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/open-source-contributions" />
+              </Helmet>
+              <Suspense fallback={<PageLoader />}><OpenSource isPage={true} /></Suspense>
             </>
           } />
           <Route path="/about-dev-patel" element={
@@ -151,19 +165,6 @@ function App() {
                 <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/tech-certifications" />
               </Helmet>
               <Suspense fallback={<PageLoader />}><Certifications isPage={true} /></Suspense>
-            </>
-          } />
-          <Route path="/github-contributions" element={
-            <>
-              <Helmet>
-                <title>GitHub Contributions | Dev Patel</title>
-                <meta name="description" content="Explore Dev Patel's open-source contributions and activity on GitHub." />
-                <link rel="canonical" href="https://dev-d-patel-portfolio.vercel.app/github-contributions" />
-                <meta property="og:title" content="GitHub Contributions | Dev Patel" />
-                <meta property="og:description" content="Explore Dev Patel's open-source contributions and activity on GitHub." />
-                <meta property="og:url" content="https://dev-d-patel-portfolio.vercel.app/github-contributions" />
-              </Helmet>
-              <Suspense fallback={<PageLoader />}><GitHubSection isPage={true} /></Suspense>
             </>
           } />
           <Route path="/leetcode-profile" element={

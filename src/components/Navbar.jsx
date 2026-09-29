@@ -11,8 +11,8 @@ const navItems = [
   { name: "Skills", href: "/developer-skills" },
   { name: "Projects", href: "/software-projects" },
   { name: "Hackathons", href: "/hackathon-experience" },
+  { name: "Open Source", href: "/open-source-contributions" },
   { name: "Certifications", href: "/tech-certifications" },
-  { name: "GitHub", href: "/github-contributions" },
   { name: "LeetCode", href: "/leetcode-profile" },
   { name: "Contact", href: "/contact-dev-patel" },
 ];
