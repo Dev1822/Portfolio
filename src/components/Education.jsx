@@ -9,11 +9,11 @@ export default function Education({ isPage = false }) {
     {
       degree: "Bachelor of Engineering in Computer Engineering",
       institution: "Undergraduate Program",
-      score: "9.33 SGPA (1st Semester)",
+      score: "CGPA: 9.10 | 1st Sem: 9.33 SGPA | 2nd Sem: 8.86 SGPA",
       icon: <GraduationCap className="text-emerald-400" size={24} />,
       date: "Present",
       isActive: true,
-      description: "Currently pursuing a Bachelor of Engineering in Computer Engineering, focusing on core computing foundations, programming paradigms, and modern software development practices."
+      description: "Currently pursuing a Bachelor of Engineering in Computer Engineering, maintaining strong academic performance with 9.33 SGPA in Sem 1 and 8.86 SGPA in Sem 2 (9.10 CGPA)."
     },
     {
       degree: "Higher Secondary Education (11th - 12th Grade)",
@@ -50,20 +50,25 @@ export default function Education({ isPage = false }) {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
-            <div className="bg-surface/40 p-6 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-white/10 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-emerald-400 mb-1">9.33</h3>
-              <p className="text-sm font-medium text-secondary uppercase tracking-wider">Current SGPA</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            <div className="bg-surface/40 p-5 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-emerald-500/30 transition-all duration-300">
+              <h3 className="text-2xl sm:text-3xl font-bold text-emerald-400 mb-1">9.10</h3>
+              <p className="text-xs font-medium text-secondary uppercase tracking-wider">Overall CGPA</p>
             </div>
 
-            <div className="bg-surface/40 p-6 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-white/10 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-white mb-1">91.2%</h3>
-              <p className="text-sm font-medium text-secondary uppercase tracking-wider">10th Boards</p>
+            <div className="bg-surface/40 p-5 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-emerald-500/30 transition-all duration-300">
+              <h3 className="text-2xl sm:text-3xl font-bold text-emerald-400 mb-1">8.86</h3>
+              <p className="text-xs font-medium text-secondary uppercase tracking-wider">2nd Sem SGPA</p>
             </div>
 
-            <div className="bg-surface/40 p-6 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-white/10 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-white mb-1">85.6%</h3>
-              <p className="text-sm font-medium text-secondary uppercase tracking-wider">12th Boards</p>
+            <div className="bg-surface/40 p-5 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-white/10 transition-all duration-300">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">85.6%</h3>
+              <p className="text-xs font-medium text-secondary uppercase tracking-wider">12th Boards</p>
+            </div>
+
+            <div className="bg-surface/40 p-5 text-center border border-white/5 rounded-2xl hover:bg-surface/60 hover:border-white/10 transition-all duration-300">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">91.2%</h3>
+              <p className="text-xs font-medium text-secondary uppercase tracking-wider">10th Boards</p>
             </div>
           </div>
         </Reveal>
